@@ -20,5 +20,16 @@
   "bugs": {
     "url": "https://github.com/Whaitiri/Data-Vis-Summative/issues"
   },
-  "homepage": "https://github.com/Whaitiri/Data-Vis-Summative#readme"
+  "homepage": "https://github.com/Whaitiri/Data-Vis-Summative#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^3.1.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
 }
