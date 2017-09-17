@@ -1,0 +1,24 @@
+{
+  "name": "data-vis-summative",
+  "version": "1.0.0",
+  "description": "Behance API",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Whaitiri/Data-Vis-Summative.git"
+  },
+  "keywords": [
+    "api",
+    "behance",
+    "educational"
+  ],
+  "author": "Kunal Shantilal, Tuterangi Pleydell, Tim Stannard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Whaitiri/Data-Vis-Summative/issues"
+  },
+  "homepage": "https://github.com/Whaitiri/Data-Vis-Summative#readme"
+}
