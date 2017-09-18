@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IllustrateYou</title>
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:200,300,500,600|Open+Sans+Condensed:200,300,500,600">
+	<link rel="stylesheet" href="css/font-awesome-animation.min.css">
 	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link href='http://fonts.googleapis.com/css?family=Lato:700,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<div id="masterContainer">
 		<div id="cover">
-			<div class="row">
-				<div class="col-xs-12">
-					<div id="coverTitle">
-						<img id="coverLogo" src="img/Logo-Block.png">
+			<div class="row d-flex justify-content-center">
+				<!-- <div class="col-xs-12"> -->
+					<div id="coverTitle" class="align-self-center">
+						<img id="coverLogo" src="img/Logo-Block.png" alt="paintbrush-logo">
 						<h1 class="coverText">llustrateYou</h1>
 						<h5 id="agency">GRAPHIC DESIGN AGENCY</h5>
+						<div class="scroll-down"><i class="fa fa-chevron-circle-down faa-float animated" aria-hidden="true"></i></div>
 					</div>
-				</div>
+				<!-- </div> -->
 			</div>
 		</div>
 		<div id="content">
@@ -56,8 +60,12 @@
 		<p>copyright tuterangi kunal tim</p>
 		<p>for educational purposes only</p>
 	</footer>
+	<div id="sidebar">
+		<img id="menu-button" src="img/menu-ico.png">
+	</div>
 
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
