@@ -1,2 +1,7 @@
 config/
 node_modules/
+.sass-cache/
+
+\.sass-cache/f973e33653286ceec1542f012ec17b4f6ea0c614/
+
+css/
