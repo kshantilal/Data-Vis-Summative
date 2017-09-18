@@ -1,9 +1,7 @@
 var APIKey = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8"
-projectSearch();
-userSearch();
 
-function projectSearch() {
-	be(APIKey).project.search('graphics', function success(results){
+function projectSearch(searchTerm) {
+	be(APIKey).project.search(searchTerm, function success(results){
 	var searchResults = results.projects;
 	console.log(searchResults);	
 		for (var i = 0; i < 10; i++) {
@@ -24,8 +22,8 @@ function projectSearch() {
 	})
 }
 
-function userSearch() {
-	be(APIKey).user.search('graphics', function success(results){
+function userSearch(searchTerm) {
+	be(APIKey).user.search(searchTerm, function success(results){
 	var searchResults = results.users;
 	console.log(searchResults);	
 		for (var i = 0; i < 10; i++) {
