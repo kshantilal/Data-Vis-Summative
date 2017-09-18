@@ -9,30 +9,47 @@
 	#test {
 		display: flex;
 	}
-	#test1 {
 
+	#coverFeatured {
+		display: flex;
 	}
+
+	.featureImage {
+		width: 100px;
+	}
+
 </style>
 <body>
 	<div id="masterContainer">
 		<div id="cover">
 			<h1>IllustrateYou</h1>
-					
-
-		</div>
+			<div id="coverFeatured"></div>
+		</div>	
 	</div>
-	<div id="test">
-		<div id="test1"></div>
-		<div id="test2"></div>
-	</div>
+	
 	<footer>
+		<form id="searchForm1">
+				<input id="testSearch1" type="text" name="search" placeholder="projects">
+			</form>
+			<form id="searchForm2">
+				<input id="testSearch2" type="text" name="search" placeholder="users">
+			</form>
+		<div id="test">
+			<div id="test1"></div>	
+			<div id="test2"></div>
+		</div>
+		<div id="test">
+			<div id="test1"></div>
+			<div id="test2"></div>
+		</div>
 		<p>copyright tuterangi kunal tim</p>
 		<p>for educational purposes only</p>
 	</footer>
-	<script type="text/javascript" src="js/script.js"></script>
-  	<script type="text/javascript" src="js/be.js"></script>
-
+	
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+  	<script type="text/javascript" src="js/be.js"></script>
+  	<script type="text/javascript" src="js/search.js"></script>
+	
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
