@@ -4,6 +4,10 @@
   border: 0;
   box-sizing: border-box; }
 
+#masterContainer {
+  height: 100%;
+  width: 100%; }
+
 #cover {
   background: red;
   /* For browsers that do not support gradients */
@@ -17,6 +21,29 @@
   /* Standard syntax */
   text-align: center;
   height: 100vh; }
+
+#coverTitle {
+  padding-top: 150px; }
+
+.coverText {
+  display: inline-block;
+  font-size: 100px;
+  color: white; }
+
+#agency {
+  position: absolute;
+  bottom: 300px;
+  text-align: center;
+  right: 100px;
+  left: 100px;
+  top: auto;
+  color: white;
+  font-size: 30px;
+  letter-spacing: 7px; }
+
+#coverLogo {
+  height: 65px;
+  margin-bottom: 55px; }
 
 .row {
   margin: 0; }
