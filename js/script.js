@@ -24,9 +24,9 @@ var featuredDesigners = [{"id":30431797,"first_name":"NOSIGNER","last_name":"®"
 				//Top 3 designer HTML
 				$('#coverFeatured').append(`
 					<div class="coverFeaturedContainer">
-						<p class="featureName">${featuredDesigners[i].display_name}</p>
-						<img class="featureImage" src="${featuredDesigners[i].images[276]}"/>
+						<p class="featureName"><strong>${featuredDesigners[i].display_name}</strong></p>
 						<p class="featureFields">${fieldList}</p>
+						<img class="featureImage" src="${featuredDesigners[i].images[276]}"/>
 					</div>
 					`);
 			} else {
