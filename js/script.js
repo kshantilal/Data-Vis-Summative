@@ -11,11 +11,12 @@ var featuredDesigners = [{"id":30431797,"first_name":"NOSIGNER","last_name":"®"
 // 	for (var h = 0; h < result.length; h++) {
 // 		featuredDesigners.push(result[h]);
 // 	}
-// 	console.log(featuredDesigners)
+	console.log(featuredDesigners)
 
 	//make html from array
 	// for (var i = 0; i < featuredDesigners.length; i++) {
 	for (var i = 0; i < 3; i++) {
+			console.log(fieldList);
 			var fieldList = [];
 			for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
 				fieldList.push(` ${featuredDesigners[i].fields[j]}`);
@@ -39,7 +40,8 @@ var featuredDesigners = [{"id":30431797,"first_name":"NOSIGNER","last_name":"®"
 					</div>
 					`);
 			}
-		}
+	}
+
 // });
 
 //submit listener for project search
