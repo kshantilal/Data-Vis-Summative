@@ -8,17 +8,17 @@ $(document).ready(function() {
 // click on menu
    $("#menu-button").click(function(){
    	if (menuOpen == true){
-   		menuClose();
+   		menuCloseFunc();
    		menuOpen = false;
    	}else{
-   		menuOpen();
+   		menuOpenFunc();
    		menuOpen = true;
    	}
 
   });
 
-   function menuOpen(){
-   	$("#sidebar").css("opacity", "1");
+   function menuOpenFunc(){
+   	// $("#sidebar").css("opacity", "1");
    	// $("#sidebar").toggleClass('gradient-fill');
    	setTimeout(
             function() {
@@ -27,12 +27,12 @@ $(document).ready(function() {
             350);
    };
 
-   function menuClose(){
+   function menuCloseFunc(){
    	 $("#sidebar").css("width", "35px");
    	// $("#sidebar").toggleClass('gradient-fill');
    	setTimeout(
             function() {
-            $("#sidebar").css("opacity", "0.3");  
+            // $("#sidebar").css("opacity", "0.3");  
             },
             900);
    	
