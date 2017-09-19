@@ -70,9 +70,8 @@ $secondaryFont: "Lato";
 
 .scroll-down {
 	color: white;
-	font-size: 26px;
-	margin-top: 20vh;
-	opacity: 0.3;
+	font-size: 12px;
+	margin-top: 28vh;
 }
 
 // sidebar
@@ -85,7 +84,7 @@ $secondaryFont: "Lato";
 	position: fixed!important;
 	left: 0;
 	top: 0;
-	transition: opacity 0.3s, width 0.4s;
+	transition: opacity 0.2s, width 0.3s;
 }
 
 .gradient-fill {
@@ -185,20 +184,36 @@ $secondaryFont: "Lato";
     margin-left: 0;
     padding-right: 0;
     list-style-type: none;
+    font-family: $primaryFont;
+    font-weight:200;
+
 }
 .custom-counter li {
     counter-increment: step-counter;
 		margin-left:20%;
-		// line-height: 45px;
+		letter-spacing: 1px;
 }
 .custom-counter li::before {
     content: counter(step-counter);
     margin-right: 5px;
     font-size: 10px;
     color: rgba(255, 255, 255, 0.5);
-    font-weight: bold;
+    // font-weight: bold;
     padding: 3px 8px;
     border-radius: 3px;
     margin-bottom:4px;
+}
+
+.feature-heading {
+	    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-align: center;
+    background-color: black;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    width: 330px;
+    margin: 0 auto;
 }
 

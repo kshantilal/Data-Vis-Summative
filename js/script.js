@@ -147,7 +147,7 @@ $("#sidebar-content").click(function(){
            $("#sidebar").css("width", "35px");
            	$("#sidebar-content").css("z-index", "-900");
         },
-        270);
+        300);
 
    	
    };
@@ -159,5 +159,13 @@ $(window).scroll(function(){
 	$("#sidebar").css("opacity", 0 + $(window).scrollTop() / 350);
 });
 
+//feature image click - modal open
 
-
+$(".featureImage, .designersImage").click(function(){
+	menuOpen = true;
+   	setTimeout(
+        function() {
+           $("#sidebar").css("width", "100%");
+        },
+        150);
+  });
