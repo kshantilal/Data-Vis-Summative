@@ -110,7 +110,7 @@ $(document).ready(function() {
 
 // menu
 // click on menu
-   $("#menu-button").click(function(){
+   $("#sidebar").click(function(){
    	if (menuOpen == true){
    		menuCloseFunc();
    		menuOpen = false;
@@ -121,24 +121,34 @@ $(document).ready(function() {
 
   });
 
+$("#sidebar-content").click(function(){
+   		menuCloseFunc();
+   		menuOpen = false;
+  });
+
    function menuOpenFunc(){
-   	// $("#sidebar").css("opacity", "1");
-   	// $("#sidebar").toggleClass('gradient-fill');
    	setTimeout(
-            function() {
-               $("#sidebar").css("width", "100%");
-            },
-            350);
+        function() {
+           $("#sidebar").css("width", "100%");
+        },
+        150);
+  	setTimeout(
+	    function() {
+	       $("#sidebar-content").css("z-index", "10");
+	       $("#sidebar-content").css("opacity", "1");	       
+	    },
+	    550);
    };
 
    function menuCloseFunc(){
-   	 $("#sidebar").css("width", "35px");
-   	// $("#sidebar").toggleClass('gradient-fill');
+	       $("#sidebar-content").css("opacity", "0");	
    	setTimeout(
-            function() {
-            // $("#sidebar").css("opacity", "0.3");  
-            },
-            900);
+        function() {
+           $("#sidebar").css("width", "35px");
+           	$("#sidebar-content").css("z-index", "-900");
+        },
+        270);
+
    	
    };
 });
