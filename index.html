@@ -1,34 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IllustrateYou</title>
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:200,300,500,600|Open+Sans+Condensed:200,300,500,600">
+	<link rel="stylesheet" href="css/font-awesome-animation.min.css">
 	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<style>
-	#test {
-		display: flex;
-	}
-
-	#coverFeatured {
-		display: flex;
-	}
-
-	.featureImage {
-		width: 100px;
-	}
-
-</style>
 <body>
 	<div id="masterContainer">
 		<div id="cover">
-			<h1>IllustrateYou</h1>
-			<div id="coverFeatured"></div>
-			<div id="coverDesigners"></div>
-		</div>	
-	</div>
-	
-	<footer>
+			<div class="row d-flex justify-content-center">
+				<!-- <div class="col-xs-12"> -->
+					<div id="coverTitle" class="align-self-center">
+						<img id="coverLogo" src="img/Logo-Block.png" alt="paintbrush-logo">
+						<h1 class="coverText">llustrateYou</h1>
+						<h5 id="agency">GRAPHIC DESIGN AGENCY</h5>
+						<div class="scroll-down"><i class="fa fa-chevron-circle-down faa-float animated" aria-hidden="true"></i></div>
+					</div>
+				<!-- </div> -->
+			</div>
 		<form id="searchForm1">
 				<input id="testSearch1" type="text" name="search" placeholder="projects">
 			</form>
@@ -39,18 +32,49 @@
 			<div id="test1"></div>	
 			<div id="test2"></div>
 		</div>
-		<div id="test">
-			<div id="test1"></div>
-			<div id="test2"></div>
+		<div id="content">
+			<div id="aboutUs">
+				<div class="row">
+					<div class="col-xs-offset-1 col-xs-11">
+						<h1>We are a <strong>graphic design</strong> company based in</h1>
+						<h1>Wellington, New Zealand</h1><br>
+						<h2>Have a look at some of the projects we've worked on.</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-offset-2 col-xs-8">
+						<div id="desktopImage">
+							<img src="img/desktop.jpg">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-offset-2 col-xs-8">
+						<h1 style="text-align: center">FEATURED DESIGNERS</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3 col-xs-3 col-xs-3">
+						
+					</div>
+				</div>
+				
+				
+			</div>
 		</div>
+
+
+	</div> <!-- masterContainer -->
+	<footer>
 		<p>copyright tuterangi kunal tim</p>
 		<p>for educational purposes only</p>
 	</footer>
-	
+	<div id="sidebar">
+		<img id="menu-button" src="img/menu-ico.png">
+	</div>
+
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-  	<script type="text/javascript" src="js/be.js"></script>
-  	<script type="text/javascript" src="js/search.js"></script>
-	
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

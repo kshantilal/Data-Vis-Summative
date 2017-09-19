@@ -20,7 +20,6 @@
   "bugs": {
     "url": "https://github.com/Whaitiri/Data-Vis-Summative/issues"
   },
-
   "homepage": "https://github.com/Whaitiri/Data-Vis-Summative#readme",
   "dependencies": {
     "bootstrap": "^3.3.7",
