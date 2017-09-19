@@ -156,8 +156,15 @@ $("#sidebar-content").click(function(){
 
 //Nav Bar Scroll
 $(window).scroll(function(){
-	$("#sidebar").css("opacity", 0 + $(window).scrollTop() / 350);
+	$("#sidebar").css("opacity", 0 + $(window).scrollTop() - 650);
 });
 
+//Down Button
+$(".fa-chevron-circle-down").click(function(){
+	$("html,body").animate({
+		scrollTop: $("#content").offset().top
+	},
+	1500);
+});
 
 
