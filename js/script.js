@@ -15,8 +15,7 @@ var featuredDesigners = [{"id":30431797,"first_name":"NOSIGNER","last_name":"®"
 
 	//make html from array
 	// for (var i = 0; i < featuredDesigners.length; i++) {
-	for (var i = 0; i < 3; i++) {
-			console.log(fieldList);
+	for (var i = 0; i < 11; i++) {
 			var fieldList = [];
 			for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
 				fieldList.push(` ${featuredDesigners[i].fields[j]}`);
@@ -34,9 +33,9 @@ var featuredDesigners = [{"id":30431797,"first_name":"NOSIGNER","last_name":"®"
 				//non-featured designers
 				$('#coverDesigners').append(`
 					<div class="coverDesignersContainer">
-						<p class="designersName">${featuredDesigners[i].display_name}</p>
-						<img class="designersImage" src="${featuredDesigners[i].images[276]}"/>
+						<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
 						<p class="designersFields">${fieldList}</p>
+						<img class="designersImage" src="${featuredDesigners[i].images[276]}"/>
 					</div>
 					`);
 			}
@@ -142,5 +141,13 @@ $(document).ready(function() {
             900);
    	
    };
-
 });
+
+
+//Nav Bar Scroll
+$(window).scroll(function(){
+	$("#sidebar").css("opacity", 0 + $(window).scrollTop() / 350);
+});
+
+
+

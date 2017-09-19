@@ -75,6 +75,7 @@
 
 #sidebar {
 	height: 100%;
+	opacity: 0;
 	background: linear-gradient(#FF5E3A, #FF2B67);
 	width: 35px;
 	position: fixed!important;
@@ -127,7 +128,7 @@
 	margin-bottom: 0;
 }
 
-#featured{
+#featured, #ourDesigners{
 	margin-top: 50px;
 }
 
@@ -135,12 +136,14 @@
 	padding: 0px;
 }
 
-.coverFeaturedContainer{
+.coverFeaturedContainer, .coverDesignersContainer{
 	margin-bottom: 50px;
 }
 
-.featureName{
+.featureName, .designersName{
 	margin-bottom: 0;
 }
+
+
 
 
