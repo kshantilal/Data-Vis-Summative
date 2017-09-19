@@ -14,7 +14,8 @@ var featuredDesigners = [{"id":30431797,"first_name":"NOSIGNER","last_name":"®"
 // 	console.log(featuredDesigners)
 
 	//make html from array
-	for (var i = 0; i < featuredDesigners.length; i++) {
+	// for (var i = 0; i < featuredDesigners.length; i++) {
+	for (var i = 0; i < 3; i++) {
 			var fieldList = [];
 			for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
 				fieldList.push(` ${featuredDesigners[i].fields[j]}`);
