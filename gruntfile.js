@@ -42,6 +42,6 @@ module.exports = function(grunt){
 
 
 
-	// grunt.registerTask('css', ['sass']);
+	grunt.registerTask('css', ['sass']);
 	grunt.registerTask("w", ["watch"]);
 };
