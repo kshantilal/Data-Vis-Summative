@@ -11,11 +11,11 @@ var featuredDesigners = [{"id":30431797,"first_name":"NOSIGNER","last_name":"®"
 // 	for (var h = 0; h < result.length; h++) {
 // 		featuredDesigners.push(result[h]);
 // 	}
-// 	console.log(featuredDesigners)
+	console.log(featuredDesigners)
 
 	//make html from array
 	// for (var i = 0; i < featuredDesigners.length; i++) {
-	for (var i = 0; i < 3; i++) {
+	for (var i = 0; i < 11; i++) {
 			var fieldList = [];
 			for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
 				fieldList.push(` ${featuredDesigners[i].fields[j]}`);
@@ -24,22 +24,23 @@ var featuredDesigners = [{"id":30431797,"first_name":"NOSIGNER","last_name":"®"
 				//Top 3 designer HTML
 				$('#coverFeatured').append(`
 					<div class="coverFeaturedContainer">
-						<p class="featureName">${featuredDesigners[i].display_name}</p>
-						<img class="featureImage" src="${featuredDesigners[i].images[276]}"/>
+						<p class="featureName"><strong>${featuredDesigners[i].display_name}</strong></p>
 						<p class="featureFields">${fieldList}</p>
+						<img class="featureImage" src="${featuredDesigners[i].images[276]}"/>
 					</div>
 					`);
 			} else {
 				//non-featured designers
 				$('#coverDesigners').append(`
 					<div class="coverDesignersContainer">
-						<p class="designersName">${featuredDesigners[i].display_name}</p>
-						<img class="designersImage" src="${featuredDesigners[i].images[276]}"/>
+						<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
 						<p class="designersFields">${fieldList}</p>
+						<img class="designersImage" src="${featuredDesigners[i].images[276]}"/>
 					</div>
 					`);
 			}
-		}
+	}
+
 // });
 
 //submit listener for project search
@@ -109,7 +110,7 @@ $(document).ready(function() {
 
 // menu
 // click on menu
-   $("#menu-button").click(function(){
+   $("#sidebar").click(function(){
    	if (menuOpen == true){
    		menuCloseFunc();
    		menuOpen = false;
@@ -120,25 +121,50 @@ $(document).ready(function() {
 
   });
 
+$("#sidebar-content").click(function(){
+   		menuCloseFunc();
+   		menuOpen = false;
+  });
+
    function menuOpenFunc(){
-   	// $("#sidebar").css("opacity", "1");
-   	// $("#sidebar").toggleClass('gradient-fill');
    	setTimeout(
-            function() {
-               $("#sidebar").css("width", "100%");
-            },
-            350);
+        function() {
+           $("#sidebar").css("width", "100%");
+        },
+        150);
+  	setTimeout(
+	    function() {
+	       $("#sidebar-content").css("z-index", "10");
+	       $("#sidebar-content").css("opacity", "1");	       
+	    },
+	    550);
    };
 
    function menuCloseFunc(){
-   	 $("#sidebar").css("width", "35px");
-   	// $("#sidebar").toggleClass('gradient-fill');
+	       $("#sidebar-content").css("opacity", "0");	
    	setTimeout(
-            function() {
-            // $("#sidebar").css("opacity", "0.3");  
-            },
-            900);
+        function() {
+           $("#sidebar").css("width", "35px");
+           	$("#sidebar-content").css("z-index", "-900");
+        },
+        270);
+
    	
    };
-
 });
+
+
+//Nav Bar Scroll
+$(window).scroll(function(){
+	$("#sidebar").css("opacity", 0 + $(window).scrollTop() - 650);
+});
+
+//Down Button
+$(".fa-chevron-circle-down").click(function(){
+	$("html,body").animate({
+		scrollTop: $("#content").offset().top
+	},
+	1500);
+});
+
+

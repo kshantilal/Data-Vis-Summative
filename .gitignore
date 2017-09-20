@@ -2,7 +2,6 @@ config/
 node_modules/
 \.sass-cache
 css/
-
 scss/\.DS_Store
-
 \.DS_Store
+
