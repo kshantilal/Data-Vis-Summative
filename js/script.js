@@ -139,18 +139,18 @@ function checkMenu(){
 
 // click on menu
    $("#sidebar").click(function(){
-   		if (menuOpen == false) {
+		if (menuOpen == false) {
 
-   			$("#sidebarMenu").css("display", "inline")
+			$("#sidebarMenu").css("display", "inline")
 
-   			setTimeout(
-   				function() {
+			setTimeout(
+				function() {
 
-   					$("#sidebarMenu").css("opacity", "1")   					
-   				},
-   				440);
-   		}
-   		checkMenu();
+					$("#sidebarMenu").css("opacity", "1")   					
+				},
+				440);
+		}
+		checkMenu();
   });
 
 	
@@ -162,14 +162,14 @@ function checkMenu(){
 		150);
 	setTimeout(
 		function() {
-		    $("#sidebarContent").css("display", "inline");
-		    $("#sidebarContent").css("opacity", "1");		    
+			$("#sidebarContent").css("display", "inline");
+			$("#sidebarContent").css("opacity", "1");		    
 		},
 		550);
    };
 
    function menuCloseFunc(){
-   	$("#sidebarMenu").css("opacity", "0")   
+	$("#sidebarMenu").css("opacity", "0")   
 			setTimeout(
 				function() {
 			$("#sidebarMenu").css("display", "none")	
@@ -178,9 +178,9 @@ function checkMenu(){
 
 	setTimeout(
 		function() {
-		   	$('#sidebarContent').children().detach();
-		   	$("#sidebarContent").css("display", "none");
-		  	$("#sidebar").css("width", "35px");   
+			$('#sidebarContent').children().detach();
+			$("#sidebarContent").css("display", "none");
+			$("#sidebar").css("width", "35px");   
 		},
 		320);
 
@@ -189,32 +189,32 @@ function checkMenu(){
 
 // Menu buttons
 $("#featured-designers-link").click(function() {
-   	setTimeout(
-    function() {
-       $('html, body').animate({
-        scrollTop: $(".featured-designers-bookmark").offset().top - 40
-    	}, 100);
-    },
-    700);
+	setTimeout(
+	function() {
+	   $('html, body').animate({
+		scrollTop: $(".featured-designers-bookmark").offset().top - 40
+		}, 100);
+	},
+	700);
 });
 $("#our-designers-link").click(function() {
-   	setTimeout(
-    function() {
-       $('html, body').animate({
-        scrollTop: $(".our-designers-bookmark").offset().top - 40
-    	}, 100);
-    },
-    700);
+	setTimeout(
+	function() {
+	   $('html, body').animate({
+		scrollTop: $(".our-designers-bookmark").offset().top - 40
+		}, 100);
+	},
+	700);
 });
 
 $("#about-us-link").click(function() {
-   	setTimeout(
-    function() {
-       $('html, body').animate({
-        scrollTop: $(".about-us-bookmark").offset().top - 120
-    	}, 100);
-    },
-    700);
+	setTimeout(
+	function() {
+	   $('html, body').animate({
+		scrollTop: $(".about-us-bookmark").offset().top - 120
+		}, 100);
+	},
+	700);
 });
 
 // Nav Bar Scroll
@@ -222,24 +222,37 @@ $("#about-us-link").click(function() {
 // 	$("#sidebar").css("opacity", 0 + $(window).scrollTop() - 1450);
 // });
 
-function isScrolledIntoView(elem)
-{
-    var docViewTop = $(window).scrollTop();
-    var docViewBottom = docViewTop + $(window).height();
-    var elemTop = $(elem).offset().top;
-    var elemBottom = elemTop + $(elem).height();
-    return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-}
+// function isScrolledIntoView(elem)
+// {
+// 	var docViewTop = $(window).scrollTop();
+// 	var docViewBottom = docViewTop + $(window).height();
+// 	var elemTop = $(elem).offset().top;
+// 	var elemBottom = elemTop - $(elem).height();
+// 	return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+// }
 
-$(window).scroll(function() {    
-    if(isScrolledIntoView($('.featured-designers-bookmark')))
-    {
-        $("#sidebar").css("width", "35px");
-    }  else{
-    	$("#sidebar").css("width", "0px");
-    }  
-});
+// $(window).scroll(function() {    
+// 	if(isScrolledIntoView($('.featured-designers-bookmark'))){
+// 		$("#sidebar").css("width", "35px");
+// 	 } else {
+// 	 	$("#sidebar").css("width", "0px");
+	 	
+// 	 } 
+	 	
+	 
+// });
 
+$(window).scroll(function(){
+	if ($(window).scrollTop()) {
+		$("#sidebar").css("width", "35px");
+	}else{
+		$("#sidebar").css("width", "0px");
+	}
+})
+
+// {
+// 		$("#sidebar").css("width", "0px");
+// 	}
 //Down Button
 $(".fa-chevron-circle-down").click(function(){
 	$("html,body").animate({
@@ -250,10 +263,10 @@ $(".fa-chevron-circle-down").click(function(){
 
 $(".featureImage, .designersImage").click(function(){
 	menuOpen = true;
-   	setTimeout(
-        function() {
-           $("#sidebar").css("width", "100%");
-        },
-        150);
+	setTimeout(
+		function() {
+		   $("#sidebar").css("width", "100%");
+		},
+		150);
   });
 });
