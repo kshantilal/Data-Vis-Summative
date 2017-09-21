@@ -46,21 +46,18 @@ console.log(featuredDesigners);
 
 // });
 
-$('.coverFeaturedContainer').click(function(){
+$('.coverFeaturedContainer .featureImage').click(function(){
 	if (menuOpen == false) {
-		var sidebarID = $(this)["0"].dataset.id;
+		var sidebarID = $(this).parent()["0"].dataset.id;
 		checkMenu();
-		$(this).clone().appendTo("#sidebar-content");
+		$(this).parent().clone().appendTo("#sidebarContent");
 		be(APIKey).user.projects(sidebarID, function success(results){
 			var result = results.projects;
 			for (var i = 0; i < 9; i++) {
-				$('#sidebar-content .coverFeaturedContainer').append(`<img src="${results.projects[i].covers[202]}"</img>`);
+				$('#sidebarContent .coverFeaturedContainer').append(`<img class="modalDesignerImagessrc="${results.projects[i].covers[202]}"</img>`);
 			}
 		})
-	} else {
-
 	}
-	
 })
 
 
@@ -141,7 +138,13 @@ function checkMenu(){
 
 // click on menu
    $("#sidebar").click(function(){
-   		$("#sidebarMenu").css("display", "inline")
+   		if (menuOpen == false) {
+   			setTimeout(
+   				function() {
+   					$("#sidebarMenu").css("display", "inline")
+   				},
+   				300);
+   		}
    		checkMenu();
   });
 
@@ -161,14 +164,11 @@ function checkMenu(){
    };
 
    function menuCloseFunc(){
-		   	$("#sidebarMenu").css("opacity", "0");	
-		   	$("#sidebarMenu").css("display", "none");
-		   	$('#sidebar-content .coverFeaturedContainer').detach();
 	setTimeout(
 		function() {
-		  	 $("#sidebar").css("width", "35px");
-			$("#sidebarMenu").css("z-index", "-900");
-			$("#sidebarMenu").css("display", "none")    
+			$("#sidebarMenu").css("display", "none");
+		   	$('#sidebarContent').children().detach();
+		  	$("#sidebar").css("width", "35px");   
 		},
 		270);
 
