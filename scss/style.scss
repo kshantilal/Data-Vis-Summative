@@ -188,10 +188,9 @@ $secondaryFont: "Lato";
 
 
 // sidebar content
-#sidebar-content{
-	padding-top: 50%;
+#sidebarMenu{
+	padding-top: 10%;
 	z-index: -900;
-	opacity: 0;
 	font-family: $secondaryFont;
 	color:white;
 	width:100%;
@@ -201,6 +200,7 @@ $secondaryFont: "Lato";
   left: 0;
   font-size:20px;
   transition: all 0.2s ease-in;
+  display: none;
 
     h1 {
     	margin-right: 100px;
@@ -213,9 +213,8 @@ $secondaryFont: "Lato";
     i{
     	font-size:30px;
     }
-
-
 }
+
 .custom-counter {
     margin-left: 0;
     padding-right: 0;
@@ -247,7 +246,6 @@ $secondaryFont: "Lato";
 
 }
 
-
 .feature-heading {
 	font-size: 20px;
     font-weight: 600;
@@ -268,3 +266,19 @@ $secondaryFont: "Lato";
      }
 }
 
+.coverID {
+	display: none;
+}
+
+#sidebarContent {
+	display: none;
+}
+
+#modalDesignerGrid {
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	img {
+		flex: 1 0 33%;
+	}
+}
