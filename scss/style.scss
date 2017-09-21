@@ -149,8 +149,8 @@ $secondaryFont: "Lato";
 }
 
 // sidebar content
-#sidebar-content{
-	padding-top: 50%;
+#sidebarMenu{
+	padding-top: 10%;
 	z-index: -900;
 	opacity: 0;
 	font-family: $secondaryFont;
@@ -162,6 +162,7 @@ $secondaryFont: "Lato";
   left: 0;
   font-size:20px;
   transition: all 0.2s ease-in;
+  display: none;
 
     h1 {
     	margin-right: 100px;
@@ -174,9 +175,8 @@ $secondaryFont: "Lato";
     i{
     	font-size:30px;
     }
-
-
 }
+
 .custom-counter {
     margin-left: 0;
     padding-right: 0;
@@ -198,3 +198,6 @@ $secondaryFont: "Lato";
     margin-bottom:4px;
 }
 
+.coverID {
+	display: none;
+}
