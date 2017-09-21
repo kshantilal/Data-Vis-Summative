@@ -50,8 +50,10 @@ $('.coverFeaturedContainer .featureImage').click(function(){
 	if (menuOpen == false) {
 		var sidebarID = $(this).parent()["0"].dataset.id;
 		checkMenu();
+		$("#sidebar").addClass('designerOpened');
 		$(this).parent().clone().appendTo("#sidebarContent");
-		$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerGrid"></div>`);
+		$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerStats"><div class="button">View stats</div></div>`);		
+		$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerGrid" class="col-xs-offset-1 col-xs-11 col-noPadding"></div>`);
 		be(APIKey).user.projects(sidebarID, function success(results){
 			var result = results.projects;
 			for (var i = 0; i < 9; i++) {
@@ -169,10 +171,12 @@ function checkMenu(){
    };
 
    function menuCloseFunc(){
-   	$("#sidebarMenu").css("opacity", "0")   
+   	$("#sidebarMenu").css("opacity", "0")  
+ 		$("#sidebar").css("overflow", "hidden");
 			setTimeout(
 				function() {
 			$("#sidebarMenu").css("display", "none")	
+   	 $("body").css("overflow", "auto"); 
 				},
 				440);
 
@@ -218,26 +222,8 @@ $("#about-us-link").click(function() {
 });
 
 // Nav Bar Scroll
-// $(window).scroll(function(){
-// 	$("#sidebar").css("opacity", 0 + $(window).scrollTop() - 1450);
-// });
-
-function isScrolledIntoView(elem)
-{
-    var docViewTop = $(window).scrollTop();
-    var docViewBottom = docViewTop + $(window).height();
-    var elemTop = $(elem).offset().top;
-    var elemBottom = elemTop + $(elem).height();
-    return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-}
-
-$(window).scroll(function() {    
-    if(isScrolledIntoView($('.featured-designers-bookmark')))
-    {
-        $("#sidebar").css("width", "35px");
-    }  else{
-    	$("#sidebar").css("width", "0px");
-    }  
+$(window).scroll(function(){
+	$("#sidebar").css("opacity", 0 + $(window).scrollTop() - 1450);
 });
 
 //Down Button
@@ -255,5 +241,14 @@ $(".featureImage, .designersImage").click(function(){
            $("#sidebar").css("width", "100%");
         },
         150);
+
+   	// disable scrolling body, enable scrolling sidebar
+ 	   	setTimeout(
+      function() {
+ 				$("body").css("overflow", "hidden");
+ 				$("#sidebar").css("overflow", "scroll");
+      },
+      350);
+
   });
 });

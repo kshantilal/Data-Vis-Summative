@@ -78,14 +78,15 @@ $secondaryFont: "Lato";
 
 #sidebar {
 	height: 100%;
-	opacity: 1;
+	opacity: 0;
 	background: linear-gradient(#FF5E3A, #FF2B67);
 	// width: 35px;
-	width:0px;
+	width:35px;
 	position: fixed!important;
 	left: 0;
 	top: 0;
 	transition: opacity 0.2s, width 0.3s;
+	overflow: hidden;
 }
 
 #sidebar:hover{
@@ -165,6 +166,7 @@ $secondaryFont: "Lato";
 
 .coverFeaturedContainer, .coverDesignersContainer{
 	margin-bottom: 50px;
+	    text-align: center;
 }
 
 .featureName, .designersName{
@@ -206,7 +208,7 @@ $secondaryFont: "Lato";
 
     h1 {
     	display: inline-block;
-    	margin-left: 35%;
+    	margin-left: 25%;
     	font-family: $primaryFont;
     	font-size:60px;
     	margin-bottom: 25px;
@@ -217,8 +219,8 @@ $secondaryFont: "Lato";
     }
 }
 
-.custom-counter {
-    margin-left: 34%;
+.customList {
+    margin-left: 24%;
     padding-right: 0;
     list-style-type: none;
     font-family: $primaryFont;
@@ -247,7 +249,7 @@ $secondaryFont: "Lato";
 
 }
 
-.feature-heading {
+.featureHeading {
 	font-size: 20px;
     font-weight: 600;
     letter-spacing: 3px;
@@ -277,12 +279,48 @@ $secondaryFont: "Lato";
 #sidebarMenu{
 
 }
-
+.designerOpened{
+	color:white;
+	font-family: $secondaryFont;
+	font-size: 26px;
+	div:first-child{
+			padding-top:40px;
+	}	
+	.featureImage {
+		margin:20px 0px;
+		width:100px;
+	}
+}
 #modalDesignerGrid {
+	margin-top: 20px;
 	width: 80%;
 	display: flex;
 	flex-wrap: wrap;
 	img {
 		flex: 1 0 33%;
+		margin: 5px 5px;
+		transition: all 0.2s ease;
 	}
+		img:hover {
+		opacity:0.7;
+	}
+	overflow: auto;
+}
+
+#modalDesignerStats{
+
+	.button{
+			display: inline-block;
+			border: 1px solid white;
+    padding: 5px 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+
+	}
+.button:hover{
+	background-color: rgba(255,255,255,0.3);
+}
+
 }
