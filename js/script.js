@@ -51,10 +51,11 @@ $('.coverFeaturedContainer .featureImage').click(function(){
 		var sidebarID = $(this).parent()["0"].dataset.id;
 		checkMenu();
 		$(this).parent().clone().appendTo("#sidebarContent");
+		$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerGrid"></div>`);
 		be(APIKey).user.projects(sidebarID, function success(results){
 			var result = results.projects;
 			for (var i = 0; i < 9; i++) {
-				$('#sidebarContent .coverFeaturedContainer').append(`<img class="modalDesignerImagessrc="${results.projects[i].covers[202]}"</img>`);
+				$('#modalDesignerGrid').append(`<img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/>`);
 			}
 		})
 	}
@@ -157,8 +158,7 @@ function checkMenu(){
 		150);
 	setTimeout(
 		function() {
-		   $("#sidebarMenu").css("z-index", "10");
-		   $("#sidebarMenu").children().css("opacity", "1");      
+		    $("#sidebarContent").css("display", "inline");
 		},
 		550);
    };
@@ -168,6 +168,7 @@ function checkMenu(){
 		function() {
 			$("#sidebarMenu").css("display", "none");
 		   	$('#sidebarContent').children().detach();
+		   	$("#sidebarContent").css("display", "none");
 		  	$("#sidebar").css("width", "35px");   
 		},
 		270);

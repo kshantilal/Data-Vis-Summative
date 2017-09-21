@@ -246,7 +246,6 @@ $secondaryFont: "Lato";
 
 }
 
-
 .feature-heading {
 	font-size: 20px;
     font-weight: 600;
@@ -269,4 +268,17 @@ $secondaryFont: "Lato";
 
 .coverID {
 	display: none;
+}
+
+#sidebarContent {
+	display: none;
+}
+
+#modalDesignerGrid {
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	img {
+		flex: 1 0 33%;
+	}
 }
