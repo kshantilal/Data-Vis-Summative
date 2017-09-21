@@ -78,10 +78,9 @@ $secondaryFont: "Lato";
 
 #sidebar {
 	height: 100%;
-	opacity: 0;
 	background: linear-gradient(#FF5E3A, #FF2B67);
-	// width: 35px;
-	width:35px;
+
+	width:0px;
 	position: fixed!important;
 	left: 0;
 	top: 0;
