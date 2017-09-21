@@ -147,16 +147,45 @@ $("#sidebar-content").click(function(){
            $("#sidebar").css("width", "35px");
            	$("#sidebar-content").css("z-index", "-900");
         },
-        270);
+        350);
 
    	
    };
 });
 
+// Menu buttons
+$("#featured-designers-link").click(function() {
+   	setTimeout(
+    function() {
+       $('html, body').animate({
+        scrollTop: $(".featured-designers-bookmark").offset().top - 40
+    	}, 100);
+    },
+    700);
+});
+$("#our-designers-link").click(function() {
+   	setTimeout(
+    function() {
+       $('html, body').animate({
+        scrollTop: $(".our-designers-bookmark").offset().top - 40
+    	}, 100);
+    },
+    700);
+});
+
+$("#about-us-link").click(function() {
+   	setTimeout(
+    function() {
+       $('html, body').animate({
+        scrollTop: $(".about-us-bookmark").offset().top - 120
+    	}, 100);
+    },
+    700);
+});
 
 //Nav Bar Scroll
 $(window).scroll(function(){
-	$("#sidebar").css("opacity", 0 + $(window).scrollTop() - 650);
+	$("#sidebar").css("opacity", 0 + $(window).scrollTop() - 1450);
 });
 
 //Down Button
@@ -164,7 +193,14 @@ $(".fa-chevron-circle-down").click(function(){
 	$("html,body").animate({
 		scrollTop: $("#content").offset().top
 	},
-	1500);
+	200);
 });
 
-
+$(".featureImage, .designersImage").click(function(){
+	menuOpen = true;
+   	setTimeout(
+        function() {
+           $("#sidebar").css("width", "100%");
+        },
+        150);
+  });
