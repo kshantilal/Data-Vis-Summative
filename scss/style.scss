@@ -335,7 +335,7 @@ $secondaryFont: "Lato";
 
 .modalImagePopup{
 	box-sizing: border-box;
-	padding-top: 26%;
+	padding-top: 100px;
 	position: absolute;
 	width:98%;
 	height: 276px;
@@ -354,6 +354,9 @@ $secondaryFont: "Lato";
 	}
 	i{
 		margin-right:4px;
+	}
+	p{
+		margin-bottom: 12px;
 	}
 
 }
