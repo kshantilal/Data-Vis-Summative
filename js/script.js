@@ -58,15 +58,20 @@ $('.coverFeaturedContainer .featureImage').click(function(){
 			var result = results.projects;
 			for (var i = 0; i < 9; i++) {
 				$('#modalDesignerGrid').append(`<div class="modalImageContainer"><div class="modalImagePopup"></div><img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/></div>`);
-			}
+				}
+				$('.modalImageContainer').mouseenter(function(){
+				$(this).children('img').css("opacity", "0.4");
+				$(this).children('div').append("stats");		
+				console.log(results.projects[i].covers[230])		
+				});
+				$('.modalImageContainer').mouseleave(function(){
+				$(this).children('img').css("opacity", "1");
+				$(this).children('div').empty();	
+				});
 		})
 	}
 })
-	$('#modalDesignerGrid img').hover(function(){
-	console.log("hovered an image");
-	$(this).append( "<p>Test</p>" );
 
-	});
 
 
 
@@ -146,7 +151,7 @@ function checkMenu(){
 }
 
 // click on menu
-   $("#sidebar").click(function(){
+   $("#menu-button").click(function(){
 		if (menuOpen == false) {
 
 			$("#sidebarMenu").css("display", "inline")
