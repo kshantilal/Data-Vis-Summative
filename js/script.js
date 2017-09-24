@@ -14,7 +14,7 @@ $(document).ready(function() {
 // 	for (var h = 0; h < result.length; h++) {
 // 		featuredDesigners.push(result[h]);
 // 	}
-	
+
 console.log(featuredDesigners);
 	//make html from array
 	// for (var i = 0; i < featuredDesigners.length; i++) {
@@ -52,16 +52,27 @@ $('.coverFeaturedContainer .featureImage').click(function(){
 		checkMenu();
 		$("#sidebar").addClass('designerOpened');
 		$(this).parent().clone().appendTo("#sidebarContent");
-		$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerStats"><div class="button">View stats</div></div>`);		
+		$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerStats"><div class="button">View stats</div></div>`);
 		$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerGrid" class="col-xs-offset-1 col-xs-11 col-noPadding"></div>`);
 		be(APIKey).user.projects(sidebarID, function success(results){
 			var result = results.projects;
 			for (var i = 0; i < 9; i++) {
-				$('#modalDesignerGrid').append(`<img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/>`);
-			}
+				$('#modalDesignerGrid').append(`<div class="modalImageContainer"><div class="modalImagePopup"></div><img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/></div>`);
+				}
+				$('.modalImageContainer').mouseenter(function(){
+				$(this).children('img').css("opacity", "0.4");
+				$(this).children('div').append("stats");		
+				console.log(results.projects[i].covers[230])		
+				});
+				$('.modalImageContainer').mouseleave(function(){
+				$(this).children('img').css("opacity", "1");
+				$(this).children('div').empty();	
+				});
 		})
 	}
 })
+
+
 
 
 //submit listener for project search
@@ -87,7 +98,7 @@ function projectSearch(searchTerm) {
 				<div>${searchResults[i].created_on}</div
 				<a target="_blank" href="${searchResults[i].url}">Link to page</a>
 				<div class="projectCover"><img src="${searchResults[i].covers[404]}"/></div>
-				<div class="projectStats">Likes:${searchResults[i].stats.appreciations} Views:${searchResults[i].stats.views} Comments:${searchResults[i].stats.comments} 
+				<div class="projectStats">Likes:${searchResults[i].stats.appreciations} Views:${searchResults[i].stats.views} Comments:${searchResults[i].stats.comments}
 				<br><br>
 			`);
 		}
@@ -140,7 +151,7 @@ function checkMenu(){
 }
 
 // click on menu
-   $("#sidebar").click(function(){
+   $("#menu-button").click(function(){
 		if (menuOpen == false) {
 
 			$("#sidebarMenu").css("display", "inline")
@@ -148,14 +159,14 @@ function checkMenu(){
 			setTimeout(
 				function() {
 
-					$("#sidebarMenu").css("opacity", "1")   					
+					$("#sidebarMenu").css("opacity", "1")
 				},
 				440);
 		}
 		checkMenu();
   });
 
-	
+
    function menuOpenFunc(){
 	setTimeout(
 		function() {
@@ -165,21 +176,21 @@ function checkMenu(){
 	setTimeout(
 		function() {
 			$("#sidebarContent").css("display", "inline");
-			$("#sidebarContent").css("opacity", "1");		    
+			$("#sidebarContent").css("opacity", "1");
 		},
 		550);
    };
 
    function menuCloseFunc(){
 
-   	$("#sidebarMenu").css("opacity", "0")  
+   	$("#sidebarMenu").css("opacity", "0")
  		$("#sidebar").css("overflow", "hidden");
-	$("#sidebarMenu").css("opacity", "0")   
+	$("#sidebarMenu").css("opacity", "0")
 
 			setTimeout(
 				function() {
-			$("#sidebarMenu").css("display", "none")	
-   	 $("body").css("overflow", "auto"); 
+			$("#sidebarMenu").css("display", "none")
+   	 $("body").css("overflow", "auto");
 				},
 				440);
 
@@ -187,11 +198,11 @@ function checkMenu(){
 		function() {
 			$('#sidebarContent').children().detach();
 			$("#sidebarContent").css("display", "none");
-			$("#sidebar").css("width", "35px");   
+			$("#sidebar").css("width", "35px");
 		},
 		320);
 
-	
+
    };
 
 // Menu buttons
@@ -243,15 +254,15 @@ $("#about-us-link").click(function() {
 // 	return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 // }
 
-// $(window).scroll(function() {    
+// $(window).scroll(function() {
 // 	if(isScrolledIntoView($('.featured-designers-bookmark'))){
 // 		$("#sidebar").css("width", "35px");
 // 	 } else {
 // 	 	$("#sidebar").css("width", "0px");
-	 	
-// 	 } 
-	 	
-	 
+
+// 	 }
+
+
 // });
 
 $(window).scroll(function(){
