@@ -282,9 +282,7 @@ $secondaryFont: "Lato";
 	color:white;
 	font-family: $secondaryFont;
 	font-size: 26px;
-	div:first-child{
-			padding-top:40px;
-	}	
+
 	.featureImage {
 		margin:20px 0px;
 		width:100px;
@@ -292,18 +290,26 @@ $secondaryFont: "Lato";
 }
 #modalDesignerGrid {
 	margin-top: 20px;
-	width: 80%;
+	width: 83%;
 	display: flex;
 	flex-wrap: wrap;
 	img {
-		flex: 1 0 33%;
-		margin: 5px 5px;
 		transition: all 0.2s ease;
 	}
+.modalImageContainer {
+		flex: 1 0 32%;
+		margin: 5px 5px;
+		transition: all 0.2s ease-in;
+}
+
 		img:hover {
-		opacity:0.7;
+		opacity:0.5;
 	}
 	overflow: auto;
+}
+
+.modalImageContainer:hover{
+	background-color: rgba(0, 0, 0, 0.3);
 }
 
 #modalDesignerStats{
@@ -323,3 +329,14 @@ $secondaryFont: "Lato";
 }
 
 }
+
+// .modalImagePopup{
+// 	position: absolute;
+// 	width:230px;
+// 	height: 180px;
+// 	opacity: 0.2;
+// 	background-color: black;
+// 	transition: all 0.2s ease;
+// 	text-align: center;
+//
+// }
