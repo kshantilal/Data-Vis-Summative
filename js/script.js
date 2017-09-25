@@ -4,14 +4,6 @@ var featuredDesigners = [];
 
 var menuOpen = false;
 
-var dataBar;
-var options;
-//Google Charts Bar Graph
-
-// google.charts.load('current', {'packages':['corechart']});
-// google.charts.load('current', {'packages':['corechart'], 'mapsApiKey': 'AIzaSyB1qe7ia7SLO6ZZheIqZIvXViHSzMBYzG8'});
-// google.charts.setOnLoadCallback(drawChart);
-
 var AccessToken;
 //next 2 lines development only
 AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
@@ -37,9 +29,10 @@ function getID(){
 		type: "get",
 		dataType: "jsonp",
 		success: function(DataFromBehance){
-			console.log(DataFromBehance.following);
+			// console.log(DataFromBehance.following);
 			var featuredDesigners = DataFromBehance.following;
 			showData(featuredDesigners);
+
 
 		},
 		error: function(){
@@ -48,6 +41,112 @@ function getID(){
 
 	})
 }
+
+function showStats(){
+	$("#modalDesignerStats .button").click(function(){
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.load('current', {'packages':['corechart'], 'mapsApiKey': 'AIzaSyB1qe7ia7SLO6ZZheIqZIvXViHSzMBYzG8'});
+		google.charts.setOnLoadCallback(drawChart);
+
+		var dataBar;
+		var options;
+		
+		function drawChart(){
+
+			var barChartJSON = $.ajax({
+				url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
+				type: "get",
+				contentType: "application/json",
+				dataType: "jsonp",
+				success: function(DataFromJSON){
+					// console.log(DataFromJSON.projects);
+					var dataResults = DataFromJSON.projects;
+					dataBar = new google.visualization.DataTable();
+					dataBar.addColumn('string', 'Name');
+					dataBar.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
+					// dataBar.addColumn('number', 'id'); have to also add in i to the row
+					dataBar.addColumn('number', 'Followers');
+					// dataBar.addColumn('number', 'Views');
+					dataBar.addColumn('number', 'Comments');
+
+					for (var i = 0; i < dataResults.length; i++) {
+							PersonName = dataResults[i].name;
+							Followers = dataResults[i].stats.appreciations;
+							Comments = dataResults[i].stats.comments;
+							// Views = DataFromJSON.projects[i].stats.views;
+							// console.log(Comments);
+							
+						dataBar.addRow([
+							PersonName, createCustomHTMLContent(PersonName, Followers, Comments), Followers, Comments
+						]);
+							// console.log(Followers);
+					
+						// console.log(createCustomHTMLContent);
+					}
+
+					options = {
+						title: 'My project stats',
+						width: 800,
+						height: 800,
+						colors: ['#009DFF', '#2BB5A5'],
+						// This line makes the entire category's tooltip active.
+						focusTarget: 'category',
+						// Use an HTML tooltip.
+						tooltip: { isHtml: true },
+						titleTextStyle: {
+							color: '#fff',
+							fontSize: 30,
+							fontName: 'Lato, san-serif'
+						},
+
+						hAxis: {
+							title: 'Stats',
+							titleTextStyle: {color: '#0000'},
+							textStyle: {color: '#0000', fontName: 'Lato, san-serif'}
+						},
+						vAxis: {
+							title: 'Projects',
+							titleTextStyle: {color: '#0000'},
+							textStyle: {color: '#0000', fontName: 'Lato, san-serif'}
+						},
+						backgroundColor: '#fff'
+
+					}
+					
+
+					var barChart = new google.visualization.BarChart(document.getElementById('chart1')); //what chart are you using eg PieChart
+					barChart.draw(dataBar, options);
+				},
+				error: function(){
+					console.log('Bar chart error');
+				}
+
+			});
+
+		}
+		var Followers;
+		var Comments;
+		var PersonName;
+
+		function createCustomHTMLContent(PersonName, Followers, Comments) {
+			return '<div style="padding:10px 10px 10px 10px;">' +
+				'<table class="medals_layout">' + '<tr>' +
+				'<td><span style="font-size: 15px; color: #009DFF";>' + "<strong>"+PersonName+"</strong>" + '</span></td>' + '</tr>' + '<tr>' +
+				'<td><span class="glyphicon glyphicon-user" style="font-size: 40px; padding-top: 20px; padding-bottom: 20px"></span></td>' +
+				'<td><span style="font-size: 20px">' + Followers + '</span></td>' + '</tr>' +
+				'<td><span class="glyphicon glyphicon-comment" style="font-size: 40px"></span>' +
+				'<td><span style="font-size: 20px">' + Comments + '</span></td>' + '</tr>' + '<tr>'
+		}
+
+
+
+	})
+
+
+		
+	
+}
+
 
 
 // SHOW USERS
@@ -114,17 +213,19 @@ function showData(featuredDesigners){
 		}
 		$('.coverFeaturedContainer .featureImage').click(function(){
 			designerExpand($(this))
+			
 		})
 		$('.coverDesignersContainer .designersImage').click(function(){
 			designerExpand($(this))
 		})
 			
 	}
-}
 
+}
+var sidebarID;
 function designerExpand(designer) {
 	if (menuOpen == false) {
-		var sidebarID = designer.parent()["0"].dataset.id;
+		sidebarID = designer.parent()["0"].dataset.id;
 		checkMenu();
 		$(".modalImagePopup").css('opacity', '0'); 
         $(".featureImage, .designersImage").css('opacity', '1'); 
@@ -140,7 +241,9 @@ function designerExpand(designer) {
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
 			success: function(results){
+
 				var result = results.projects;
+
 				console.log(result);
 				for (var i = 0; i < result.length; i++) {
 					$('#modalDesignerGrid').append(`
@@ -150,6 +253,7 @@ function designerExpand(designer) {
 						</div>
 						`);
 				}
+				showStats();
 				$('.modalImageContainer').mouseenter(function(){
 					$(this).children('img').css("opacity", "0.4");
 					$(this).children('div').append("stats");		
@@ -163,6 +267,9 @@ function designerExpand(designer) {
 		});
 	}
 }
+
+
+
 
 //submit listener for project search
 $('#searchForm1').submit(function(){
