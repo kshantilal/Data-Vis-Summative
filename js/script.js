@@ -409,8 +409,6 @@ function menuCloseFunc(){
 		320);
 };
 
-
-   };
 // scroll down
 $(".scrollDown").click(function() {
 
