@@ -110,6 +110,8 @@ $secondaryFont: "Lato";
 
 #content{
 	font-family: 'Lato', sans-serif;
+
+
 }
 
 #aboutUs{
@@ -186,7 +188,7 @@ $secondaryFont: "Lato";
 
 .featureImage:hover, .designersImage:hover{
 	cursor: pointer;
-	opacity:0.4;
+	opacity :0.4;
 }
 
 // .coverFeaturedContainer .featureImage:hover {
@@ -288,9 +290,10 @@ $secondaryFont: "Lato";
 	font-family: $secondaryFont;
 	font-size: 26px;
 
-	.featureImage {
+	.featureImage, .designersImage {
 		margin:20px 0px;
 		width:100px;
+		opacity: 1;
 	}
 }
 #modalDesignerGrid {

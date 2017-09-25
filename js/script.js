@@ -13,6 +13,10 @@ var options;
 // google.charts.setOnLoadCallback(drawChart);
 
 var AccessToken;
+//next 2 lines development only
+// AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
+// getID();
+
 	$.ajax({
 		url: 'config/config.json',
 		dataType: "json",
@@ -74,15 +78,14 @@ function showData(featuredDesigners){
 				`);
 
 			$('.featureImage').mouseenter(function(){
-
-			$(this).css("opacity", "0.1");
-			var statsPopup = $();	
-			$(this).siblings('div').css("opacity", "1");		
+				$(this).css("opacity", "0.1");
+				var statsPopup = $();	
+				$(this).siblings('div').css("opacity", "1");		
 			});
-			$('.featureImage').mouseleave(function(){
-			$(this).siblings('div').css("opacity", "0");
-			$(this).css("opacity", "1");
 
+			$('.featureImage').mouseleave(function(){
+				$(this).siblings('div').css("opacity", "0");
+				$(this).css("opacity", "1");
 			});
 
 
@@ -99,15 +102,14 @@ function showData(featuredDesigners){
 				`);
 
 			$('.designersImage').mouseenter(function(){
-
-			$(this).css("opacity", "0.1");
-			var statsPopup = $();	
-			$(this).siblings('div').css("opacity", "1");		
+				$(this).css("opacity", "0.1");
+				var statsPopup = $();	
+				$(this).siblings('div').css("opacity", "1");		
 			});
-			$('.designersImage').mouseleave(function(){
-			$(this).siblings('div').css("opacity", "0");
-			$(this).css("opacity", "1");
 
+			$('.designersImage').mouseleave(function(){
+				$(this).siblings('div').css("opacity", "0");
+				$(this).css("opacity", "1");
 			});
 		}
 		$('.coverFeaturedContainer .featureImage').click(function(){
@@ -124,9 +126,11 @@ function designerExpand(designer) {
 	if (menuOpen == false) {
 		var sidebarID = designer.parent()["0"].dataset.id;
 		checkMenu();
+		$(".modalImagePopup").css('opacity', '0'); 
+        $(".featureImage").css('opacity', '1'); 
 		$("#sidebar").addClass('designerOpened');
 		designer.parent().clone().appendTo("#sidebarContent");
-		$('#sidebarContent div').append(`
+		$('#sidebarContent > div').append(`
 			<div id="modalDesignerStats">
 				<div class="button">View stats</div>
 			</div>
