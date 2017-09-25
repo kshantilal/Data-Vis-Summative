@@ -68,10 +68,14 @@ $secondaryFont: "Lato";
 	height: 35px;
     margin-bottom: 25px;}
 
-.scroll-down {
+.scrollDown {
 	color: white;
 	font-size: 12px;
-	margin-top: 28vh;
+	height: 28vh;
+    margin-top: 28vh;
+}
+.scrollDown:hover{
+	cursor: pointer;
 }
 
 // sidebar
@@ -88,24 +92,14 @@ $secondaryFont: "Lato";
 	overflow: hidden;
 }
 
-#menu-button:hover{
+#menuButton:hover{
 	cursor:pointer;
 }
 
-.gradient-fill {
-	background: red; /* For browsers that do not support gradients */
-	background: -webkit-linear-gradient(#FF5E3A, #FF2B67); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#FF5E3A, #FF2B67); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#FF5E3A, #FF2B67); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#FF5E3A, #FF2B67); /* Standard syntax */
-}
 
-#menu-button {
+#menuButton {
 	margin-top: 45px;
     margin-left: 7px;
-}
-#menu-button:hover {
-	cursor: pointer;
 }
 
 #content{
@@ -148,7 +142,7 @@ $secondaryFont: "Lato";
     line-height: 60px;
 }
 
-#gradient-aboutUs {
+#gradientAboutUs {
 	width:100%;
 	height:24vh;
 	background: linear-gradient(#2BB5A5, white);
@@ -174,9 +168,9 @@ $secondaryFont: "Lato";
     font-weight: 600;
 }
 
-.featured-header{
-	margin-top:80px;
-}
+// .featured-header{
+// 	margin-top:80px;
+// }
 
 .featureImage, .designersImage{
     border-radius: 300px;

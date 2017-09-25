@@ -227,7 +227,7 @@ function checkMenu(){
 }
 
 // click on menu
-   $("#menu-button").click(function(){
+   $("#menuButton").click(function(){
 		if (menuOpen == false) {
 
 			$("#sidebarMenu").css("display", "inline")
@@ -282,32 +282,41 @@ function checkMenu(){
 
 
    };
+// scroll down
+$(".scrollDown").click(function() {
+
+		   $('html, body').animate({
+		scrollTop: $("#aboutUs").offset().top - 120
+		}, 100);
+
+});
 
 // Menu buttons
-$("#featured-designers-link").click(function() {
+$("#featuredDesignersLink").click(function() {
 	setTimeout(
 	function() {
 	   $('html, body').animate({
-		scrollTop: $(".featured-designers-bookmark").offset().top - 40
-		}, 100);
-	},
-	700);
-});
-$("#our-designers-link").click(function() {
-	setTimeout(
-	function() {
-	   $('html, body').animate({
-		scrollTop: $(".our-designers-bookmark").offset().top - 40
+		scrollTop: $(".featuredDesignersBookmark").offset().top - 40
 		}, 100);
 	},
 	700);
 });
 
-$("#about-us-link").click(function() {
+$("#ourDesignersLink").click(function() {
 	setTimeout(
 	function() {
 	   $('html, body').animate({
-		scrollTop: $(".about-us-bookmark").offset().top - 120
+		scrollTop: $(".ourDesignersBookmark").offset().top - 40
+		}, 100);
+	},
+	700);
+});
+
+$("#aboutUsLink").click(function() {
+	setTimeout(
+	function() {
+	   $('html, body').animate({
+		scrollTop: $(".aboutUsBookmark").offset().top - 120
 		}, 100);
 	},
 	700);
