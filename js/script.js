@@ -56,15 +56,11 @@ console.log(featuredDesigners);
 				$('.featureImage').mouseenter(function(){
 
 				$(this).css("opacity", "0.1");
-				var statsPopup = $();
-				console.log($(this));
-				// statsPopup = `<p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: 26 </p><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: 12</p>`;
-				// $(this).siblings('div').html(statsPopup);	
+				var statsPopup = $();	
 				$(this).siblings('div').css("opacity", "1");		
 				});
 				$('.featureImage').mouseleave(function(){
 				$(this).siblings('div').css("opacity", "0");
-				// $(this).siblings('div').empty();	
 				$(this).css("opacity", "1");
 
 				});
@@ -76,9 +72,23 @@ console.log(featuredDesigners);
 					<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer">
 						<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
 						<p class="designersFields">${fieldList}</p>
+						<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesigners[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesigners[i].stats.views}</p></div>
 						<img class="designersImage" src="${featuredDesigners[i].images[276]}"/>
+						
 					</div>
 					`);
+
+				$('.designersImage').mouseenter(function(){
+
+				$(this).css("opacity", "0.1");
+				var statsPopup = $();	
+				$(this).siblings('div').css("opacity", "1");		
+				});
+				$('.designersImage').mouseleave(function(){
+				$(this).siblings('div').css("opacity", "0");
+				$(this).css("opacity", "1");
+
+				});
 			}
 			$('.coverFeaturedContainer .featureImage').click(function(){
 				if (menuOpen == false) {

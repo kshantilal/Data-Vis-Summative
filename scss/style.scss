@@ -298,6 +298,7 @@ $secondaryFont: "Lato";
 	width: 83%;
 	display: flex;
 	flex-wrap: wrap;
+	overflow: hidden!important;
 	img {
 		transition: all 0.2s ease;
 	}
