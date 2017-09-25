@@ -14,22 +14,22 @@ var options;
 
 var AccessToken;
 //next 2 lines development only
-// AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
-// getID();
+AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
+getID();
 
-	$.ajax({
-		url: 'config/config.json',
-		dataType: "json",
-		success: function(DataFromJSON){
-			console.log(DataFromJSON.AccessToken);
-			AccessToken = DataFromJSON.AccessToken;
-			getID();
+	// $.ajax({
+	// 	url: 'config/config.json',
+	// 	dataType: "json",
+	// 	success: function(DataFromJSON){
+	// 		console.log(DataFromJSON.AccessToken);
+	// 		AccessToken = DataFromJSON.AccessToken;
+	// 		getID();
 
-		},
-		error: function(){
-			console.log('Cant get config');
-		}
-	})
+	// 	},
+	// 	error: function(){
+	// 		console.log('Cant get config');
+	// 	}
+	// })
 
 function getID(){
 	$.ajax({
@@ -127,7 +127,7 @@ function designerExpand(designer) {
 		var sidebarID = designer.parent()["0"].dataset.id;
 		checkMenu();
 		$(".modalImagePopup").css('opacity', '0'); 
-        $(".featureImage").css('opacity', '1'); 
+        $(".featureImage, .designersImage").css('opacity', '1'); 
 		$("#sidebar").addClass('designerOpened');
 		designer.parent().clone().appendTo("#sidebarContent");
 		$('#sidebarContent > div').append(`
