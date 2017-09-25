@@ -94,6 +94,8 @@ console.log(featuredDesigners);
 				if (menuOpen == false) {
 					var sidebarID = $(this).parent()["0"].dataset.id;
 					checkMenu();
+					$(".modalImagePopup").css('opacity', '0');
+					$(".featureImage").css('opacity', '1');					
 					$("#sidebar").addClass('designerOpened');
 					$(this).parent().clone().appendTo("#sidebarContent");
 					$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerStats"><div class="button">View stats</div></div>`);
