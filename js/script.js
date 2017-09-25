@@ -10,68 +10,95 @@ $(document).ready(function() {
 
 // grabs 'following' from devID. use devID account to follow designers that will be featured
 
-be('config/config.json').user.following(devID, function success(results){
-	var result = results.following;
-	for (var h = 0; h < result.length; h++) {
-		featuredDesigners.push(result[h]);
-	}
+// be('config/config.json').user.following(devID, function success(results){
+// 	var result = results.following;
+// 	for (var h = 0; h < result.length; h++) {
+// 		featuredDesigners.push(result[h]);
+// 	}
+function getID(){
+	$.ajax({
+		url: "http://www.behance.net/v2/users/" + devID + "/following?api_key=" + AccessToken,
+		type: "get",
+		dataType: "jsonp",
+		success: function(DataFromBehance){
+			console.log(DataFromBehance.following);
+			var featuredDesigners = DataFromBehance.following;
+			showData(featuredDesigners);
+
+		},
+		error: function(){
+			console.log("Cant get behance data")
+		}
+
+	})
+}
 
 console.log(featuredDesigners);
-	//make html from array
-	for (var i = 0; i < featuredDesigners.length; i++) {
-	// for (var i = 0; i < 11; i++) {
-		var fieldList = [];
-		for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
-			fieldList.push(` ${featuredDesigners[i].fields[j]}`);
-		}
-		if (i < 3) {
-			//Top 3 designer HTML
-			$('#coverFeatured').append(`
-				<div data-ID="${featuredDesigners[i].id}" class="coverFeaturedContainer">
-					<p class="featureName"><strong>${featuredDesigners[i].display_name}</strong></p>
-					<p class="featureFields">${fieldList}</p>
-					<img class="featureImage" src="${featuredDesigners[i].images[276]}"/>
-				</div>
-				`);
-		} else {
-			//non-featured designers
-			$('#coverDesigners').append(`
-				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer">
-					<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
-					<p class="designersFields">${fieldList}</p>
-					<img class="designersImage" src="${featuredDesigners[i].images[276]}"/>
-				</div>
-				`);
-		}
-		$('.coverFeaturedContainer .featureImage').click(function(){
-			if (menuOpen == false) {
-				var sidebarID = $(this).parent()["0"].dataset.id;
-				checkMenu();
-				$("#sidebar").addClass('designerOpened');
-				$(this).parent().clone().appendTo("#sidebarContent");
-				$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerStats"><div class="button">View stats</div></div>`);
-				$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerGrid" class="col-xs-offset-1 col-xs-11 col-noPadding"></div>`);
-				be(APIKey).user.projects(sidebarID, function success(results){
-					var result = results.projects;
-					for (var i = 0; i < 9; i++) {
-						$('#modalDesignerGrid').append(`<div class="modalImageContainer"><div class="modalImagePopup"></div><img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/></div>`);
-						}
-						$('.modalImageContainer').mouseenter(function(){
-						$(this).children('img').css("opacity", "0.4");
-						$(this).children('div').append("stats");		
-						// console.log(results.projects[i].covers[230])		
-						});
-						$('.modalImageContainer').mouseleave(function(){
-						$(this).children('img').css("opacity", "1");
-						$(this).children('div').empty();	
-						});
-				})
-			}
-		})
+	// SHOW USERS
+	function showData(featuredDesigners){
+		for (var i = 0; i < featuredDesigners.length; i++) {
 
+		// for (var i = 0; i < 11; i++) {
+			var fieldList = [];
+			for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
+				fieldList.push(` ${featuredDesigners[i].fields[j]}`);
+			}
+			if (i < 3) {
+				//Top 3 designer HTML
+				$('#coverFeatured').append(`
+					<div data-ID="${featuredDesigners[i].id}" class="coverFeaturedContainer">
+						<p class="featureName"><strong>${featuredDesigners[i].display_name}</strong></p>
+						<p class="featureFields">${fieldList}</p>
+						<img class="featureImage" src="${featuredDesigners[i].images[276]}"/>
+					</div>
+					`);
+			} else {
+				//non-featured designers
+				$('#coverDesigners').append(`
+					<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer">
+						<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
+						<p class="designersFields">${fieldList}</p>
+						<img class="designersImage" src="${featuredDesigners[i].images[276]}"/>
+					</div>
+					`);
+			}
+			$('.coverFeaturedContainer .featureImage').click(function(){
+				if (menuOpen == false) {
+					var sidebarID = $(this).parent()["0"].dataset.id;
+					checkMenu();
+					$("#sidebar").addClass('designerOpened');
+					$(this).parent().clone().appendTo("#sidebarContent");
+					$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerStats"><div class="button">View stats</div></div>`);
+					$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerGrid" class="col-xs-offset-1 col-xs-11 col-noPadding"></div>`);
+					$.ajax({
+						url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
+						dataType: "jsonp",
+						success: function(results){
+							var result = results.projects;
+							console.log(result);
+							for (var i = 0; i < result.length; i++) {
+								$('#modalDesignerGrid').append(`<div class="modalImageContainer"><div class="modalImagePopup"></div><img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/></div>`);
+							}
+							$('.modalImageContainer').mouseenter(function(){
+							$(this).children('img').css("opacity", "0.4");
+							$(this).children('div').append("stats");		
+							// console.log(results.projects[i].covers[230])		
+							});
+							$('.modalImageContainer').mouseleave(function(){
+							$(this).children('img').css("opacity", "1");
+							$(this).children('div').empty();	
+							});
+						}
+						
+					});
+				}
+			})
+
+		}
 	}
 
-});
+
+// });
 
 
 var dataBar;
@@ -86,7 +113,7 @@ var AccessToken;
 		url: 'config/config.json',
 		dataType: "json",
 		success: function(DataFromJSON){
-			// console.log(DataFromJSON.AccessToken);
+			console.log(DataFromJSON.AccessToken);
 			AccessToken = DataFromJSON.AccessToken;
 			getID();
 
@@ -96,21 +123,7 @@ var AccessToken;
 		}
 	})
 
-function getID(){
-	$.ajax({
-		url: "http://www.behance.net/v2/users/" + devID + "?api_key=" + AccessToken,
-		type: "get",
-		dataType: "jsonp",
-		success: function(DataFromBehance){
-			console.log(DataFromBehance);
 
-		},
-		error: function(){
-			console.log("Cant get behance data")
-		}
-
-	})
-}
 
 
 
