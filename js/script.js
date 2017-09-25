@@ -1,7 +1,8 @@
 // var APIKey = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
-var APIKey = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
+
 var devID = '98195103';
-var featuredDesigners = [{"id":30431797,"first_name":"NOSIGNER","last_name":"®","username":"nosigner","city":"Yokohama","state":"","country":"Japan","location":"Yokohama, Japan","company":"NOSIGNER","occupation":"We design for evolution.","created_on":1458457165,"url":"https://www.behance.net/nosigner","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/23c21a30431797.5917c15cec67d.jpg","100":"https://mir-s3-cdn-cf.behance.net/user/100/23c21a30431797.5917c15cec67d.jpg","115":"https://mir-s3-cdn-cf.behance.net/user/115/23c21a30431797.5917c15cec67d.jpg","138":"https://mir-s3-cdn-cf.behance.net/user/138/23c21a30431797.5917c15cec67d.jpg","230":"https://mir-s3-cdn-cf.behance.net/user/230/23c21a30431797.5917c15cec67d.jpg","276":"https://mir-s3-cdn-cf.behance.net/user/276/23c21a30431797.5917c15cec67d.jpg"},"display_name":"NOSIGNER ®","fields":["Product Design","Branding","Graphic Design"],"has_default_image":0,"website":"http://www.nosigner.com/","stats":{"followers":3028,"following":0,"appreciations":8676,"views":100092,"comments":37}},{"id":3069005,"first_name":"Raphaël","last_name":"Alexandre","username":"RaphaWelh","city":"Paris","state":"","country":"France","location":"Paris, France","company":"","occupation":"Interaction designer","created_on":1373447187,"url":"https://www.behance.net/RaphaWelh","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/329fd63069005.577fbdb9d3b12.jpg","100":"https://mir-s3-cdn-cf.behance.net/user/100/329fd63069005.577fbdb9d3b12.jpg","115":"https://mir-s3-cdn-cf.behance.net/user/115/329fd63069005.577fbdb9d3b12.jpg","138":"https://mir-s3-cdn-cf.behance.net/user/138/329fd63069005.577fbdb9d3b12.jpg","230":"https://mir-s3-cdn-cf.behance.net/user/230/329fd63069005.577fbdb9d3b12.jpg","276":"https://mir-s3-cdn-cf.behance.net/user/276/329fd63069005.577fbdb9d3b12.jpg"},"display_name":"Raphaël Alexandre","fields":["UI/UX","Interaction Design","Web Design"],"has_default_image":0,"website":"rapha.eu","stats":{"followers":729,"following":97,"appreciations":1263,"views":14168,"comments":221}},{"id":1047691,"first_name":"Ryogo","last_name":"Toyoda","username":"ryogo","city":"Tokyo","state":"","country":"Japan","location":"Tokyo, Japan","company":"Freelance","occupation":"3D illustrator / Motion designer","created_on":1333301423,"url":"https://www.behance.net/ryogo","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/1047691.5429fbc533fc9.png","100":"https://mir-s3-cdn-cf.behance.net/user/100/1047691.5429fbc533fc9.png","115":"https://mir-s3-cdn-cf.behance.net/user/115/1047691.5429fbc533fc9.png","138":"https://mir-s3-cdn-cf.behance.net/user/138/1047691.5429fbc533fc9.png","230":"https://mir-s3-cdn-cf.behance.net/user/230/1047691.5429fbc533fc9.png","276":"https://mir-s3-cdn-cf.behance.net/user/276/1047691.5429fbc533fc9.png"},"display_name":"Ryogo Toyoda","fields":["Digital Art","Graphic Design","Motion Graphics"],"has_default_image":0,"website":"http://rgtd.net/","stats":{"followers":9269,"following":207,"appreciations":15308,"views":179050,"comments":98}},{"id":24694585,"first_name":"Sir","last_name":"Carma","username":"sircarma","city":"Paris","state":"","country":"France","location":"Paris, France","company":"","occupation":"Voxel art designer","created_on":1451477660,"url":"https://www.behance.net/sircarma","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/69d38124694585.5683cb6b9dd62.png","100":"https://mir-s3-cdn-cf.behance.net/user/100/69d38124694585.5683cb6b9dd62.png","115":"https://mir-s3-cdn-cf.behance.net/user/115/69d38124694585.5683cb6b9dd62.png","138":"https://mir-s3-cdn-cf.behance.net/user/138/69d38124694585.5683cb6b9dd62.png","230":"https://mir-s3-cdn-cf.behance.net/user/230/69d38124694585.5683cb6b9dd62.png","276":"https://mir-s3-cdn-cf.behance.net/user/276/69d38124694585.5683cb6b9dd62.png"},"display_name":"Sir Carma","fields":["Graphic Design","Game Design","Illustration"],"has_default_image":0,"website":"saymygame.com","stats":{"followers":6668,"following":9,"appreciations":15085,"views":164975,"comments":10}},{"id":6219085,"first_name":"Bengt","last_name":"Brummer","username":"bengtbrummer","city":"Lausanne","state":"","country":"Switzerland","location":"Lausanne, Switzerland","company":"Logitech","occupation":"Sr. Designer","created_on":1402524280,"url":"https://www.behance.net/bengtbrummer","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/6219085.5398d8e39681f.jpg","100":"https://mir-s3-cdn-cf.behance.net/user/100/6219085.5398d8e39681f.jpg","115":"https://mir-s3-cdn-cf.behance.net/user/115/6219085.5398d8e39681f.jpg","138":"https://mir-s3-cdn-cf.behance.net/user/138/6219085.5398d8e39681f.jpg","230":"https://mir-s3-cdn-cf.behance.net/user/230/6219085.5398d8e39681f.jpg","276":"https://mir-s3-cdn-cf.behance.net/user/276/6219085.5398d8e39681f.jpg"},"display_name":"Bengt Brummer","fields":["Industrial Design","Product Design","Culinary Arts"],"has_default_image":0,"website":"www.bengtbrummer.com","stats":{"followers":1910,"following":7,"appreciations":3117,"views":36566,"comments":6}},{"id":2442649,"first_name":"17Seven","last_name":":: Design Studio","username":"17Seven","city":"Mumbai","state":"","country":"India","location":"Mumbai, India","company":"17Seven","occupation":"UI/UX, Branding, Mobile Apps","created_on":1364537669,"url":"https://www.behance.net/17Seven","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/bab52c2442649.595340fd5c010.png","100":"https://mir-s3-cdn-cf.behance.net/user/100/bab52c2442649.595340fd5c010.png","115":"https://mir-s3-cdn-cf.behance.net/user/115/bab52c2442649.595340fd5c010.png","138":"https://mir-s3-cdn-cf.behance.net/user/138/bab52c2442649.595340fd5c010.png","230":"https://mir-s3-cdn-cf.behance.net/user/230/bab52c2442649.595340fd5c010.png","276":"https://mir-s3-cdn-cf.behance.net/user/276/bab52c2442649.595340fd5c010.png"},"display_name":"17Seven :: Design Studio","fields":["UI/UX","Interaction Design","Graphic Design"],"has_default_image":0,"website":"http://www.17seven.co","stats":{"followers":1016,"following":80,"appreciations":2734,"views":37981,"comments":52}},{"id":116476,"first_name":"Adam","last_name":"Bałazy","username":"Balazy","city":"Warsaw","state":"","country":"Poland","location":"Warsaw, Poland","company":"HA-KA","occupation":"Designer and owner","created_on":1248482690,"url":"https://www.behance.net/Balazy","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/177e00116476.59482060d6f97.jpg","100":"https://mir-s3-cdn-cf.behance.net/user/100/177e00116476.59482060d6f97.jpg","115":"https://mir-s3-cdn-cf.behance.net/user/115/177e00116476.59482060d6f97.jpg","138":"https://mir-s3-cdn-cf.behance.net/user/138/177e00116476.59482060d6f97.jpg","230":"https://mir-s3-cdn-cf.behance.net/user/230/177e00116476.59482060d6f97.jpg","276":"https://mir-s3-cdn-cf.behance.net/user/276/177e00116476.59482060d6f97.jpg"},"display_name":"Adam Bałazy","fields":["UI/UX","Interaction Design","Branding"],"has_default_image":0,"website":"www.ha-ka.com","stats":{"followers":1540,"following":634,"appreciations":5025,"views":59968,"comments":102}},{"id":7200101,"first_name":"Bradley","last_name":"G Munkowitz","username":"gmunk","city":"San Francisco","state":"California","country":"United States","location":"San Francisco, CA, USA","company":"","occupation":"Designer & Director","created_on":1406583557,"url":"https://www.behance.net/gmunk","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/d28b837200101.55808fba080d5.png","100":"https://mir-s3-cdn-cf.behance.net/user/100/d28b837200101.55808fba080d5.png","115":"https://mir-s3-cdn-cf.behance.net/user/115/d28b837200101.55808fba080d5.png","138":"https://mir-s3-cdn-cf.behance.net/user/138/d28b837200101.55808fba080d5.png","230":"https://mir-s3-cdn-cf.behance.net/user/230/d28b837200101.55808fba080d5.png","276":"https://mir-s3-cdn-cf.behance.net/user/276/d28b837200101.55808fba080d5.png"},"display_name":"Bradley G Munkowitz","fields":["Motion Graphics","Cinematography","Directing"],"has_default_image":0,"website":"www.gmunk.com","stats":{"followers":14869,"following":53,"appreciations":37776,"views":667453,"comments":0}},{"id":1376115,"first_name":"Jesse","last_name":"Rieser","username":"jesserieser","city":"Los Angeles","state":"California","country":"United States","location":"Los Angeles, CA, USA","company":"Jesse Rieser Photography","occupation":"Photographer","created_on":1343234191,"url":"https://www.behance.net/jesserieser","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/9f0f7d1376115.58a2733bc8a10.jpeg","100":"https://mir-s3-cdn-cf.behance.net/user/100/9f0f7d1376115.58a2733bc8a10.jpeg","115":"https://mir-s3-cdn-cf.behance.net/user/115/9f0f7d1376115.58a2733bc8a10.jpeg","138":"https://mir-s3-cdn-cf.behance.net/user/138/9f0f7d1376115.58a2733bc8a10.jpeg","230":"https://mir-s3-cdn-cf.behance.net/user/230/9f0f7d1376115.58a2733bc8a10.jpeg","276":"https://mir-s3-cdn-cf.behance.net/user/276/9f0f7d1376115.58a2733bc8a10.jpeg"},"display_name":"Jesse Rieser","fields":["Photography","Animation","Cinematography"],"has_default_image":0,"website":"www.jesserieser.com","stats":{"followers":949,"following":5,"appreciations":2949,"views":34787,"comments":0}},{"id":668910,"first_name":"Alan","last_name":"Barba","username":"alanbarba","city":"Brooklyn","state":"New York","country":"United States","location":"Brooklyn, NY, USA","company":"Alan Barba Design","occupation":"Graphic Designer","created_on":1317395993,"url":"https://www.behance.net/alanbarba","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/7fbae3668910.59a5d2bb1338e.jpg","100":"https://mir-s3-cdn-cf.behance.net/user/100/7fbae3668910.59a5d2bb1338e.jpg","115":"https://mir-s3-cdn-cf.behance.net/user/115/7fbae3668910.59a5d2bb1338e.jpg","138":"https://mir-s3-cdn-cf.behance.net/user/138/7fbae3668910.59a5d2bb1338e.jpg","230":"https://mir-s3-cdn-cf.behance.net/user/230/7fbae3668910.59a5d2bb1338e.jpg","276":"https://mir-s3-cdn-cf.behance.net/user/276/7fbae3668910.59a5d2bb1338e.jpg"},"display_name":"Alan Barba","fields":["Graphic Design","Illustration","Branding"],"has_default_image":0,"website":"www.alanbarbadesign.com","stats":{"followers":415,"following":1090,"appreciations":1011,"views":17751,"comments":131}},{"id":161474,"first_name":"Egor","last_name":"Kevraletin","username":"egorkevraletin","city":"Yekaterinburg","state":"","country":"Russian Federation","location":"Yekaterinburg, Russian Federation","company":"Ikon BC","occupation":"Art Director & Designer","created_on":1270220131,"url":"https://www.behance.net/egorkevraletin","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/7ef2ab161474.584eb99bee7a5.jpeg","100":"https://mir-s3-cdn-cf.behance.net/user/100/7ef2ab161474.584eb99bee7a5.jpeg","115":"https://mir-s3-cdn-cf.behance.net/user/115/7ef2ab161474.584eb99bee7a5.jpeg","138":"https://mir-s3-cdn-cf.behance.net/user/138/7ef2ab161474.584eb99bee7a5.jpeg","230":"https://mir-s3-cdn-cf.behance.net/user/230/7ef2ab161474.584eb99bee7a5.jpeg","276":"https://mir-s3-cdn-cf.behance.net/user/276/7ef2ab161474.584eb99bee7a5.jpeg"},"display_name":"Egor Kevraletin","fields":["Graphic Design","Branding","Art Direction"],"has_default_image":0,"website":"www.egorkevraletin.ru","stats":{"followers":2721,"following":555,"appreciations":20050,"views":190706,"comments":135}}];
+// var featuredDesigners = [{"id":30431797,"first_name":"NOSIGNER","last_name":"®","username":"nosigner","city":"Yokohama","state":"","country":"Japan","location":"Yokohama, Japan","company":"NOSIGNER","occupation":"We design for evolution.","created_on":1458457165,"url":"https://www.behance.net/nosigner","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/23c21a30431797.5917c15cec67d.jpg","100":"https://mir-s3-cdn-cf.behance.net/user/100/23c21a30431797.5917c15cec67d.jpg","115":"https://mir-s3-cdn-cf.behance.net/user/115/23c21a30431797.5917c15cec67d.jpg","138":"https://mir-s3-cdn-cf.behance.net/user/138/23c21a30431797.5917c15cec67d.jpg","230":"https://mir-s3-cdn-cf.behance.net/user/230/23c21a30431797.5917c15cec67d.jpg","276":"https://mir-s3-cdn-cf.behance.net/user/276/23c21a30431797.5917c15cec67d.jpg"},"display_name":"NOSIGNER ®","fields":["Product Design","Branding","Graphic Design"],"has_default_image":0,"website":"http://www.nosigner.com/","stats":{"followers":3028,"following":0,"appreciations":8676,"views":100092,"comments":37}},{"id":3069005,"first_name":"Raphaël","last_name":"Alexandre","username":"RaphaWelh","city":"Paris","state":"","country":"France","location":"Paris, France","company":"","occupation":"Interaction designer","created_on":1373447187,"url":"https://www.behance.net/RaphaWelh","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/329fd63069005.577fbdb9d3b12.jpg","100":"https://mir-s3-cdn-cf.behance.net/user/100/329fd63069005.577fbdb9d3b12.jpg","115":"https://mir-s3-cdn-cf.behance.net/user/115/329fd63069005.577fbdb9d3b12.jpg","138":"https://mir-s3-cdn-cf.behance.net/user/138/329fd63069005.577fbdb9d3b12.jpg","230":"https://mir-s3-cdn-cf.behance.net/user/230/329fd63069005.577fbdb9d3b12.jpg","276":"https://mir-s3-cdn-cf.behance.net/user/276/329fd63069005.577fbdb9d3b12.jpg"},"display_name":"Raphaël Alexandre","fields":["UI/UX","Interaction Design","Web Design"],"has_default_image":0,"website":"rapha.eu","stats":{"followers":729,"following":97,"appreciations":1263,"views":14168,"comments":221}},{"id":1047691,"first_name":"Ryogo","last_name":"Toyoda","username":"ryogo","city":"Tokyo","state":"","country":"Japan","location":"Tokyo, Japan","company":"Freelance","occupation":"3D illustrator / Motion designer","created_on":1333301423,"url":"https://www.behance.net/ryogo","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/1047691.5429fbc533fc9.png","100":"https://mir-s3-cdn-cf.behance.net/user/100/1047691.5429fbc533fc9.png","115":"https://mir-s3-cdn-cf.behance.net/user/115/1047691.5429fbc533fc9.png","138":"https://mir-s3-cdn-cf.behance.net/user/138/1047691.5429fbc533fc9.png","230":"https://mir-s3-cdn-cf.behance.net/user/230/1047691.5429fbc533fc9.png","276":"https://mir-s3-cdn-cf.behance.net/user/276/1047691.5429fbc533fc9.png"},"display_name":"Ryogo Toyoda","fields":["Digital Art","Graphic Design","Motion Graphics"],"has_default_image":0,"website":"http://rgtd.net/","stats":{"followers":9269,"following":207,"appreciations":15308,"views":179050,"comments":98}},{"id":24694585,"first_name":"Sir","last_name":"Carma","username":"sircarma","city":"Paris","state":"","country":"France","location":"Paris, France","company":"","occupation":"Voxel art designer","created_on":1451477660,"url":"https://www.behance.net/sircarma","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/69d38124694585.5683cb6b9dd62.png","100":"https://mir-s3-cdn-cf.behance.net/user/100/69d38124694585.5683cb6b9dd62.png","115":"https://mir-s3-cdn-cf.behance.net/user/115/69d38124694585.5683cb6b9dd62.png","138":"https://mir-s3-cdn-cf.behance.net/user/138/69d38124694585.5683cb6b9dd62.png","230":"https://mir-s3-cdn-cf.behance.net/user/230/69d38124694585.5683cb6b9dd62.png","276":"https://mir-s3-cdn-cf.behance.net/user/276/69d38124694585.5683cb6b9dd62.png"},"display_name":"Sir Carma","fields":["Graphic Design","Game Design","Illustration"],"has_default_image":0,"website":"saymygame.com","stats":{"followers":6668,"following":9,"appreciations":15085,"views":164975,"comments":10}},{"id":6219085,"first_name":"Bengt","last_name":"Brummer","username":"bengtbrummer","city":"Lausanne","state":"","country":"Switzerland","location":"Lausanne, Switzerland","company":"Logitech","occupation":"Sr. Designer","created_on":1402524280,"url":"https://www.behance.net/bengtbrummer","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/6219085.5398d8e39681f.jpg","100":"https://mir-s3-cdn-cf.behance.net/user/100/6219085.5398d8e39681f.jpg","115":"https://mir-s3-cdn-cf.behance.net/user/115/6219085.5398d8e39681f.jpg","138":"https://mir-s3-cdn-cf.behance.net/user/138/6219085.5398d8e39681f.jpg","230":"https://mir-s3-cdn-cf.behance.net/user/230/6219085.5398d8e39681f.jpg","276":"https://mir-s3-cdn-cf.behance.net/user/276/6219085.5398d8e39681f.jpg"},"display_name":"Bengt Brummer","fields":["Industrial Design","Product Design","Culinary Arts"],"has_default_image":0,"website":"www.bengtbrummer.com","stats":{"followers":1910,"following":7,"appreciations":3117,"views":36566,"comments":6}},{"id":2442649,"first_name":"17Seven","last_name":":: Design Studio","username":"17Seven","city":"Mumbai","state":"","country":"India","location":"Mumbai, India","company":"17Seven","occupation":"UI/UX, Branding, Mobile Apps","created_on":1364537669,"url":"https://www.behance.net/17Seven","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/bab52c2442649.595340fd5c010.png","100":"https://mir-s3-cdn-cf.behance.net/user/100/bab52c2442649.595340fd5c010.png","115":"https://mir-s3-cdn-cf.behance.net/user/115/bab52c2442649.595340fd5c010.png","138":"https://mir-s3-cdn-cf.behance.net/user/138/bab52c2442649.595340fd5c010.png","230":"https://mir-s3-cdn-cf.behance.net/user/230/bab52c2442649.595340fd5c010.png","276":"https://mir-s3-cdn-cf.behance.net/user/276/bab52c2442649.595340fd5c010.png"},"display_name":"17Seven :: Design Studio","fields":["UI/UX","Interaction Design","Graphic Design"],"has_default_image":0,"website":"http://www.17seven.co","stats":{"followers":1016,"following":80,"appreciations":2734,"views":37981,"comments":52}},{"id":116476,"first_name":"Adam","last_name":"Bałazy","username":"Balazy","city":"Warsaw","state":"","country":"Poland","location":"Warsaw, Poland","company":"HA-KA","occupation":"Designer and owner","created_on":1248482690,"url":"https://www.behance.net/Balazy","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/177e00116476.59482060d6f97.jpg","100":"https://mir-s3-cdn-cf.behance.net/user/100/177e00116476.59482060d6f97.jpg","115":"https://mir-s3-cdn-cf.behance.net/user/115/177e00116476.59482060d6f97.jpg","138":"https://mir-s3-cdn-cf.behance.net/user/138/177e00116476.59482060d6f97.jpg","230":"https://mir-s3-cdn-cf.behance.net/user/230/177e00116476.59482060d6f97.jpg","276":"https://mir-s3-cdn-cf.behance.net/user/276/177e00116476.59482060d6f97.jpg"},"display_name":"Adam Bałazy","fields":["UI/UX","Interaction Design","Branding"],"has_default_image":0,"website":"www.ha-ka.com","stats":{"followers":1540,"following":634,"appreciations":5025,"views":59968,"comments":102}},{"id":7200101,"first_name":"Bradley","last_name":"G Munkowitz","username":"gmunk","city":"San Francisco","state":"California","country":"United States","location":"San Francisco, CA, USA","company":"","occupation":"Designer & Director","created_on":1406583557,"url":"https://www.behance.net/gmunk","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/d28b837200101.55808fba080d5.png","100":"https://mir-s3-cdn-cf.behance.net/user/100/d28b837200101.55808fba080d5.png","115":"https://mir-s3-cdn-cf.behance.net/user/115/d28b837200101.55808fba080d5.png","138":"https://mir-s3-cdn-cf.behance.net/user/138/d28b837200101.55808fba080d5.png","230":"https://mir-s3-cdn-cf.behance.net/user/230/d28b837200101.55808fba080d5.png","276":"https://mir-s3-cdn-cf.behance.net/user/276/d28b837200101.55808fba080d5.png"},"display_name":"Bradley G Munkowitz","fields":["Motion Graphics","Cinematography","Directing"],"has_default_image":0,"website":"www.gmunk.com","stats":{"followers":14869,"following":53,"appreciations":37776,"views":667453,"comments":0}},{"id":1376115,"first_name":"Jesse","last_name":"Rieser","username":"jesserieser","city":"Los Angeles","state":"California","country":"United States","location":"Los Angeles, CA, USA","company":"Jesse Rieser Photography","occupation":"Photographer","created_on":1343234191,"url":"https://www.behance.net/jesserieser","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/9f0f7d1376115.58a2733bc8a10.jpeg","100":"https://mir-s3-cdn-cf.behance.net/user/100/9f0f7d1376115.58a2733bc8a10.jpeg","115":"https://mir-s3-cdn-cf.behance.net/user/115/9f0f7d1376115.58a2733bc8a10.jpeg","138":"https://mir-s3-cdn-cf.behance.net/user/138/9f0f7d1376115.58a2733bc8a10.jpeg","230":"https://mir-s3-cdn-cf.behance.net/user/230/9f0f7d1376115.58a2733bc8a10.jpeg","276":"https://mir-s3-cdn-cf.behance.net/user/276/9f0f7d1376115.58a2733bc8a10.jpeg"},"display_name":"Jesse Rieser","fields":["Photography","Animation","Cinematography"],"has_default_image":0,"website":"www.jesserieser.com","stats":{"followers":949,"following":5,"appreciations":2949,"views":34787,"comments":0}},{"id":668910,"first_name":"Alan","last_name":"Barba","username":"alanbarba","city":"Brooklyn","state":"New York","country":"United States","location":"Brooklyn, NY, USA","company":"Alan Barba Design","occupation":"Graphic Designer","created_on":1317395993,"url":"https://www.behance.net/alanbarba","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/7fbae3668910.59a5d2bb1338e.jpg","100":"https://mir-s3-cdn-cf.behance.net/user/100/7fbae3668910.59a5d2bb1338e.jpg","115":"https://mir-s3-cdn-cf.behance.net/user/115/7fbae3668910.59a5d2bb1338e.jpg","138":"https://mir-s3-cdn-cf.behance.net/user/138/7fbae3668910.59a5d2bb1338e.jpg","230":"https://mir-s3-cdn-cf.behance.net/user/230/7fbae3668910.59a5d2bb1338e.jpg","276":"https://mir-s3-cdn-cf.behance.net/user/276/7fbae3668910.59a5d2bb1338e.jpg"},"display_name":"Alan Barba","fields":["Graphic Design","Illustration","Branding"],"has_default_image":0,"website":"www.alanbarbadesign.com","stats":{"followers":415,"following":1090,"appreciations":1011,"views":17751,"comments":131}},{"id":161474,"first_name":"Egor","last_name":"Kevraletin","username":"egorkevraletin","city":"Yekaterinburg","state":"","country":"Russian Federation","location":"Yekaterinburg, Russian Federation","company":"Ikon BC","occupation":"Art Director & Designer","created_on":1270220131,"url":"https://www.behance.net/egorkevraletin","images":{"50":"https://mir-s3-cdn-cf.behance.net/user/50/7ef2ab161474.584eb99bee7a5.jpeg","100":"https://mir-s3-cdn-cf.behance.net/user/100/7ef2ab161474.584eb99bee7a5.jpeg","115":"https://mir-s3-cdn-cf.behance.net/user/115/7ef2ab161474.584eb99bee7a5.jpeg","138":"https://mir-s3-cdn-cf.behance.net/user/138/7ef2ab161474.584eb99bee7a5.jpeg","230":"https://mir-s3-cdn-cf.behance.net/user/230/7ef2ab161474.584eb99bee7a5.jpeg","276":"https://mir-s3-cdn-cf.behance.net/user/276/7ef2ab161474.584eb99bee7a5.jpeg"},"display_name":"Egor Kevraletin","fields":["Graphic Design","Branding","Art Direction"],"has_default_image":0,"website":"www.egorkevraletin.ru","stats":{"followers":2721,"following":555,"appreciations":20050,"views":190706,"comments":135}}];
+var featuredDesigners = [];
 var menuOpen = false;
 
 $(document).ready(function() {
@@ -9,16 +10,35 @@ $(document).ready(function() {
 
 // grabs 'following' from devID. use devID account to follow designers that will be featured
 
-// be(APIKey).user.following(devID, function success(results){
+// be('config/config.json').user.following(devID, function success(results){
 // 	var result = results.following;
 // 	for (var h = 0; h < result.length; h++) {
 // 		featuredDesigners.push(result[h]);
 // 	}
+function getID(){
+	$.ajax({
+		url: "http://www.behance.net/v2/users/" + devID + "/following?api_key=" + AccessToken,
+		type: "get",
+		dataType: "jsonp",
+		success: function(DataFromBehance){
+			console.log(DataFromBehance.following);
+			var featuredDesigners = DataFromBehance.following;
+			showData(featuredDesigners);
+
+		},
+		error: function(){
+			console.log("Cant get behance data")
+		}
+
+	})
+}
 
 console.log(featuredDesigners);
-	//make html from array
-	// for (var i = 0; i < featuredDesigners.length; i++) {
-	for (var i = 0; i < 11; i++) {
+	// SHOW USERS
+	function showData(featuredDesigners){
+		for (var i = 0; i < featuredDesigners.length; i++) {
+
+		// for (var i = 0; i < 11; i++) {
 			var fieldList = [];
 			for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
 				fieldList.push(` ${featuredDesigners[i].fields[j]}`);
@@ -28,23 +48,19 @@ console.log(featuredDesigners);
 				$('#coverFeatured').append(`
 					<div data-ID="${featuredDesigners[i].id}" class="coverFeaturedContainer">
 						<p class="featureName"><strong>${featuredDesigners[i].display_name}</strong></p>
-						<p class="featureFields">${fieldList}</p><div class='modalImagePopup'></div>
+						<p class="featureFields">${fieldList}</p><div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesigners[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesigners[i].stats.views}</p></div>
 						<img class="featureImage" src="${featuredDesigners[i].images[276]}" data-ID=${i}/>
 					</div>
 					`);
 
 				$('.featureImage').mouseenter(function(){
-					
+
 				$(this).css("opacity", "0.1");
-				var statsPopup = $();
-				console.log($(this));
-				statsPopup = `<p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: 26 </p><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: 12</p>`;
-				$(this).siblings('div').html(statsPopup);	
+				var statsPopup = $();	
 				$(this).siblings('div').css("opacity", "1");		
 				});
 				$('.featureImage').mouseleave(function(){
 				$(this).siblings('div').css("opacity", "0");
-				$(this).siblings('div').empty();	
 				$(this).css("opacity", "1");
 
 				});
@@ -56,42 +72,84 @@ console.log(featuredDesigners);
 					<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer">
 						<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
 						<p class="designersFields">${fieldList}</p>
+						<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesigners[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesigners[i].stats.views}</p></div>
 						<img class="designersImage" src="${featuredDesigners[i].images[276]}"/>
+						
 					</div>
 					`);
+
+				$('.designersImage').mouseenter(function(){
+
+				$(this).css("opacity", "0.1");
+				var statsPopup = $();	
+				$(this).siblings('div').css("opacity", "1");		
+				});
+				$('.designersImage').mouseleave(function(){
+				$(this).siblings('div').css("opacity", "0");
+				$(this).css("opacity", "1");
+
+				});
 			}
+			$('.coverFeaturedContainer .featureImage').click(function(){
+				if (menuOpen == false) {
+					var sidebarID = $(this).parent()["0"].dataset.id;
+					checkMenu();
+					$(".modalImagePopup").css('opacity', '0');
+					$(".featureImage").css('opacity', '1');					
+					$("#sidebar").addClass('designerOpened');
+					$(this).parent().clone().appendTo("#sidebarContent");
+					$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerStats"><div class="button">View stats</div></div>`);
+					$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerGrid" class="col-xs-offset-1 col-xs-11 col-noPadding"></div>`);
+					$.ajax({
+						url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
+						dataType: "jsonp",
+						success: function(results){
+							var result = results.projects;
+							console.log(result);
+							for (var i = 0; i < result.length; i++) {
+								$('#modalDesignerGrid').append(`<div class="modalImageContainer"><div class="modalImagePopup"></div><img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/></div>`);
+							}
+							$('.modalImageContainer').mouseenter(function(){
+							$(this).children('img').css("opacity", "0.4");
+							$(this).children('div').append("stats");		
+							// console.log(results.projects[i].covers[230])		
+							});
+							$('.modalImageContainer').mouseleave(function(){
+							$(this).children('img').css("opacity", "1");
+							$(this).children('div').empty();	
+							});
+						}
+						
+					});
+				}
+			})
+
+		}
 	}
+
 
 // });
+var dataBar;
+var options;
+//Google Charts Bar Graph
 
-$('.coverFeaturedContainer .featureImage').click(function(){
-	if (menuOpen == false) {
-		var sidebarID = $(this).parent()["0"].dataset.id;
-		checkMenu();
-		$("#sidebar").addClass('designerOpened');
-		$(this).parent().clone().appendTo("#sidebarContent");
-		$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerStats"><div class="button">View stats</div></div>`);
-		$('#sidebarContent .coverFeaturedContainer').append(`<div id="modalDesignerGrid" class="col-xs-offset-1 col-xs-11 col-noPadding"></div>`);
-		be(APIKey).user.projects(sidebarID, function success(results){
-			var result = results.projects;
-			for (var i = 0; i < 9; i++) {
-				$('#modalDesignerGrid').append(`<div class="modalImageContainer"><img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/></div>`);
-				}
-				$('.modalImageContainer').mouseenter(function(){
-				$(this).children('img').css("opacity", "0.5");
-				// $(this).children('div').append("stats");		
-				// console.log(results.projects[i].covers[230])		
-				});
-				$('.modalImageContainer').mouseleave(function(){
-				$(this).children('img').css("opacity", "1");
-				// $(this).children('div').empty();	
-				});
-		})
-	}
-})
+// google.charts.load('current', {'packages':['corechart']});
+// google.charts.load('current', {'packages':['corechart'], 'mapsApiKey': 'AIzaSyB1qe7ia7SLO6ZZheIqZIvXViHSzMBYzG8'});
+// google.charts.setOnLoadCallback(drawChart);
+var AccessToken;
+	$.ajax({
+		url: 'config/config.json',
+		dataType: "json",
+		success: function(DataFromJSON){
+			console.log(DataFromJSON.AccessToken);
+			AccessToken = DataFromJSON.AccessToken;
+			getID();
 
-
-
+		},
+		error: function(){
+			console.log('Cant get config');
+		}
+	})
 
 //submit listener for project search
 $('#searchForm1').submit(function(){
@@ -169,7 +227,7 @@ function checkMenu(){
 }
 
 // click on menu
-   $("#menu-button").click(function(){
+   $("#menuButton").click(function(){
 		if (menuOpen == false) {
 
 			$("#sidebarMenu").css("display", "inline")
@@ -188,12 +246,14 @@ function checkMenu(){
    function menuOpenFunc(){
 	setTimeout(
 		function() {
+			$("body").css("overflow", "hidden");
 		   $("#sidebar").css("width", "100%");
 		},
 		150);
 	setTimeout(
 		function() {
 			$("#sidebarContent").css("display", "inline");
+			$("#sidebar").css("overflow", "auto");
 			$("#sidebarContent").css("opacity", "1");
 		},
 		550);
@@ -201,14 +261,14 @@ function checkMenu(){
 
    function menuCloseFunc(){
 
-   	$("#sidebarMenu").css("opacity", "0")
- 		$("#sidebar").css("overflow", "hidden");
+	$("#sidebarMenu").css("opacity", "0")
+		$("#sidebar").css("overflow", "hidden");
 	$("#sidebarMenu").css("opacity", "0")
 
 			setTimeout(
 				function() {
 			$("#sidebarMenu").css("display", "none")
-   	 $("body").css("overflow", "auto");
+	 $("body").css("overflow", "auto");
 				},
 				440);
 
@@ -222,32 +282,41 @@ function checkMenu(){
 
 
    };
+// scroll down
+$(".scrollDown").click(function() {
+
+		   $('html, body').animate({
+		scrollTop: $("#aboutUs").offset().top - 120
+		}, 100);
+
+});
 
 // Menu buttons
-$("#featured-designers-link").click(function() {
+$("#featuredDesignersLink").click(function() {
 	setTimeout(
 	function() {
 	   $('html, body').animate({
-		scrollTop: $(".featured-designers-bookmark").offset().top - 40
-		}, 100);
-	},
-	700);
-});
-$("#our-designers-link").click(function() {
-	setTimeout(
-	function() {
-	   $('html, body').animate({
-		scrollTop: $(".our-designers-bookmark").offset().top - 40
+		scrollTop: $(".featuredDesignersBookmark").offset().top - 40
 		}, 100);
 	},
 	700);
 });
 
-$("#about-us-link").click(function() {
+$("#ourDesignersLink").click(function() {
 	setTimeout(
 	function() {
 	   $('html, body').animate({
-		scrollTop: $(".about-us-bookmark").offset().top - 120
+		scrollTop: $(".ourDesignersBookmark").offset().top - 40
+		}, 100);
+	},
+	700);
+});
+
+$("#aboutUsLink").click(function() {
+	setTimeout(
+	function() {
+	   $('html, body').animate({
+		scrollTop: $(".aboutUsBookmark").offset().top - 120
 		}, 100);
 	},
 	700);
@@ -301,19 +370,19 @@ $(".fa-chevron-circle-down").click(function(){
 
 $(".featureImage, .designersImage").click(function(){
 	menuOpen = true;
-   	setTimeout(
-        function() {
-           $("#sidebar").css("width", "100%");
-        },
-        150);
+	setTimeout(
+		function() {
+		   $("#sidebar").css("width", "100%");
+		},
+		150);
 
-   	// disable scrolling body, enable scrolling sidebar
- 	   	setTimeout(
-      function() {
- 				$("body").css("overflow", "hidden");
- 				$("#sidebar").css("overflow", "scroll");
-      },
-      350);
+	// disable scrolling body, enable scrolling sidebar
+		setTimeout(
+	  function() {
+				$("body").css("overflow", "hidden");
+				$("#sidebar").css("overflow", "scroll");
+	  },
+	  350);
 	setTimeout(
 		function() {
 		   $("#sidebar").css("width", "100%");
