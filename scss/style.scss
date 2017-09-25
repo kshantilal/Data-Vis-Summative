@@ -78,16 +78,17 @@ $secondaryFont: "Lato";
 
 #sidebar {
 	height: 100%;
-	opacity: 0;
 	background: linear-gradient(#FF5E3A, #FF2B67);
-	width: 35px;
+
+	width:0px;
 	position: fixed!important;
 	left: 0;
 	top: 0;
 	transition: opacity 0.2s, width 0.3s;
+	overflow: hidden;
 }
 
-#sidebar:hover{
+#menu-button:hover{
 	cursor:pointer;
 }
 
@@ -164,6 +165,7 @@ $secondaryFont: "Lato";
 
 .coverFeaturedContainer, .coverDesignersContainer{
 	margin-bottom: 50px;
+	    text-align: center;
 }
 
 .featureName, .designersName{
@@ -181,15 +183,19 @@ $secondaryFont: "Lato";
     transition: all 0.2s ease;
     box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
 }
+
 .featureImage:hover, .designersImage:hover{
 	cursor: pointer;
-	opacity:0.7;
+	opacity:0.4;
 }
 
+// .coverFeaturedContainer .featureImage:hover {
+// 		cursor: pointer;
+// 	opacity:0.4;
+// }
 
 // sidebar content
 #sidebarMenu{
-	padding-top: 10%;
 	z-index: -900;
 	font-family: $secondaryFont;
 	color:white;
@@ -201,10 +207,12 @@ $secondaryFont: "Lato";
   font-size:20px;
   transition: all 0.2s ease-in;
   display: none;
+  opacity: 0;
+  padding-top: 35%;
 
     h1 {
-    	margin-right: 100px;
-    	text-align: center;
+    	display: inline-block;
+    	margin-left: 25%;
     	font-family: $primaryFont;
     	font-size:60px;
     	margin-bottom: 25px;
@@ -215,8 +223,8 @@ $secondaryFont: "Lato";
     }
 }
 
-.custom-counter {
-    margin-left: 0;
+.customList {
+    margin-left: 24%;
     padding-right: 0;
     list-style-type: none;
     font-family: $primaryFont;
@@ -224,7 +232,6 @@ $secondaryFont: "Lato";
 
     li {
     counter-increment: step-counter;
-		margin-left:20%;
 		letter-spacing: 1px;
 		transition: all 0.2s ease;
 	}
@@ -246,7 +253,7 @@ $secondaryFont: "Lato";
 
 }
 
-.feature-heading {
+.featureHeading {
 	font-size: 20px;
     font-weight: 600;
     letter-spacing: 3px;
@@ -273,12 +280,87 @@ $secondaryFont: "Lato";
 #sidebarContent {
 	display: none;
 }
+#sidebarMenu{
 
-#modalDesignerGrid {
-	width: 80%;
-	display: flex;
-	flex-wrap: wrap;
-	img {
-		flex: 1 0 33%;
+}
+.designerOpened{
+	color:white;
+	font-family: $secondaryFont;
+	font-size: 26px;
+
+	.featureImage {
+		margin:20px 0px;
+		width:100px;
 	}
 }
+#modalDesignerGrid {
+	margin-top: 20px;
+	width: 83%;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden!important;
+	img {
+		transition: all 0.2s ease;
+	}
+.modalImageContainer {
+		flex: 1 0 32%;
+		margin: 5px 5px;
+		transition: all 0.2s ease-in;
+}
+
+	overflow: auto;
+}
+
+.modalImageContainer:hover{
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#modalDesignerStats{
+
+	.button{
+			display: inline-block;
+			border: 1px solid white;
+    padding: 5px 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+
+	}
+.button:hover{
+	background-color: rgba(0,0,0,0.3);
+	cursor: pointer;
+}
+
+}
+
+.modalImagePopup{
+	box-sizing: border-box;
+	padding-top: 100px;
+	position: absolute;
+	width:98%;
+	height: 276px;
+	// transition: all 0.2s ease;
+	text-align: center;
+	z-index: -9900;
+	font-size: 22px;
+	background-color: white;
+	opacity:0;
+	color: #FF4A4B;
+	font-size: 14px;
+
+	.statsPopupTitle {
+		text-transform: uppercase;
+		font-weight:600;
+	}
+	i{
+		margin-right:4px;
+	}
+	p{
+		margin-bottom: 12px;
+	}
+
+}
+// .modalImagePopup:hover {
+// 	cursor: pointer;
+// }
