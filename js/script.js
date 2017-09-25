@@ -6,7 +6,7 @@ var menuOpen = false;
 
 var AccessToken;
 //next 2 lines development only
-AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
+AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
 getID();
 
 	// $.ajax({
@@ -41,11 +41,14 @@ function getID(){
 
 	})
 }
-
+		var Followers;
+		var Comments;
+		var PersonName;
 function showStats(){
 	$("#modalDesignerStats .button").click(function(){
+
 		google.charts.load('current', {'packages':['corechart']});
-		google.charts.load('current', {'packages':['corechart'], 'mapsApiKey': 'AIzaSyB1qe7ia7SLO6ZZheIqZIvXViHSzMBYzG8'});
+		google.charts.load('current', {'packages':['geochart'], 'mapsApiKey': 'AIzaSyB1qe7ia7SLO6ZZheIqZIvXViHSzMBYzG8'});
 		google.charts.setOnLoadCallback(drawChart);
 
 		var dataBar;
@@ -60,14 +63,16 @@ function showStats(){
 				dataType: "jsonp",
 				success: function(DataFromJSON){
 					// console.log(DataFromJSON.projects);
+
 					var dataResults = DataFromJSON.projects;
 					dataBar = new google.visualization.DataTable();
 					dataBar.addColumn('string', 'Name');
-					dataBar.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
+					dataBar.addColumn({type: 'string', role: 'tooltip', p: {html: true}});
 					// dataBar.addColumn('number', 'id'); have to also add in i to the row
 					dataBar.addColumn('number', 'Followers');
 					// dataBar.addColumn('number', 'Views');
 					dataBar.addColumn('number', 'Comments');
+					
 
 					for (var i = 0; i < dataResults.length; i++) {
 							PersonName = dataResults[i].name;
@@ -85,9 +90,9 @@ function showStats(){
 					}
 
 					options = {
-						title: 'My project stats',
-						width: 800,
-						height: 800,
+						title: 'MY PROJECT STATS',
+						width: "100%",
+						height: "100%",
 						colors: ['#009DFF', '#2BB5A5'],
 						// This line makes the entire category's tooltip active.
 						focusTarget: 'category',
@@ -101,15 +106,21 @@ function showStats(){
 
 						hAxis: {
 							title: 'Stats',
-							titleTextStyle: {color: '#0000'},
-							textStyle: {color: '#0000', fontName: 'Lato, san-serif'}
+							titleTextStyle: {color: '#fff'},
+							textStyle: {color: '#fff', fontName: 'Lato, san-serif'}
 						},
 						vAxis: {
 							title: 'Projects',
-							titleTextStyle: {color: '#0000'},
-							textStyle: {color: '#0000', fontName: 'Lato, san-serif'}
+							titleTextStyle: {color: '#fff'},
+							textStyle: {color: '#fff', fontName: 'Lato, san-serif'}
 						},
-						backgroundColor: '#fff'
+						backgroundColor: 'transparent',
+						legend: {
+							textStyle: {
+								color: '#fff',
+								fontName: 'Lato, san-serif'
+							}
+						}
 
 					}
 					
@@ -123,24 +134,28 @@ function showStats(){
 
 			});
 
+
 		}
-		var Followers;
-		var Comments;
-		var PersonName;
+			setTimeout(function(){
+				$('#sidebar').animate({
+				scrollTop: $("#chart1").offset().top
+
+				}, 300);
+			}, 500);
 
 		function createCustomHTMLContent(PersonName, Followers, Comments) {
 			return '<div style="padding:10px 10px 10px 10px;">' +
 				'<table class="medals_layout">' + '<tr>' +
 				'<td><span style="font-size: 15px; color: #009DFF";>' + "<strong>"+PersonName+"</strong>" + '</span></td>' + '</tr>' + '<tr>' +
-				'<td><span class="glyphicon glyphicon-user" style="font-size: 40px; padding-top: 20px; padding-bottom: 20px"></span></td>' +
-				'<td><span style="font-size: 20px">' + Followers + '</span></td>' + '</tr>' +
-				'<td><span class="glyphicon glyphicon-comment" style="font-size: 40px"></span>' +
-				'<td><span style="font-size: 20px">' + Comments + '</span></td>' + '</tr>' + '<tr>'
+				'<td><span class="glyphicon glyphicon-user" style="font-size: 40px; padding-top: 20px; padding-bottom: 20px; color: #FF2B67"></span></td>' +
+				'<td><span style="font-size: 20px; color: #009DFF">' + Followers + '</span></td>' + '</tr>' +
+				'<td><span class="glyphicon glyphicon-comment" style="font-size: 40px; color: #FF2B67"></span>' +
+				'<td><span style="font-size: 20px; color: #2BB5A5">' + Comments + '</span></td>' + '</tr>' + '<tr>'
 		}
 
-
-
 	})
+
+
 
 
 		
@@ -213,6 +228,7 @@ function showData(featuredDesigners){
 		}
 		$('.coverFeaturedContainer .featureImage').click(function(){
 			designerExpand($(this))
+
 			
 		})
 		$('.coverDesignersContainer .designersImage').click(function(){
@@ -228,7 +244,7 @@ function designerExpand(designer) {
 		sidebarID = designer.parent()["0"].dataset.id;
 		checkMenu();
 		$(".modalImagePopup").css('opacity', '0'); 
-        $(".featureImage, .designersImage").css('opacity', '1'); 
+		$(".featureImage, .designersImage").css('opacity', '1'); 
 		$("#sidebar").addClass('designerOpened');
 		designer.parent().clone().appendTo("#sidebarContent");
 		$('#sidebarContent > div').append(`
@@ -358,7 +374,7 @@ function menuOpenFunc(){
 	setTimeout(
 		function() {
 			$("body").css("overflow", "hidden");
-		   	$("#sidebar").css("width", "100%");
+			$("#sidebar").css("width", "100%");
 		},
 		150);
 	setTimeout(
@@ -374,11 +390,13 @@ function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#sidebar").css("overflow", "hidden");
 	$("#sidebarMenu").css("opacity", "0")
+	$("#chart1").empty();
+
 
 	setTimeout(
 		function() {
 			$("#sidebarMenu").css("display", "none")
-	 		$("body").css("overflow", "auto");
+			$("body").css("overflow", "auto");
 			}, 
 		440);
 
@@ -463,7 +481,7 @@ $(window).scroll(function(){
 //Down Button
 $(".fa-chevron-circle-down").click(function(){
 	$("html,body").animate({
-		scrollTop: $("#content").offset().top
+		scrollTop: $("#gradient-aboutUs").offset().top
 	},
 	200);
 });
