@@ -397,7 +397,6 @@ padding-bottom: 400px;
 	position: absolute;
 	top: 10%;
 	opacity: 0;
-	width: 1px;
 	visibility: hidden;
 }
 
@@ -411,6 +410,33 @@ padding-bottom: 400px;
 	opacity: 1;
 	width: 100%;
 	color: white;
+}
+
+.modalImagePopup{
+	box-sizing: border-box;
+	top: 50%;
+	position: absolute;
+	width:92%;
+	height: 276px;
+	// transition: all 0.2s ease;
+	text-align: center;
+	z-index: -9900;
+	font-size: 22px;
+	background-color: white;
+	opacity:0;
+	color: #FF4A4B;
+	font-size: 14px;
+
+	.statsPopupTitle {
+		text-transform: uppercase;
+		font-weight:600;
+	}
+	i{
+		margin-right:4px;
+	}
+	p{
+		margin-bottom: 12px;
+	}
 }
 
 #modalDesignerStats{
