@@ -1,6 +1,6 @@
 var devID = '98195103';
 
-var featuredDesigners = [];
+var featuredDesignersArray = [];
 
 var menuOpen = false;
 
@@ -161,6 +161,7 @@ function showStats(){
 // SHOW USERS
 function showData(featuredDesigners){
 	for (var i = 0; i < featuredDesigners.length; i++) {
+		featuredDesignersArray.push(featuredDesigners[i]);
 		var fieldList = [];
 		for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
 			fieldList.push(`${featuredDesigners[i].fields[j]}`);
@@ -241,15 +242,25 @@ function designerExpand(designer) {
 		$(".modalImagePopup").css('opacity', '0'); 
 		$(".featureImage, .designersImage").css('opacity', '1'); 
 		$("#sidebar").addClass('designerOpened');
-		designer.parent().clone().appendTo("#sidebarContent");
-		$('#sidebarContent').append(`
-			<div data-ID="${sidebarID}" class="col-sm-12">
-				<div id="modalDesignerStats" class="col-sm-12">
-					<div class="button">View stats</div>
+		// designer.parent().clone().appendTo("#sidebarContent");
+		for (var i = 0; i < featuredDesignersArray.length; i++) {
+			if (featuredDesignersArray[i].id == sidebarID) {
+				$('#sidebarContent').append(`
+				<div id="modalDesignerContainer" data-ID="${sidebarID}" class="col-sm-12">
+					<div id="modalProfileContainer" class="col-sm-12">
+						<p class="designersName"><strong>${featuredDesignersArray[i].display_name}</strong></p>
+						<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesignersArray[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesignersArray[i].stats.views}</p></div>
+						<img class="designersImage" src="${featuredDesignersArray[i].images[276]}"/>
+					</div>
+					<div id="modalDesignerStats" class="col-sm-12">
+						<div class="button">View stats</div>
+					</div>
+					<div id="modalDesignerGrid" class="col-sm-12"></div>
 				</div>
-				<div id="modalDesignerGrid" class="col-sm-12"></div>
-			</div>
-			`);
+				`);
+			}
+		}
+		
 		$.ajax({
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
@@ -480,8 +491,10 @@ $("#aboutUsLink").click(function() {
 $(window).scroll(function(){
 	if ($(window).scrollTop()) {
 		$("#sidebar").css("width", "35px");
+		$("#menuButton").css("position", "fixed");
 	}else{
 		$("#sidebar").css("width", "0px");
+		$("#menuButton").css("position", "static");
 	}
 })
 
