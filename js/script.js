@@ -4,17 +4,9 @@ var featuredDesigners = [];
 
 var menuOpen = false;
 
-var dataBar;
-var options;
-//Google Charts Bar Graph
-
-// google.charts.load('current', {'packages':['corechart']});
-// google.charts.load('current', {'packages':['corechart'], 'mapsApiKey': 'AIzaSyB1qe7ia7SLO6ZZheIqZIvXViHSzMBYzG8'});
-// google.charts.setOnLoadCallback(drawChart);
-
 var AccessToken;
 //next 2 lines development only
-AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
+AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
 getID();
 
 	// $.ajax({
@@ -37,9 +29,10 @@ function getID(){
 		type: "get",
 		dataType: "jsonp",
 		success: function(DataFromBehance){
-			console.log(DataFromBehance.following);
+			// console.log(DataFromBehance.following);
 			var featuredDesigners = DataFromBehance.following;
 			showData(featuredDesigners);
+
 
 		},
 		error: function(){
@@ -49,18 +42,133 @@ function getID(){
 	})
 }
 
+		var Followers;
+		var Comments;
+		var PersonName;
+
+function showStats(){
+	$("#modalDesignerStats .button").click(function(){
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.load('current', {'packages':['geochart'], 'mapsApiKey': 'AIzaSyB1qe7ia7SLO6ZZheIqZIvXViHSzMBYzG8'});
+		google.charts.setOnLoadCallback(drawChart);
+
+		var dataBar;
+		var options;
+		
+		function drawChart(){
+
+			var barChartJSON = $.ajax({
+				url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
+				type: "get",
+				contentType: "application/json",
+				dataType: "jsonp",
+				success: function(DataFromJSON){
+					// console.log(DataFromJSON.projects);
+
+					var dataResults = DataFromJSON.projects;
+					dataBar = new google.visualization.DataTable();
+					dataBar.addColumn('string', 'Name');
+					dataBar.addColumn({type: 'string', role: 'tooltip', p: {html: true}});
+					// dataBar.addColumn('number', 'id'); have to also add in i to the row
+					dataBar.addColumn('number', 'Followers');
+					// dataBar.addColumn('number', 'Views');
+					dataBar.addColumn('number', 'Comments');
+					
+
+					for (var i = 0; i < dataResults.length; i++) {
+							PersonName = dataResults[i].name;
+							Followers = dataResults[i].stats.appreciations;
+							Comments = dataResults[i].stats.comments;
+							// Views = DataFromJSON.projects[i].stats.views;
+							// console.log(Comments);
+							
+						dataBar.addRow([
+							PersonName, createCustomHTMLContent(PersonName, Followers, Comments), Followers, Comments
+						]);
+							// console.log(Followers);
+					
+						// console.log(createCustomHTMLContent);
+					}
+
+					options = {
+						title: 'MY PROJECT STATS',
+						width: "100%",
+						height: "100%",
+						colors: ['#009DFF', '#2BB5A5'],
+						// This line makes the entire category's tooltip active.
+						focusTarget: 'category',
+						// Use an HTML tooltip.
+						tooltip: { isHtml: true },
+						titleTextStyle: {
+							color: '#fff',
+							fontSize: 30,
+							fontName: 'Lato, san-serif'
+						},
+
+						hAxis: {
+							title: 'Stats',
+							titleTextStyle: {color: '#fff'},
+							textStyle: {color: '#fff', fontName: 'Lato, san-serif'}
+						},
+						vAxis: {
+							title: 'Projects',
+							titleTextStyle: {color: '#fff'},
+							textStyle: {color: '#fff', fontName: 'Lato, san-serif'}
+						},
+						backgroundColor: 'transparent',
+						legend: {
+							textStyle: {
+								color: '#fff',
+								fontName: 'Lato, san-serif'
+							}
+						}
+
+					}
+					
+
+					var barChart = new google.visualization.BarChart(document.getElementById('chart1')); //what chart are you using eg PieChart
+					barChart.draw(dataBar, options);
+				},
+				error: function(){
+					console.log('Bar chart error');
+				}
+
+			});
+
+
+		}
+			setTimeout(function(){
+				$('#sidebar').animate({
+				scrollTop: $("#chart1").offset().top
+
+				}, 300);
+			}, 500);
+
+		function createCustomHTMLContent(PersonName, Followers, Comments) {
+			return '<div style="padding:10px 10px 10px 10px;">' +
+				'<table class="medals_layout">' + '<tr>' +
+				'<td><span style="font-size: 15px; color: #009DFF";>' + "<strong>"+PersonName+"</strong>" + '</span></td>' + '</tr>' + '<tr>' +
+				'<td><span class="glyphicon glyphicon-user" style="font-size: 40px; padding-top: 20px; padding-bottom: 20px; color: #FF2B67"></span></td>' +
+				'<td><span style="font-size: 20px; color: #009DFF">' + Followers + '</span></td>' + '</tr>' +
+				'<td><span class="glyphicon glyphicon-comment" style="font-size: 40px; color: #FF2B67"></span>' +
+				'<td><span style="font-size: 20px; color: #2BB5A5">' + Comments + '</span></td>' + '</tr>' + '<tr>'
+		}
+
+	})
+	
+}
 
 // SHOW USERS
 function showData(featuredDesigners){
 	for (var i = 0; i < featuredDesigners.length; i++) {
 		var fieldList = [];
 		for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
-			fieldList.push(` ${featuredDesigners[i].fields[j]}`);
+			fieldList.push(`${featuredDesigners[i].fields[j]}`);
 		}
 		if (i < 3) {
 			//Top 3 designer HTML
 			$('#coverFeatured').append(`
-				<div data-ID="${featuredDesigners[i].id}" class="coverFeaturedContainer">
+				<div data-ID="${featuredDesigners[i].id}" class="coverFeaturedContainer col-sm-4">
 					<p class="featureName"><strong>${featuredDesigners[i].display_name}</strong></p>
 					<p class="featureFields">${fieldList}</p>
 					<div class='modalImagePopup'>
@@ -92,7 +200,7 @@ function showData(featuredDesigners){
 		} else {
 			//non-featured designers
 			$('#coverDesigners').append(`
-				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer">
+				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer col-sm-6">
 					<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
 					<p class="designersFields">${fieldList}</p>
 					<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesigners[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesigners[i].stats.views}</p></div>
@@ -114,33 +222,42 @@ function showData(featuredDesigners){
 		}
 		$('.coverFeaturedContainer .featureImage').click(function(){
 			designerExpand($(this))
+
+			
 		})
 		$('.coverDesignersContainer .designersImage').click(function(){
 			designerExpand($(this))
 		})
 			
 	}
+
 }
+var sidebarID;
 
 function designerExpand(designer) {
 	if (menuOpen == false) {
-		var sidebarID = designer.parent()["0"].dataset.id;
+		sidebarID = designer.parent()["0"].dataset.id;
+		console.log(sidebarID);
 		checkMenu();
 		$(".modalImagePopup").css('opacity', '0'); 
-        $(".featureImage, .designersImage").css('opacity', '1'); 
+		$(".featureImage, .designersImage").css('opacity', '1'); 
 		$("#sidebar").addClass('designerOpened');
 		designer.parent().clone().appendTo("#sidebarContent");
-		$('#sidebarContent > div').append(`
-			<div id="modalDesignerStats">
-				<div class="button">View stats</div>
+		$('#sidebarContent').append(`
+			<div data-ID="${sidebarID}" class="col-sm-12">
+				<div id="modalDesignerStats" class="col-sm-12">
+					<div class="button">View stats</div>
+				</div>
+				<div id="modalDesignerGrid" class="col-sm-12"></div>
 			</div>
-			<div id="modalDesignerGrid" class="col-xs-offset-1 col-xs-11 col-noPadding"></div>
 			`);
 		$.ajax({
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
 			success: function(results){
+
 				var result = results.projects;
+
 				console.log(result);
 				for (var i = 0; i < result.length; i++) {
 					$('#modalDesignerGrid').append(`
@@ -150,6 +267,7 @@ function designerExpand(designer) {
 						</div>
 						`);
 				}
+				showStats();
 				$('.modalImageContainer').mouseenter(function(){
 					$(this).children('img').css("opacity", "0.4");
 					$(this).children('div').append("stats");		
@@ -162,7 +280,16 @@ function designerExpand(designer) {
 			}	
 		});
 	}
+
+	if ("width" < "1440px") {
+		$(".coverFeaturedContainer col-sm-12");
+	}else {
+		$(".coverFeaturedContainer col-sm-4");	
+	}
 }
+
+
+
 
 //submit listener for project search
 $('#searchForm1').submit(function(){
@@ -234,8 +361,8 @@ function checkMenu(){
 }
 
 // click on menu
-$("#menu-button").click(function(){
-	if (menuOpen == false) {
+   $("#menuButton").click(function(){
+		if (menuOpen == false) {
 		$("#sidebarMenu").css("display", "inline")
 		setTimeout(
 			function() {
@@ -251,7 +378,7 @@ function menuOpenFunc(){
 	setTimeout(
 		function() {
 			$("body").css("overflow", "hidden");
-		   	$("#sidebar").css("width", "100%");
+			$("#sidebar").css("width", "100%");
 		},
 		150);
 	setTimeout(
@@ -267,11 +394,13 @@ function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#sidebar").css("overflow", "hidden");
 	$("#sidebarMenu").css("opacity", "0")
+	$("#chart1").empty();
+
 
 	setTimeout(
 		function() {
 			$("#sidebarMenu").css("display", "none")
-	 		$("body").css("overflow", "auto");
+			$("body").css("overflow", "auto");
 			}, 
 		440);
 
@@ -284,32 +413,41 @@ function menuCloseFunc(){
 		320);
 };
 
+// scroll down
+$(".scrollDown").click(function() {
+
+		   $('html, body').animate({
+		scrollTop: $("#aboutUs").offset().top - 120
+		}, 100);
+
+});
+
 // Menu buttons
-$("#featured-designers-link").click(function() {
+$("#featuredDesignersLink").click(function() {
 	setTimeout(
 	function() {
 	   $('html, body').animate({
-		scrollTop: $(".featured-designers-bookmark").offset().top - 40
+		scrollTop: $(".featuredDesignersBookmark").offset().top - 40
 		}, 100);
 	},
 	700);
 });
 
-$("#our-designers-link").click(function() {
+$("#ourDesignersLink").click(function() {
 	setTimeout(
 	function() {
 	   $('html, body').animate({
-		scrollTop: $(".our-designers-bookmark").offset().top - 40
+		scrollTop: $(".ourDesignersBookmark").offset().top - 40
 		}, 100);
 	},
 	700);
 });
 
-$("#about-us-link").click(function() {
+$("#aboutUsLink").click(function() {
 	setTimeout(
 	function() {
 	   $('html, body').animate({
-		scrollTop: $(".about-us-bookmark").offset().top - 120
+		scrollTop: $(".aboutUsBookmark").offset().top - 120
 		}, 100);
 	},
 	700);
@@ -356,7 +494,7 @@ $(window).scroll(function(){
 //Down Button
 $(".fa-chevron-circle-down").click(function(){
 	$("html,body").animate({
-		scrollTop: $("#content").offset().top
+		scrollTop: $("#gradient-aboutUs").offset().top
 	},
 	200);
 });

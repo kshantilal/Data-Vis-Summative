@@ -43,35 +43,39 @@ $secondaryFont: "Lato";
 	font-family: "Open Sans Condensed";
 	display: inline-block;
 	font-size: 48px;
-    color: white;
-    font-weight: 600;
-    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 1s; /* Firefox < 16 */
-    -ms-animation: fadein 1s; /* Internet Explorer */
-    -o-animation: fadein 1s; /* Opera < 12.1 */
-    animation: fadein 1s;
+	color: white;
+	font-weight: 600;
+	-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein 1s; /* Firefox < 16 */
+	-ms-animation: fadein 1s; /* Internet Explorer */
+	-o-animation: fadein 1s; /* Opera < 12.1 */
+	animation: fadein 1s;
 }
 #agency{
 	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
 	font-family: "Lato";
-    text-align: center;
-    color: white;
-    padding: 0px 60px;
-    font-size: 11px;
-    letter-spacing: 8px;
-    font-weight: 600;
-    line-height: 24px;
+	text-align: center;
+	color: white;
+	padding: 0px 60px;
+	font-size: 11px;
+	letter-spacing: 8px;
+	font-weight: 600;
+	line-height: 24px;
 }
 
 #coverLogo{
 	margin-right: -2px;
 	height: 35px;
-    margin-bottom: 25px;}
+	margin-bottom: 25px;}
 
-.scroll-down {
+.scrollDown {
 	color: white;
 	font-size: 12px;
-	margin-top: 28vh;
+	height: 28vh;
+    margin-top: 28vh;
+}
+.scrollDown:hover{
+	cursor: pointer;
 }
 
 // sidebar
@@ -88,28 +92,19 @@ $secondaryFont: "Lato";
 	overflow: hidden;
 }
 
-#menu-button:hover{
+#menuButton:hover{
 	cursor:pointer;
 }
 
-.gradient-fill {
-	background: red; /* For browsers that do not support gradients */
-	background: -webkit-linear-gradient(#FF5E3A, #FF2B67); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#FF5E3A, #FF2B67); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#FF5E3A, #FF2B67); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#FF5E3A, #FF2B67); /* Standard syntax */
-}
 
-#menu-button {
+#menuButton {
 	margin-top: 45px;
-    margin-left: 7px;
-}
-#menu-button:hover {
-	cursor: pointer;
+	margin-left: 7px;
 }
 
 #content{
 	font-family: 'Lato', sans-serif;
+	padding-left: 20px;
 
 
 }
@@ -141,22 +136,20 @@ $secondaryFont: "Lato";
 	line-height:40px;
 	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
 	font-family: "Lato";
-    text-align: center;
-    color: white;
-    padding: 0px 10px;
-    font-size: 18px;
-    letter-spacing: 3px;
-    font-weight: 200;
-    line-height: 60px;
+	text-align: center;
+	color: white;
+	padding: 0px 10px;
+	font-size: 18px;
+	font-weight: 200;
 }
 
-#gradient-aboutUs {
+#gradientAboutUs {
 	width:100%;
 	height:24vh;
 	background: linear-gradient(#2BB5A5, white);
 }
 
-#featured, #ourDesigners{
+#featured, #ourDesigners, #coverFeatured{
 	margin-top: 50px;
 }
 
@@ -167,23 +160,24 @@ $secondaryFont: "Lato";
 
 .coverFeaturedContainer, .coverDesignersContainer{
 	margin-bottom: 50px;
-	    text-align: center;
+		text-align: center;
 }
 
 .featureName, .designersName{
 	margin-bottom: 0;
 	text-transform: uppercase;
-    font-weight: 600;
+	font-weight: 600;
 }
 
-.featured-header{
-	margin-top:80px;
-}
+
+// .featured-header{
+// 	margin-top:80px;
+// }
 
 .featureImage, .designersImage{
-    border-radius: 300px;
-    transition: all 0.2s ease;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
+	border-radius: 300px;
+	transition: all 0.2s ease;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
 }
 
 .featureImage:hover, .designersImage:hover{
@@ -212,28 +206,28 @@ $secondaryFont: "Lato";
   opacity: 0;
   padding-top: 35%;
 
-    h1 {
-    	display: inline-block;
-    	margin-left: 25%;
-    	font-family: $primaryFont;
-    	font-size:60px;
-    	margin-bottom: 25px;
-    	font-weight: 600;
-    }
-    i{
-    	font-size:30px;
-    }
+	h1 {
+		display: inline-block;
+		margin-left: 25%;
+		font-family: $primaryFont;
+		font-size:60px;
+		margin-bottom: 25px;
+		font-weight: 600;
+	}
+	i{
+		font-size:30px;
+	}
 }
 
 .customList {
-    margin-left: 24%;
-    padding-right: 0;
-    list-style-type: none;
-    font-family: $primaryFont;
-    font-weight:200;
+	margin-left: 24%;
+	padding-right: 0;
+	list-style-type: none;
+	font-family: $primaryFont;
+	font-weight:200;
 
-    li {
-    counter-increment: step-counter;
+	li {
+	counter-increment: step-counter;
 		letter-spacing: 1px;
 		transition: all 0.2s ease;
 	}
@@ -242,14 +236,14 @@ $secondaryFont: "Lato";
 		cursor: pointer;
 	}
 	li::before {
-    content: counter(step-counter);
-    margin-right: 5px;
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.5);
-    // font-weight: bold;
-    padding: 3px 8px;
-    border-radius: 3px;
-    margin-bottom:4px;
+	content: counter(step-counter);
+	margin-right: 5px;
+	font-size: 10px;
+	color: rgba(255, 255, 255, 0.5);
+	// font-weight: bold;
+	padding: 3px 8px;
+	border-radius: 3px;
+	margin-bottom:4px;
 	}
 
 
@@ -257,22 +251,21 @@ $secondaryFont: "Lato";
 
 .featureHeading {
 	font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-align: center;
-    padding: 0px;
-    border-radius: 20px;
-    color: #FF4A4B;
-    width: 330px;
-    margin: 0 auto;
-    font-family: $secondaryFont;
-    // background: -webkit-linear-gradient(#ff5e3a, #ff2c66);
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
-     i {
-     	color: #FF5E3A;
-     	margin-right:10px;
-     }
+	font-weight: 600;
+	letter-spacing: 3px;
+	text-align: center;
+	padding: 0px;
+	border-radius: 20px;
+	color: #FF4A4B;
+	margin: 0 auto;
+	font-family: $secondaryFont;
+	// background: -webkit-linear-gradient(#ff5e3a, #ff2c66);
+	// -webkit-background-clip: text;
+	// -webkit-text-fill-color: transparent;
+	 i {
+		color: #FF5E3A;
+		margin-right:10px;
+	 }
 }
 
 .coverID {
@@ -298,12 +291,13 @@ $secondaryFont: "Lato";
 }
 #modalDesignerGrid {
 	margin-top: 20px;
-	width: 83%;
+	text-align: center;
 	display: flex;
 	flex-wrap: wrap;
 	overflow: hidden!important;
 	img {
 		transition: all 0.2s ease;
+		width: 100%;
 	}
 .modalImageContainer {
 		flex: 1 0 32%;
@@ -319,23 +313,24 @@ $secondaryFont: "Lato";
 }
 
 #modalDesignerStats{
+	text-align: center;
 
 	.button{
-			display: inline-block;
-			border: 1px solid white;
-    padding: 5px 15px;
-    font-size: 16px;
-    text-transform: uppercase;
-    border-radius: 15px;
-    transition: all 0.2s ease;
-
+		display: inline-block;
+		border: 1px solid white;
+		padding: 5px 15px;
+		font-size: 16px;
+		text-transform: uppercase;
+		border-radius: 15px;
+		transition: all 0.2s ease;
 	}
-.button:hover{
-	background-color: rgba(0,0,0,0.3);
-	cursor: pointer;
-}
+	.button:hover{
+		background-color: rgba(0,0,0,0.3);
+		cursor: pointer;
+	}
 
 }
+
 
 .modalImagePopup{
 	box-sizing: border-box;
@@ -363,6 +358,11 @@ $secondaryFont: "Lato";
 		margin-bottom: 12px;
 	}
 
+}
+
+#chart1{
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 // .modalImagePopup:hover {
 // 	cursor: pointer;

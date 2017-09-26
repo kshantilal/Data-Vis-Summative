@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IllustrateYou</title>
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:200,300,500,600|Open+Sans+Condensed:200,300,500,600">
@@ -19,14 +20,14 @@
 						<img id="coverLogo" src="img/Logo-Block.png" alt="paintbrush-logo">
 						<h1 class="coverText">llustrateYou</h1>
 						<h5 id="agency">DESIGN AGENCY</h5>
-						<div class="scroll-down"><i class="fa fa-chevron-down faa-float animated" aria-hidden="true"></i></div>
+						<div class="scrollDown"><i class="fa fa-chevron-down faa-float animated" aria-hidden="true"></i></div>
 					</div>
 				<!-- </div> -->
 			</div>
 		</div>
 		<div id="content">
 			<div id="aboutUs">
-				<div class="container about-us-bookmark">
+				<div class="container aboutUsBookmark">
 					<div class="row">
 						<div class="col-xs-12">
 							<h1 class="aboutUsText">We are a <strong>design</strong> company<br> based in
@@ -39,53 +40,64 @@
 					</div>					
 				</div>
 			</div>
-			<div id="gradient-aboutUs">
+			<div id="gradientAboutUs">
 			</div>
 			<!-- FEATURED DESIGNERS -->
 			<div class="container featuredMargin">
 				<div class="row">
 					<div class="col-xs-12">
-						<h1 class="featureHeading featured-designers-bookmark"><i class="fa fa-user" aria-hidden="true"></i>FEATURED DESIGNERS</h1>
+						<h1 class="featureHeading featuredDesignersBookmark"><i class="fa fa-user" aria-hidden="true"></i>FEATURED DESIGNERS</h1>
 					</div>
 				</div>			
 			</div>
-			<div id="featured">
+			<div class="container">
 				<div class="row">
-					<div class="col-xs-offset-1 col-xs-11 col-noPadding">
-						<div id="coverFeatured"></div>
-					</div>
+					<div id="coverFeatured"></div>
+
 				</div>
-			</div>
+
+			</div>	
 			<!-- OUR DESIGNERS -->
-			<div class="row">
-				<div class="col-xs-offset-1 col-xs-11 col-noPadding">
-					<h1 class="featureHeading our-designers-bookmark"><i class="fa fa-suitcase" aria-hidden="true"></i>OUR DESIGNERS</h1>
-				</div>
-			</div>
-			<div id="ourDesigners">
+			<div class="container">
 				<div class="row">
-					<div class="col-xs-offset-1 col-xs-11 col-noPadding">
-						<div id="coverDesigners"></div>
+					<div class="col-sm-12">
+						<h1 class="featureHeading ourDesignersBookmark"><i class="fa fa-suitcase" aria-hidden="true"></i>OUR DESIGNERS</h1>
+					</div>
+				</div>
+				<div id="ourDesigners">
+					<div class="row">
+						<div class="col-sm-12">
+							<div id="coverDesigners"></div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div
+		</div>
 
 	</div> 
 	<div id="sidebar">
-		<img id="menu-button" src="img/menu-ico.png">
+		<img id="menuButton" src="img/menu-ico.png">
 		<div id="sidebarContent"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div id="chart1"></div>
+				</div>
+			</div>			
+		</div>
+		
+	</div>
 		<div id="sidebarMenu">
 		<!-- <img id="coverLogo" src="img/Logo-Block.png" alt="paintbrush-logo"> -->
 			<h1>Menu</h1>
 			<ol class="customList">
-			   	<li id="featured-designers-link">Featured Designers</li>
-			  	<li id="our-designers-link">Our Designers</li>
-			   	<li id="about-us-link">About Us</li>
+			   	<li id="featuredDesignersLink">Featured Designers</li>
+			  	<li id="ourDesignersLink">Our Designers</li>
+			   	<li id="aboutUsLink">About Us</li>
 			</ol>
 		</div>
 	</div>
-	<div id="chart1"></div>
+	
 	<!-- masterContainer -->
 	<!-- 	<footer>
 
@@ -104,7 +116,7 @@
 	</footer> -->
 	
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </body>
