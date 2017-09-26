@@ -261,25 +261,25 @@ function designerExpand(designer) {
 				for (var i = 0; i < result.length; i++) {
 					$('#modalDesignerGrid').append(`
 						<div class="modalImageContainer">
-							<div class="modalImagePopup"></div>
-							<a href="${results.projects[i].url}" target="_blank" >
-								<img class="modalDesignerImages" alt="Project: ${results.projects[i].name}" src="${results.projects[i].covers[230]}"/>
+							<a href="${results.projects[i].url}" class="modalTooltipWrapper" target="_blank" >
+								<span class="modalTooltipText">View on Behance</span>
+								<img class="modalDesignerImages" alt="Project: ${results.projects[i].name}" src="${results.projects[i].covers.original}"/>
 							</a>
 
 						</div>
 						`);					
 				}
 				showStats();
-				$('.modalImageContainer').mouseenter(function(){
-					$(this).children('img').css("opacity", "0.4");
-					$(this).children('div').append("stats");
+				// $('.modalImageContainer').mouseenter(function(){
+				// 	$(this).children('img').css("opacity", "0.4");
+				// 	$(this).children('div').append("stats");
 							
-				// console.log(results.projects[i].covers[230])		
-				});
-				$('.modalImageContainer').mouseleave(function(){
-					$(this).children('img').css("opacity", "1");
-					$(this).children('div').empty();	
-				});
+				// // console.log(results.projects[i].covers[230])		
+				// });
+				// $('.modalImageContainer').mouseleave(function(){
+				// 	$(this).children('img').css("opacity", "1");
+				// 	$(this).children('div').empty();	
+				// });
 			}	
 		});
 	}
