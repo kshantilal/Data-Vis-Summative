@@ -168,7 +168,7 @@ function showData(featuredDesigners){
 							Views: ${featuredDesigners[i].stats.views}
 							</p>
 						</div>
-					<img class="featureImage" src="${featuredDesigners[i].images[276]}" data-ID=${i}/>
+					<img class="featureImage" alt="${featuredDesigners[i].display_name}'s profile pic" src="${featuredDesigners[i].images[276]}" data-ID=${i}/>
 				</div>
 				`);
 
@@ -191,7 +191,7 @@ function showData(featuredDesigners){
 					<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
 					<p class="designersFields">${fieldList}</p>
 					<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesigners[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesigners[i].stats.views}</p></div>
-					<img class="designersImage" src="${featuredDesigners[i].images[276]}"/>
+					<img class="designersImage" alt="${featuredDesigners[i].display_name}'s profile pic" src="${featuredDesigners[i].images[276]}"/>
 					
 				</div>
 				`);
@@ -238,7 +238,7 @@ function designerExpand(designer) {
 							<p class="designersName"><strong>${featuredDesignersArray[i].display_name}</strong></p>
 							<p class="designersFields">${fieldList}</p>
 							<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesignersArray[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesignersArray[i].stats.views}</p></div>
-							<img class="designersImage" src="${featuredDesignersArray[i].images[276]}"/>
+							<img class="designersImage" alt="${featuredDesignersArray[i].display_name}'s profile pic" src="${featuredDesignersArray[i].images[276]}"/>
 						</div>
 						<div id="modalDesignerStats" class="col-sm-12">
 							<div class="button">View stats</div>
@@ -254,12 +254,13 @@ function designerExpand(designer) {
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
 			success: function(results){
-				var result = results.projects;			
+				var result = results.projects;	
+				console.log(result);		
 				for (var i = 0; i < result.length; i++) {
 					$('#modalDesignerGrid').append(`
 						<div class="modalImageContainer">
 							<div class="modalImagePopup"></div>
-							<img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/>
+							<img class="modalDesignerImages" alt="Project: ${results.projects[i].name}" src="${results.projects[i].covers[230]}"/>
 						</div>
 						`);					
 				}
