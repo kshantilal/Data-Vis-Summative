@@ -93,13 +93,12 @@ $secondaryFont: "Lato";
 }
 
 .closeButton{
-	position: fixed;
-	bottom: 85%;
-	padding-left: 10px;
+	position: absolute;
+	top: 50px;
+	right: 0px;	
 	display: block;
-	font-size: 15px;
-	transition: all 0.2s ease;
-
+	font-size: 30px;
+	cursor: pointer;
 }
 
 .closeButton:hover{

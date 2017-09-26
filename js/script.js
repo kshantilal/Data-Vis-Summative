@@ -127,7 +127,7 @@ function showStats(){
 			});
 
 
-			$(".designerOpened").append(`
+			$(".chartContainer").append(`
 			<div class="closeButton">
 				<i class="fa fa-times"></i>
 			</div>
