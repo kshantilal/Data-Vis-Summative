@@ -3,6 +3,22 @@
 $primaryFont: "Open Sans Condensed";
 $secondaryFont: "Lato";
 
+$mobileWidth: 400px;
+$tabletWidth: 650px;
+$fullWidth: 824px;
+
+@mixin mediaTablet {
+    @media (min-width: #{$tabletWidth}) and (max-width: #{$fullWidth}) {
+        @content;
+    }
+}
+@mixin mediaDesktop {
+    @media (min-width: #{$fullWidth}) {
+        @content;
+    }
+}
+
+
 *{
 	text-decoration: none;
 	padding: 0;
@@ -12,6 +28,10 @@ $secondaryFont: "Lato";
 .row{
 	margin-right: 0px!important;
 	margin-left: 0px!important;
+}
+
+body {
+	min-width: 200px;
 }
 
 #masterContainer{
@@ -181,6 +201,13 @@ $secondaryFont: "Lato";
 	border-radius: 300px;
 	transition: all 0.2s ease;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
+	width: 70%;
+	@include mediaTablet {
+		width: 70%;
+	}
+	@include mediaDesktop {
+		width: 100%;
+	}
 }
 
 .col-sm-3{
@@ -307,8 +334,16 @@ $secondaryFont: "Lato";
 	overflow: hidden!important;
 	img {
 		transition: all 0.2s ease;
-		width: 50%;
-		height: 50%;
+		width: 85%;
+		height: 85%;
+		@include mediaTablet {
+			width: 65%;
+			height: 65%;
+		}
+		@include mediaDesktop {
+			width: 55%;
+			height: 55%;
+		}
 	}
 
 	.modalImageContainer {
@@ -316,7 +351,7 @@ $secondaryFont: "Lato";
 		margin: 5px 5px;
 		transition: all 0.2s ease-in;
 	}
-	overflow: auto;
+	// overflow: auto;
 }
 
 .modalDesignerImages:hover{
