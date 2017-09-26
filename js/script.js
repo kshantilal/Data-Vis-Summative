@@ -11,7 +11,9 @@ var Likes;
 var Comments;
 var PersonName;
 //next 2 lines development only
-AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
+// AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
+// AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
+AccessToken = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
 getID();
 
 	// $.ajax({
@@ -260,7 +262,10 @@ function designerExpand(designer) {
 					$('#modalDesignerGrid').append(`
 						<div class="modalImageContainer">
 							<div class="modalImagePopup"></div>
-							<img class="modalDesignerImages" alt="Project: ${results.projects[i].name}" src="${results.projects[i].covers[230]}"/>
+							<a href="${results.projects[i].url}" target="_blank" >
+								<img class="modalDesignerImages" alt="Project: ${results.projects[i].name}" src="${results.projects[i].covers[230]}"/>
+							</a>
+
 						</div>
 						`);					
 				}
