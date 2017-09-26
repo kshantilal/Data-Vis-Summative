@@ -43,30 +43,30 @@ $secondaryFont: "Lato";
 	font-family: "Open Sans Condensed";
 	display: inline-block;
 	font-size: 48px;
-    color: white;
-    font-weight: 600;
-    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 1s; /* Firefox < 16 */
-    -ms-animation: fadein 1s; /* Internet Explorer */
-    -o-animation: fadein 1s; /* Opera < 12.1 */
-    animation: fadein 1s;
+	color: white;
+	font-weight: 600;
+	-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein 1s; /* Firefox < 16 */
+	-ms-animation: fadein 1s; /* Internet Explorer */
+	-o-animation: fadein 1s; /* Opera < 12.1 */
+	animation: fadein 1s;
 }
 #agency{
 	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
 	font-family: "Lato";
-    text-align: center;
-    color: white;
-    padding: 0px 60px;
-    font-size: 11px;
-    letter-spacing: 8px;
-    font-weight: 600;
-    line-height: 24px;
+	text-align: center;
+	color: white;
+	padding: 0px 60px;
+	font-size: 11px;
+	letter-spacing: 8px;
+	font-weight: 600;
+	line-height: 24px;
 }
 
 #coverLogo{
 	margin-right: -2px;
 	height: 35px;
-    margin-bottom: 25px;}
+	margin-bottom: 25px;}
 
 .scrollDown {
 	color: white;
@@ -99,11 +99,15 @@ $secondaryFont: "Lato";
 
 #menuButton {
 	margin-top: 45px;
-    margin-left: 7px;
+	margin-left: 7px;
+	z-index: 10;
 }
 
 #content{
 	font-family: 'Lato', sans-serif;
+	padding-left: 20px;
+
+
 }
 
 #aboutUs{
@@ -133,13 +137,11 @@ $secondaryFont: "Lato";
 	line-height:40px;
 	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
 	font-family: "Lato";
-    text-align: center;
-    color: white;
-    padding: 0px 10px;
-    font-size: 18px;
-    letter-spacing: 3px;
-    font-weight: 200;
-    line-height: 60px;
+	text-align: center;
+	color: white;
+	padding: 0px 10px;
+	font-size: 18px;
+	font-weight: 200;
 }
 
 #gradientAboutUs {
@@ -148,7 +150,7 @@ $secondaryFont: "Lato";
 	background: linear-gradient(#2BB5A5, white);
 }
 
-#featured, #ourDesigners{
+#featured, #ourDesigners, #coverFeatured{
 	margin-top: 50px;
 }
 
@@ -159,28 +161,38 @@ $secondaryFont: "Lato";
 
 .coverFeaturedContainer, .coverDesignersContainer{
 	margin-bottom: 50px;
-	    text-align: center;
+		text-align: center;
 }
 
 .featureName, .designersName{
 	margin-bottom: 0;
 	text-transform: uppercase;
-    font-weight: 600;
+	font-weight: 600;
 }
 
+.designersFields{
+	font-size: 14px;
+}
 // .featured-header{
 // 	margin-top:80px;
 // }
 
 .featureImage, .designersImage{
-    border-radius: 300px;
-    transition: all 0.2s ease;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
+	border-radius: 300px;
+	transition: all 0.2s ease;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
+}
+
+.col-sm-3{
+	padding: 0px;
 }
 
 .featureImage:hover, .designersImage:hover{
 	cursor: pointer;
-	opacity:0.4;
+	opacity :0.4;
+}
+.featuredMargin{
+	margin-top: 50px;
 }
 
 // .coverFeaturedContainer .featureImage:hover {
@@ -204,28 +216,28 @@ $secondaryFont: "Lato";
   opacity: 0;
   padding-top: 35%;
 
-    h1 {
-    	display: inline-block;
-    	margin-left: 25%;
-    	font-family: $primaryFont;
-    	font-size:60px;
-    	margin-bottom: 25px;
-    	font-weight: 600;
-    }
-    i{
-    	font-size:30px;
-    }
+	h1 {
+		display: inline-block;
+		margin-left: 25%;
+		font-family: $primaryFont;
+		font-size:60px;
+		margin-bottom: 25px;
+		font-weight: 600;
+	}
+	i{
+		font-size:30px;
+	}
 }
 
 .customList {
-    margin-left: 24%;
-    padding-right: 0;
-    list-style-type: none;
-    font-family: $primaryFont;
-    font-weight:200;
+	margin-left: 24%;
+	padding-right: 0;
+	list-style-type: none;
+	font-family: $primaryFont;
+	font-weight:200;
 
-    li {
-    counter-increment: step-counter;
+	li {
+	counter-increment: step-counter;
 		letter-spacing: 1px;
 		transition: all 0.2s ease;
 	}
@@ -234,14 +246,14 @@ $secondaryFont: "Lato";
 		cursor: pointer;
 	}
 	li::before {
-    content: counter(step-counter);
-    margin-right: 5px;
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.5);
-    // font-weight: bold;
-    padding: 3px 8px;
-    border-radius: 3px;
-    margin-bottom:4px;
+	content: counter(step-counter);
+	margin-right: 5px;
+	font-size: 10px;
+	color: rgba(255, 255, 255, 0.5);
+	// font-weight: bold;
+	padding: 3px 8px;
+	border-radius: 3px;
+	margin-bottom:4px;
 	}
 
 
@@ -249,22 +261,21 @@ $secondaryFont: "Lato";
 
 .featureHeading {
 	font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-align: center;
-    padding: 0px;
-    border-radius: 20px;
-    color: #FF4A4B;
-    width: 330px;
-    margin: 0 auto;
-    font-family: $secondaryFont;
-    // background: -webkit-linear-gradient(#ff5e3a, #ff2c66);
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
-     i {
-     	color: #FF5E3A;
-     	margin-right:10px;
-     }
+	font-weight: 600;
+	letter-spacing: 3px;
+	text-align: center;
+	padding: 0px;
+	border-radius: 20px;
+	color: #FF4A4B;
+	margin: 0 auto;
+	font-family: $secondaryFont;
+	// background: -webkit-linear-gradient(#ff5e3a, #ff2c66);
+	// -webkit-background-clip: text;
+	// -webkit-text-fill-color: transparent;
+	 i {
+		color: #FF5E3A;
+		margin-right:10px;
+	 }
 }
 
 .coverID {
@@ -282,22 +293,24 @@ $secondaryFont: "Lato";
 	font-family: $secondaryFont;
 	font-size: 26px;
 
-	.featureImage {
+	.featureImage, .designersImage {
 		margin:20px 0px;
 		width:100px;
+		opacity: 1;
 	}
 }
 #modalDesignerGrid {
 	margin-top: 20px;
-	width: 83%;
+	text-align: center;
 	display: flex;
 	flex-wrap: wrap;
 	overflow: hidden!important;
 	img {
 		transition: all 0.2s ease;
+		width: 100%;
 	}
 .modalImageContainer {
-		flex: 1 0 32%;
+		flex: 1 0 34%;
 		margin: 5px 5px;
 		transition: all 0.2s ease-in;
 }
@@ -310,29 +323,34 @@ $secondaryFont: "Lato";
 }
 
 #modalDesignerStats{
+	text-align: center;
 
 	.button{
-			display: inline-block;
-			border: 1px solid white;
-    padding: 5px 15px;
-    font-size: 16px;
-    text-transform: uppercase;
-    border-radius: 15px;
-    transition: all 0.2s ease;
-
+		display: inline-block;
+		border: 1px solid white;
+		padding: 5px 15px;
+		font-size: 16px;
+		text-transform: uppercase;
+		border-radius: 15px;
+		transition: all 0.2s ease;
 	}
-.button:hover{
-	background-color: rgba(0,0,0,0.3);
-	cursor: pointer;
-}
+	.button:hover{
+		background-color: rgba(0,0,0,0.3);
+		cursor: pointer;
+	}
 
 }
+#modalProfileContainer{
+	margin-top: 50px;
+	text-align: center;
+}
+
 
 .modalImagePopup{
 	box-sizing: border-box;
 	padding-top: 100px;
 	position: absolute;
-	width:98%;
+	width:92%;
 	height: 276px;
 	// transition: all 0.2s ease;
 	text-align: center;
@@ -355,6 +373,26 @@ $secondaryFont: "Lato";
 	}
 
 }
+
+#chart1{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.footer {
+	height: 60px;
+	margin-top: 50px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1.9rem;
+	background-color: #2BB5A5;
+	text-align: center;
+	font-size: 10px;
+	color: #FFF;
+
+}
+
 // .modalImagePopup:hover {
 // 	cursor: pointer;
 // }

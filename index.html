@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>IllustrateYou</title>
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:200,300,500,600|Open+Sans+Condensed:200,300,500,600">
 	<link href='http://fonts.googleapis.com/css?family=Lato:700,300' rel='stylesheet' type='text/css'>
@@ -14,14 +15,12 @@
 	<div id="masterContainer">
 		<div id="cover">
 			<div class="row d-flex justify-content-center">
-				<!-- <div class="col-xs-12"> -->
-					<div id="coverTitle" class="align-self-center">
-						<img id="coverLogo" src="img/Logo-Block.png" alt="paintbrush-logo">
-						<h1 class="coverText">llustrateYou</h1>
-						<h5 id="agency">DESIGN AGENCY</h5>
-						<div class="scrollDown"><i class="fa fa-chevron-down faa-float animated" aria-hidden="true"></i></div>
-					</div>
-				<!-- </div> -->
+				<div id="coverTitle" class="align-self-center">
+					<img id="coverLogo" src="img/Logo-Block.png" alt="paintbrush-logo">
+					<h1 class="coverText">llustrateYou</h1>
+					<h5 id="agency">DESIGN AGENCY</h5>
+					<div class="scrollDown"><i class="fa fa-chevron-down faa-float animated" aria-hidden="true"></i></div>
+				</div>
 			</div>
 		</div>
 		<div id="content">
@@ -44,52 +43,54 @@
 			<!-- FEATURED DESIGNERS -->
 			<div class="container featuredMargin">
 				<div class="row">
-					<div class="col-xs-12">
+					<div class="col-sm-12">
 						<h1 class="featureHeading featuredDesignersBookmark"><i class="fa fa-user" aria-hidden="true"></i>FEATURED DESIGNERS</h1>
 					</div>
-				</div>			
-			</div>
-			<div id="featured">
+				</div>					
 				<div class="row">
-					<div class="col-xs-offset-1 col-xs-11 col-noPadding">
-						<div id="coverFeatured"></div>
-					</div>
+					<div id="coverFeatured"></div>
 				</div>
-			</div>
+			</div>	
 			<!-- OUR DESIGNERS -->
-			<div class="row">
-				<div class="col-xs-offset-1 col-xs-11 col-noPadding">
-					<h1 class="featureHeading ourDesignersBookmark"><i class="fa fa-suitcase" aria-hidden="true"></i>OUR DESIGNERS</h1>
-				</div>
-			</div>
-			<div id="ourDesigners">
+			<div class="container">
 				<div class="row">
-					<div class="col-xs-offset-1 col-xs-11 col-noPadding">
-						<div id="coverDesigners"></div>
+					<div class="col-sm-12">
+						<h1 class="featureHeading ourDesignersBookmark"><i class="fa fa-suitcase" aria-hidden="true"></i>OUR DESIGNERS</h1>
 					</div>
 				</div>
+				<div class="row">
+					<div id="ourDesigners">					
+						<div id="coverDesigners"></div>
+					</div>					
+				</div>	
 			</div>
-		</div
+		</div>
 
-	</div> 
+	</div> <!-- masterContainer -->
 	<div id="sidebar">
 		<img id="menuButton" src="img/menu-ico.png">
 		<div id="sidebarContent"></div>
-		<div id="sidebarMenu">
-		<!-- <img id="coverLogo" src="img/Logo-Block.png" alt="paintbrush-logo"> -->
-			<h1>Menu</h1>
-			<ol class="customList">
-			   	<li id="featuredDesignersLink">Featured Designers</li>
-			  	<li id="ourDesignersLink">Our Designers</li>
-			   	<li id="aboutUsLink">About Us</li>
-			</ol>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div id="chart1"></div>
+				</div>
+			</div>			
 		</div>
+		
 	</div>
-	<div id="chart1"></div>
-	<!-- masterContainer -->
-	<!-- 	<footer>
+	<div id="sidebarMenu">
+	<!-- <img id="coverLogo" src="img/Logo-Block.png" alt="paintbrush-logo"> -->
+		<h1>Menu</h1>
+		<ol class="customList">
+			<li id="featuredDesignersLink">Featured Designers</li>
+			<li id="ourDesignersLink">Our Designers</li>
+			<li id="aboutUsLink">About Us</li>
+		</ol>
+	</div>
 
-		<form id="searchForm1">
+	
+<!-- 		<form id="searchForm1">
 			<input id="testSearch1" type="text" name="search" placeholder="projects">
 		</form>
 		<form id="searchForm2">
@@ -98,14 +99,11 @@
 		<div id="test">
 			<div id="test1"></div>	
 			<div id="test2"></div>
-		</div>
-		<p>copyright tuterangi kunal tim</p>
-		<p>for educational purposes only</p>
-	</footer> -->
-	
-	<!-- <script type="text/javascript" src="js/be.js"></script> -->
+		</div> -->
+
+	<div class="footer col-sm-12"><span class="footer-text">&#169; 2017&nbsp;&nbsp;|&nbsp;&nbsp;Designed &#38; Developed by Kunal Shantilal, Tim Stannard &#38; Tuterangi Pleydell</span></div>
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </body>
