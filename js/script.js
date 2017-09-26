@@ -41,12 +41,13 @@ function getID(){
 
 	})
 }
+
 		var Followers;
 		var Comments;
 		var PersonName;
+
 function showStats(){
 	$("#modalDesignerStats .button").click(function(){
-
 		google.charts.load('current', {'packages':['corechart']});
 		google.charts.load('current', {'packages':['geochart'], 'mapsApiKey': 'AIzaSyB1qe7ia7SLO6ZZheIqZIvXViHSzMBYzG8'});
 		google.charts.setOnLoadCallback(drawChart);
@@ -157,8 +158,6 @@ function showStats(){
 	
 }
 
-
-
 // SHOW USERS
 function showData(featuredDesigners){
 	for (var i = 0; i < featuredDesigners.length; i++) {
@@ -234,19 +233,23 @@ function showData(featuredDesigners){
 
 }
 var sidebarID;
+
 function designerExpand(designer) {
 	if (menuOpen == false) {
 		sidebarID = designer.parent()["0"].dataset.id;
+		console.log(sidebarID);
 		checkMenu();
 		$(".modalImagePopup").css('opacity', '0'); 
 		$(".featureImage, .designersImage").css('opacity', '1'); 
 		$("#sidebar").addClass('designerOpened');
 		designer.parent().clone().appendTo("#sidebarContent");
-		$('#sidebarContent > div').append(`
-			<div id="modalDesignerStats">
-				<div class="button">View stats</div>
+		$('#sidebarContent').append(`
+			<div data-ID="${sidebarID}" class="col-sm-12">
+				<div id="modalDesignerStats" class="col-sm-12">
+					<div class="button">View stats</div>
+				</div>
+				<div id="modalDesignerGrid" class="col-sm-12"></div>
 			</div>
-			<div id="modalDesignerGrid" class="col-xs-offset-1 col-xs-11 col-noPadding"></div>
 			`);
 		$.ajax({
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
@@ -276,6 +279,12 @@ function designerExpand(designer) {
 				});
 			}	
 		});
+	}
+
+	if ("width" < "1440px") {
+		$(".coverFeaturedContainer col-sm-12");
+	}else {
+		$(".coverFeaturedContainer col-sm-4");	
 	}
 }
 

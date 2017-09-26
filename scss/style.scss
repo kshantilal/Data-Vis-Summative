@@ -140,9 +140,7 @@ $secondaryFont: "Lato";
 	color: white;
 	padding: 0px 10px;
 	font-size: 18px;
-	letter-spacing: 3px;
 	font-weight: 200;
-	line-height: 60px;
 }
 
 #gradientAboutUs {
@@ -293,12 +291,13 @@ $secondaryFont: "Lato";
 }
 #modalDesignerGrid {
 	margin-top: 20px;
-	width: 83%;
+	text-align: center;
 	display: flex;
 	flex-wrap: wrap;
 	overflow: hidden!important;
 	img {
 		transition: all 0.2s ease;
+		width: 100%;
 	}
 .modalImageContainer {
 		flex: 1 0 32%;
@@ -314,23 +313,24 @@ $secondaryFont: "Lato";
 }
 
 #modalDesignerStats{
+	text-align: center;
 
 	.button{
-			display: inline-block;
-			border: 1px solid white;
-	padding: 5px 15px;
-	font-size: 16px;
-	text-transform: uppercase;
-	border-radius: 15px;
-	transition: all 0.2s ease;
-
+		display: inline-block;
+		border: 1px solid white;
+		padding: 5px 15px;
+		font-size: 16px;
+		text-transform: uppercase;
+		border-radius: 15px;
+		transition: all 0.2s ease;
 	}
-.button:hover{
-	background-color: rgba(0,0,0,0.3);
-	cursor: pointer;
-}
+	.button:hover{
+		background-color: rgba(0,0,0,0.3);
+		cursor: pointer;
+	}
 
 }
+
 
 .modalImagePopup{
 	box-sizing: border-box;
