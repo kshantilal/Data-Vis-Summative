@@ -3,6 +3,22 @@
 $primaryFont: "Open Sans Condensed";
 $secondaryFont: "Lato";
 
+$mobileWidth: 400px;
+$tabletWidth: 650px;
+$fullWidth: 824px;
+
+@mixin mediaTablet {
+    @media (min-width: #{$tabletWidth}) and (max-width: #{$fullWidth}) {
+        @content;
+    }
+}
+@mixin mediaDesktop {
+    @media (min-width: #{$fullWidth}) {
+        @content;
+    }
+}
+
+
 *{
 	text-decoration: none;
 	padding: 0;
@@ -12,6 +28,10 @@ $secondaryFont: "Lato";
 .row{
 	margin-right: 0px!important;
 	margin-left: 0px!important;
+}
+
+body {
+	min-width: 200px;
 }
 
 #masterContainer{
@@ -92,6 +112,24 @@ $secondaryFont: "Lato";
 	overflow: hidden;
 }
 
+.closeButton{
+	position: absolute;
+	top: 50px;
+	right: 0px;	
+	display: block;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.closeButton:hover{
+	color: #009DFF;
+	transition: all 0.2s ease;
+
+}
+
+#menuButton:hover{
+	cursor:pointer;
+}
 
 #menuButton {
 	margin-top: 45px;
@@ -183,6 +221,13 @@ margin-bottom: 25vh;
 	border-radius: 300px;
 	transition: all 0.2s ease;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
+	width: 70%;
+	@include mediaTablet {
+		width: 70%;
+	}
+	@include mediaDesktop {
+		width: 100%;
+	}
 }
 
 .col-sm-3{
@@ -313,53 +358,63 @@ padding-bottom: 400px;
 #modalDesignerGrid {
 	margin-top: 20px;
 	text-align: center;
-	display: flex;
-	flex-wrap: wrap;
+	// display: flex;
+	// flex-wrap: wrap;
 	overflow: hidden!important;
 	img {
 		transition: all 0.2s ease;
-		width: 100%;
+		width: 85%;
+		height: 85%;
+		@include mediaTablet {
+			width: 65%;
+			height: 65%;
+		}
+		@include mediaDesktop {
+			width: 55%;
+			height: 55%;
+		}
 	}
 .modalImageContainer {
-		flex: 1 0 34%;
+		flex: 1 0 32%;
 		margin: 5px 5px;
 		transition: all 0.2s ease-in;
-}
-
-	overflow: auto;
-}
-
-.modalImageContainer:hover{
-	background-color: rgba(0, 0, 0, 0.3);
-}
-
-#modalDesignerStats{
-	text-align: center;
-
-	.button{
-		display: inline-block;
-		border: 1px solid white;
-		padding: 5px 15px;
-		font-size: 16px;
-		text-transform: uppercase;
-		border-radius: 15px;
-		transition: all 0.2s ease;
 	}
-	.button:hover{
-		background-color: rgba(0,0,0,0.3);
-		cursor: pointer;
-	}
-
-}
-#modalProfileContainer{
-	margin-top: 50px;
-	text-align: center;
+	// overflow: auto;
 }
 
+.modalDesignerImages:hover{
+	opacity: 0.4;
+}
+
+
+.modalTooltipWrapper {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.modalTooltipText {
+	position: absolute;
+	top: 10%;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.modalTooltipText:hover .modalDesignerImages {
+	opacity: 0.4;
+}
+
+.modalTooltipWrapper:hover .modalTooltipText {
+	visibility: visible;
+	transition: 0.3s;
+	opacity: 1;
+	width: 100%;
+	color: white;
+}
 
 .modalImagePopup{
 	box-sizing: border-box;
-	padding-top: 100px;
+	top: 50%;
 	position: absolute;
 	width:92%;
 	height: 276px;
@@ -382,8 +437,31 @@ padding-bottom: 400px;
 	p{
 		margin-bottom: 12px;
 	}
+}
+
+#modalDesignerStats{
+	text-align: center;
+
+	.button{
+		display: inline-block; 
+		border: 1px solid white;
+		padding: 5px 15px;
+		font-size: 16px;
+		text-transform: uppercase;
+		border-radius: 15px;
+		transition: all 0.2s ease;
+	}
+	.button:hover{
+		background-color: rgba(0,0,0,0.3);
+		cursor: pointer;
+	}
 
 }
+#modalProfileContainer{
+	margin-top: 50px;
+	text-align: center;
+}
+
 
 #chart1{
 	margin-top: 30px;
@@ -403,7 +481,3 @@ padding-bottom: 400px;
 	color: #FFF;
 
 }
-
-// .modalImagePopup:hover {
-// 	cursor: pointer;
-// }

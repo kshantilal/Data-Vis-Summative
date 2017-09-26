@@ -11,7 +11,9 @@ var Likes;
 var Comments;
 var PersonName;
 //next 2 lines development only
-AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
+// AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
+// AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
+AccessToken = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
 getID();
 
 	// $.ajax({
@@ -113,7 +115,8 @@ function showStats(){
 							textStyle: {
 								color: '#fff',
 								fontName: 'Lato, san-serif'
-							}
+							},
+							position: 'top'
 						}
 					}
 					var barChart = new google.visualization.BarChart(document.getElementById('chart1')); //what chart are you using eg PieChart
@@ -124,6 +127,20 @@ function showStats(){
 				}
 
 			});
+
+
+			$(".chartContainer").append(`
+			<div class="closeButton">
+				<i class="fa fa-times"></i>
+			</div>
+			`);
+
+			$(".closeButton").click(function(){
+				$(this).css("display", "none");
+				$("#chart1").empty();
+
+			})
+
 		}
 			setTimeout(function(){
 				$('#sidebar').animate({
@@ -144,20 +161,21 @@ function showStats(){
 	})
 }
 
+
 // SHOW USERS
 function showData(featuredDesigners){
 	for (var i = 0; i < featuredDesigners.length; i++) {
 		featuredDesignersArray.push(featuredDesigners[i]);
 		var fieldList = [];
 		for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
-			fieldList.push(`${featuredDesigners[i].fields[j]}`);
+			fieldList.push(`${featuredDesigners[i].fields[j]}<br>`);
 		}
 		if (i < 3) {
 			//Top 3 designer HTML
 			$('#coverFeatured').append(`
 				<div data-ID="${featuredDesigners[i].id}" class="coverFeaturedContainer col-sm-4">
 					<p class="featureName"><strong>${featuredDesigners[i].display_name}</strong></p>
-					<p class="featureFields">${fieldList}</p>
+					<p class="featureFields">${fieldList.join("")}</p>
 					<div class='modalImagePopup'>
 						<p class="statsPopupTitle">
 							<i class="fa fa-comment" aria-hidden="true"></i> 
@@ -168,7 +186,7 @@ function showData(featuredDesigners){
 							Views: ${featuredDesigners[i].stats.views}
 							</p>
 						</div>
-					<img class="featureImage" src="${featuredDesigners[i].images[276]}" data-ID=${i}/>
+					<img class="featureImage" alt="${featuredDesigners[i].display_name}'s profile pic" src="${featuredDesigners[i].images[276]}" data-ID=${i}/>
 				</div>
 				`);
 
@@ -189,9 +207,9 @@ function showData(featuredDesigners){
 			$('#coverDesigners').append(`
 				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer col-sm-3">
 					<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
-					<p class="designersFields">${fieldList}</p>
+					<p class="designersFields">${fieldList.join("")}</p>
 					<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesigners[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesigners[i].stats.views}</p></div>
-					<img class="designersImage" src="${featuredDesigners[i].images[276]}"/>
+					<img class="designersImage" alt="${featuredDesigners[i].display_name}'s profile pic" src="${featuredDesigners[i].images[276]}"/>
 					
 				</div>
 				`);
@@ -236,9 +254,9 @@ function designerExpand(designer) {
 					<div id="modalDesignerContainer" data-ID="${sidebarID}" class="col-sm-12">
 						<div id="modalProfileContainer" class="col-sm-12">
 							<p class="designersName"><strong>${featuredDesignersArray[i].display_name}</strong></p>
-							<p class="designersFields">${fieldList}</p>
+							<p class="designersFields">${fieldList.join(", ")}</p>
 							<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesignersArray[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesignersArray[i].stats.views}</p></div>
-							<img class="designersImage" src="${featuredDesignersArray[i].images[276]}"/>
+							<img class="designersImage" alt="${featuredDesignersArray[i].display_name}'s profile pic" src="${featuredDesignersArray[i].images[276]}"/>
 						</div>
 						<div id="modalDesignerStats" class="col-sm-12">
 							<div class="button">View stats</div>
@@ -254,87 +272,33 @@ function designerExpand(designer) {
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
 			success: function(results){
-				var result = results.projects;			
+				var result = results.projects;	
+				console.log(result);		
 				for (var i = 0; i < result.length; i++) {
 					$('#modalDesignerGrid').append(`
 						<div class="modalImageContainer">
-							<div class="modalImagePopup"></div>
-							<img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/>
+							<a href="${results.projects[i].url}" class="modalTooltipWrapper" target="_blank" >
+								<span class="modalTooltipText">View on Behance</span>
+								<img class="modalDesignerImages" alt="Project: ${results.projects[i].name}" src="${results.projects[i].covers.original}"/>
+							</a>
+
 						</div>
 						`);					
 				}
 				showStats();
-				$('.modalImageContainer').mouseenter(function(){
-					$(this).children('img').css("opacity", "0.4");
-					$(this).children('div').append("stats");
+				// $('.modalImageContainer').mouseenter(function(){
+				// 	$(this).children('img').css("opacity", "0.4");
+				// 	$(this).children('div').append("stats");
 							
-				// console.log(results.projects[i].covers[230])		
-				});
-				$('.modalImageContainer').mouseleave(function(){
-					$(this).children('img').css("opacity", "1");
-					$(this).children('div').empty();	
-				});
+				// // console.log(results.projects[i].covers[230])		
+				// });
+				// $('.modalImageContainer').mouseleave(function(){
+				// 	$(this).children('img').css("opacity", "1");
+				// 	$(this).children('div').empty();	
+				// });
 			}	
 		});
 	}
-}
-
-//Submit listener for project search
-$('#searchForm1').submit(function(){
-	event.preventDefault();
-	projectSearch($('#testSearch1').val());
-})
-
-//Function for project search
-function projectSearch(searchTerm) {
-	var ownerList = [];
-	$('#test1').empty();
-	be(APIKey).project.search(searchTerm, function success(results){
-	var searchResults = results.projects;
-		for (var i = 0; i < 10; i++) {
-			for (var j = 0; j < searchResults[i].owners.length; j++) {
-				ownerList.push(` ${searchResults[i].owners[j].display_name}`);
-			}
-			$('#test1').append(`
-				<div class="projectName">${searchResults[i].name}</div>
-				<div class="projectName">${searchResults[i].id}</div>
-				<div class="projectOwners">${ownerList}</div>
-				<div>${searchResults[i].created_on}</div
-				<a target="_blank" href="${searchResults[i].url}">Link to page</a>
-				<div class="projectCover"><img src="${searchResults[i].covers[404]}"/></div>
-				<div class="projectStats">Likes:${searchResults[i].stats.appreciations} Views:${searchResults[i].stats.views} Comments:${searchResults[i].stats.comments}
-				<br><br>
-			`);
-		}
-	})
-}
-
-//Submit listener for user search
-$('#searchForm2').submit(function(){
-	event.preventDefault();
-	userSearch($('#testSearch2').val());
-})
-
-//Function for user search
-function userSearch(searchTerm) {
-	$('#test2').empty();
-	be(APIKey).user.search(searchTerm, function success(results){
-	var searchResults = results.users;
-		for (var i = 0; i < 10; i++) {
-			var ownerList = [];
-			for (var j = 0; j < searchResults[i].fields.length; j++) {
-				ownerList.push(` ${searchResults[i].fields[j]}`);
-			}
-			$('#test2').append(`
-				<div class="userName">${searchResults[i].display_name}</div>
-				<div class="userName">${searchResults[i].id}</div>
-				<a target="_blank" href="${searchResults[i].url}">Link to page</a>
-				<div class="userCover"><img src="${searchResults[i].images[276]}"/></div>
-				<div class="userStats">Likes:${searchResults[i].stats.appreciations} Views:${searchResults[i].stats.views} Comments:${searchResults[i].stats.comments}
-				<br><br>
-			`);
-		}
-	})
 }
 
 //Check menu state for toggle
@@ -407,8 +371,7 @@ function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#sidebar").css("overflow", "hidden");
 	$("#sidebarMenu").css("opacity", "0");
-					$("#sidebarMenuFlexbox").css("z-index", "-412");
-	$("#chart1").empty();
+	$("#sidebarMenuFlexbox").css("z-index", "-412");
 
 	setTimeout(
 		function() {
@@ -430,7 +393,7 @@ function menuCloseFunc(){
 $(".scrollDown").click(function() {
 	$('html, body').animate({
 		scrollTop: $("#aboutUs").offset().top - 120
-	}, 100);
+	}, 500);
 });
 
 // Menu buttons
@@ -471,10 +434,11 @@ $(window).scroll(function(){
 	if ($(window).scrollTop()) {
 		$("#sidebar").css("width", "35px");
 		$("#menuButton").css("position", "fixed");
-	}else{
-		$("#sidebar").css("width", "0px");
-		$("#menuButton").css("position", "static");
 	}
+	// else{
+	// 	$("#sidebar").css("width", "0px");
+	// 	$("#menuButton").css("position", "static");
+	// }
 })
 
 //Down Button
