@@ -201,7 +201,7 @@ function showData(featuredDesigners){
 		} else {
 			//non-featured designers
 			$('#coverDesigners').append(`
-				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer col-sm-6">
+				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer col-sm-3">
 					<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
 					<p class="designersFields">${fieldList}</p>
 					<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesigners[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesigners[i].stats.views}</p></div>

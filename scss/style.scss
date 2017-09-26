@@ -170,7 +170,9 @@ $secondaryFont: "Lato";
 	font-weight: 600;
 }
 
-
+.designersFields{
+	font-size: 14px;
+}
 // .featured-header{
 // 	margin-top:80px;
 // }
@@ -181,9 +183,16 @@ $secondaryFont: "Lato";
 	box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
 }
 
+.col-sm-3{
+	padding: 0px;
+}
+
 .featureImage:hover, .designersImage:hover{
 	cursor: pointer;
 	opacity :0.4;
+}
+.featuredMargin{
+	margin-top: 50px;
 }
 
 // .coverFeaturedContainer .featureImage:hover {
