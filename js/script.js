@@ -4,7 +4,12 @@ var featuredDesignersArray = [];
 
 var menuOpen = false;
 
+//Global Variables
 var AccessToken;
+var sidebarID;
+var Likes;
+var Comments;
+var PersonName;
 //next 2 lines development only
 AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
 getID();
@@ -32,31 +37,23 @@ function getID(){
 			// console.log(DataFromBehance.following);
 			var featuredDesigners = DataFromBehance.following;
 			showData(featuredDesigners);
-
-
 		},
 		error: function(){
 			console.log("Cant get behance data")
 		}
-
 	})
 }
 
-		var Likes;
-		var Comments;
-		var PersonName;
-
 function showStats(){
 	$("#modalDesignerStats .button").click(function(){
+		var dataBar;
+		var options;
+
 		google.charts.load('current', {'packages':['corechart']});
 		google.charts.load('current', {'packages':['geochart'], 'mapsApiKey': 'AIzaSyB1qe7ia7SLO6ZZheIqZIvXViHSzMBYzG8'});
 		google.charts.setOnLoadCallback(drawChart);
 
-		var dataBar;
-		var options;
-		
 		function drawChart(){
-
 			var barChartJSON = $.ajax({
 				url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 				type: "get",
@@ -64,7 +61,6 @@ function showStats(){
 				dataType: "jsonp",
 				success: function(DataFromJSON){
 					// console.log(DataFromJSON.projects);
-
 					var dataResults = DataFromJSON.projects;
 					dataBar = new google.visualization.DataTable();
 					dataBar.addColumn('string', 'Name');
@@ -84,10 +80,7 @@ function showStats(){
 							
 						dataBar.addRow([
 							PersonName, createCustomHTMLContent(PersonName, Likes, Comments), Likes, Comments
-						]);
-							// console.log(Followers);
-					
-						// console.log(createCustomHTMLContent);
+						]);						
 					}
 
 					options = {
@@ -122,10 +115,7 @@ function showStats(){
 								fontName: 'Lato, san-serif'
 							}
 						}
-
 					}
-					
-
 					var barChart = new google.visualization.BarChart(document.getElementById('chart1')); //what chart are you using eg PieChart
 					barChart.draw(dataBar, options);
 				},
@@ -134,8 +124,6 @@ function showStats(){
 				}
 
 			});
-
-
 		}
 			setTimeout(function(){
 				$('#sidebar').animate({
@@ -153,9 +141,7 @@ function showStats(){
 				'<td><span class="glyphicon glyphicon-comment" style="font-size: 20px; color: #2BB5A5"></span>' +
 				'<td><span style="font-size: 20px; color: #2BB5A5">' + Comments + '</span></td>' + '</tr>' + '<tr>'
 		}
-
 	})
-	
 }
 
 // SHOW USERS
@@ -213,7 +199,7 @@ function showData(featuredDesigners){
 			$('.designersImage').mouseenter(function(){
 				$(this).css("opacity", "0.1");
 				var statsPopup = $();	
-				$(this).siblings('div').css("opacity", "1");		
+				$(this).siblings('div').css("opacity", "1");
 			});
 
 			$('.designersImage').mouseleave(function(){
@@ -229,11 +215,8 @@ function showData(featuredDesigners){
 		$('.coverDesignersContainer .designersImage').click(function(){
 			designerExpand($(this))
 		})
-			
 	}
-
 }
-var sidebarID;
 
 function designerExpand(designer) {
 	if (menuOpen == false) {
@@ -278,8 +261,7 @@ function designerExpand(designer) {
 							<div class="modalImagePopup"></div>
 							<img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/>
 						</div>
-						`);
-					
+						`);					
 				}
 				showStats();
 				$('.modalImageContainer').mouseenter(function(){
@@ -292,23 +274,18 @@ function designerExpand(designer) {
 					$(this).children('img').css("opacity", "1");
 					$(this).children('div').empty();	
 				});
-
 			}	
 		});
 	}
-
 }
 
-
-
-
-//submit listener for project search
+//Submit listener for project search
 $('#searchForm1').submit(function(){
 	event.preventDefault();
 	projectSearch($('#testSearch1').val());
 })
 
-//function for project search
+//Function for project search
 function projectSearch(searchTerm) {
 	var ownerList = [];
 	$('#test1').empty();
@@ -332,13 +309,13 @@ function projectSearch(searchTerm) {
 	})
 }
 
-//submit listener for user search
+//Submit listener for user search
 $('#searchForm2').submit(function(){
 	event.preventDefault();
 	userSearch($('#testSearch2').val());
 })
 
-//function for user search
+//Function for user search
 function userSearch(searchTerm) {
 	$('#test2').empty();
 	be(APIKey).user.search(searchTerm, function success(results){
@@ -360,7 +337,7 @@ function userSearch(searchTerm) {
 	})
 }
 
-//check menu state for toggle
+//Check menu state for toggle
 function checkMenu(){
 	if (menuOpen == true){
 		menuCloseFunc();
@@ -371,8 +348,8 @@ function checkMenu(){
 	}
 }
 
-// click on menu
-   $("#menuButton").click(function(){
+// Click on menu
+	$("#menuButton").click(function(){
 		if (menuOpen == false) {
 		$("#sidebarMenu").css("display", "inline")
 		setTimeout(
@@ -407,7 +384,6 @@ function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#chart1").empty();
 
-
 	setTimeout(
 		function() {
 			$("#sidebarMenu").css("display", "none")
@@ -424,22 +400,20 @@ function menuCloseFunc(){
 		320);
 };
 
-// scroll down
+// Scroll down
 $(".scrollDown").click(function() {
-
-		   $('html, body').animate({
+	$('html, body').animate({
 		scrollTop: $("#aboutUs").offset().top - 120
-		}, 100);
-
+	}, 100);
 });
 
 // Menu buttons
 $("#featuredDesignersLink").click(function() {
 	setTimeout(
 	function() {
-	   $('html, body').animate({
-		scrollTop: $(".featuredDesignersBookmark").offset().top - 40
-		}, 100);
+		$('html, body').animate({
+			scrollTop: $(".featuredDesignersBookmark").offset().top - 40
+			}, 100);
 	},
 	700);
 });
@@ -447,9 +421,9 @@ $("#featuredDesignersLink").click(function() {
 $("#ourDesignersLink").click(function() {
 	setTimeout(
 	function() {
-	   $('html, body').animate({
-		scrollTop: $(".ourDesignersBookmark").offset().top - 40
-		}, 100);
+		$('html, body').animate({
+			scrollTop: $(".ourDesignersBookmark").offset().top - 40
+			}, 100);
 	},
 	700);
 });
@@ -457,42 +431,12 @@ $("#ourDesignersLink").click(function() {
 $("#aboutUsLink").click(function() {
 	setTimeout(
 	function() {
-	   $('html, body').animate({
-		scrollTop: $(".aboutUsBookmark").offset().top - 120
-		}, 100);
+		$('html, body').animate({
+			scrollTop: $(".aboutUsBookmark").offset().top - 120
+			}, 100);
 	},
 	700);
 });
-
-// Nav Bar Scroll
-
-// $(window).scroll(function(){
-// 	$("#sidebar").css("opacity", 0 + $(window).scrollTop() - 1450);
-// });
-
-// $(window).scroll(function(){
-// 	$("#sidebar").css("opacity", 0 + $(window).scrollTop() - 1450);
-// });
-
-// function isScrolledIntoView(elem)
-// {
-// 	var docViewTop = $(window).scrollTop();
-// 	var docViewBottom = docViewTop + $(window).height();
-// 	var elemTop = $(elem).offset().top;
-// 	var elemBottom = elemTop - $(elem).height();
-// 	return ((elemBottom >= docViewTop) && (elemTop <= docViewBottom) && (elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-// }
-
-// $(window).scroll(function() {
-// 	if(isScrolledIntoView($('.featured-designers-bookmark'))){
-// 		$("#sidebar").css("width", "35px");
-// 	 } else {
-// 	 	$("#sidebar").css("width", "0px");
-
-// 	 }
-
-
-// });
 
 $(window).scroll(function(){
 	if ($(window).scrollTop()) {
@@ -516,21 +460,20 @@ $(".featureImage, .designersImage").click(function(){
 	menuOpen = true;
 	setTimeout(
 		function() {
-		   $("#sidebar").css("width", "100%");
+			$("#sidebar").css("width", "100%");
 		},
 		150);
 
-	// disable scrolling body, enable scrolling sidebar
+	// Disable scrolling body, enable scrolling sidebar
 		setTimeout(
-	  function() {
-				$("body").css("overflow", "hidden");
-				$("#sidebar").css("overflow", "scroll");
-	  },
-	  350);
+		function() {
+			$("body").css("overflow", "hidden");
+			$("#sidebar").css("overflow", "scroll");
+		},
+		350);
 	setTimeout(
 		function() {
-		   $("#sidebar").css("width", "100%");
+			$("#sidebar").css("width", "100%");
 		},
 		150);
-
-  });
+});
