@@ -354,13 +354,38 @@ function checkMenu(){
 		$("#sidebarMenu").css("display", "inline")
 		setTimeout(
 			function() {
-				$("#sidebarMenu").css("opacity", "1")
+				$("#sidebarMenu").css("opacity", "1");
+				$("#sidebarMenuFlexbox").css("z-index", "12");
 			},
 			440);
 	}
 	checkMenu();
 });
 
+// // closed menu bar shows hover
+//   $('#sidebar').hover(function() {
+//    	if (menuOpen == false) {
+//         $(this).css('cursor','pointer');
+//       }else{
+//       	 $(this).css('cursor','default');
+//       }
+//    });
+
+// click on menu bar (if menu is closed)
+// 	$("#sidebar").click(function(){
+// 		console.log(menuOpen);
+// 		if (menuOpen == false) {
+// 		$("#sidebarMenu").css("display", "inline")
+// 		setTimeout(
+// 			function() {
+// 				$("#sidebarMenu").css("opacity", "1")
+// 			},
+// 			440);
+// 		checkMenu();
+// 	}else{
+// 		$(this).css('cursor','default');
+// 	}
+// });
 
 function menuOpenFunc(){
 	setTimeout(
@@ -381,7 +406,8 @@ function menuOpenFunc(){
 function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#sidebar").css("overflow", "hidden");
-	$("#sidebarMenu").css("opacity", "0")
+	$("#sidebarMenu").css("opacity", "0");
+					$("#sidebarMenuFlexbox").css("z-index", "-412");
 	$("#chart1").empty();
 
 	setTimeout(
@@ -416,6 +442,7 @@ $("#featuredDesignersLink").click(function() {
 			}, 100);
 	},
 	700);
+		checkMenu();
 });
 
 $("#ourDesignersLink").click(function() {
@@ -426,6 +453,7 @@ $("#ourDesignersLink").click(function() {
 			}, 100);
 	},
 	700);
+		checkMenu();
 });
 
 $("#aboutUsLink").click(function() {
@@ -436,6 +464,7 @@ $("#aboutUsLink").click(function() {
 			}, 100);
 	},
 	700);
+		checkMenu();
 });
 
 $(window).scroll(function(){
