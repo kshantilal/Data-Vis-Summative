@@ -170,7 +170,9 @@ $secondaryFont: "Lato";
 	font-weight: 600;
 }
 
-
+.designersFields{
+	font-size: 14px;
+}
 // .featured-header{
 // 	margin-top:80px;
 // }
@@ -181,9 +183,16 @@ $secondaryFont: "Lato";
 	box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
 }
 
+.col-sm-3{
+	padding: 0px;
+}
+
 .featureImage:hover, .designersImage:hover{
 	cursor: pointer;
 	opacity :0.4;
+}
+.featuredMargin{
+	margin-top: 50px;
 }
 
 // .coverFeaturedContainer .featureImage:hover {
@@ -301,7 +310,7 @@ $secondaryFont: "Lato";
 		width: 100%;
 	}
 .modalImageContainer {
-		flex: 1 0 32%;
+		flex: 1 0 34%;
 		margin: 5px 5px;
 		transition: all 0.2s ease-in;
 }
@@ -369,6 +378,21 @@ $secondaryFont: "Lato";
 	margin-top: 30px;
 	margin-bottom: 30px;
 }
+
+.footer {
+	height: 60px;
+	margin-top: 50px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1.9rem;
+	background-color: #2BB5A5;
+	text-align: center;
+	font-size: 10px;
+	color: #FFF;
+
+}
+
 // .modalImagePopup:hover {
 // 	cursor: pointer;
 // }
