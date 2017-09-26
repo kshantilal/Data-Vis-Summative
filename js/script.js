@@ -313,19 +313,29 @@ function checkMenu(){
 }
 
 // Click on menu
-	$("#menuButton").click(function(){
+	$("#menuButton, #clickableSidebar").click(function(){
+		if ($(this).is(".inactiveButton")) {
+			return false;
+		} 
 		if (menuOpen == false) {
-		$("#sidebarMenu").css("display", "inline")
-		setTimeout(
-			function() {
-				$("#sidebarMenu").css("opacity", "1");
-				$("#sidebarMenuFlexbox").css("z-index", "12");
-			},
-			440);
-	}
+			$(this).addClass("inactiveButton");
+			$("#sidebarMenu").css("display", "inline")
+			setTimeout(
+				function() {
+					$("#sidebarMenu").css("opacity", "1");
+					$("#sidebarMenuFlexbox").css("z-index", "12");
+					$("#menuButton, #clickableSidebar").removeClass("inactiveButton");
+				},
+				440);
+		}
 	checkMenu();
 });
 
+//click on sidebar
+	
+	if (menuOpen == false && $("#sidebar").css("width") == "35px"){
+
+	}
 // // closed menu bar shows hover
 //   $('#sidebar').hover(function() {
 //    	if (menuOpen == false) {
