@@ -113,7 +113,8 @@ function showStats(){
 							textStyle: {
 								color: '#fff',
 								fontName: 'Lato, san-serif'
-							}
+							},
+							position: 'top'
 						}
 					}
 					var barChart = new google.visualization.BarChart(document.getElementById('chart1')); //what chart are you using eg PieChart
@@ -124,6 +125,20 @@ function showStats(){
 				}
 
 			});
+
+
+			$(".designerOpened").append(`
+			<div class="closeButton">
+				<i class="fa fa-times"></i>
+			</div>
+			`);
+
+			$(".closeButton").click(function(){
+				$(this).css("display", "none");
+				$("#chart1").empty();
+
+			})
+
 		}
 			setTimeout(function(){
 				$('#sidebar').animate({
@@ -143,6 +158,7 @@ function showStats(){
 		}
 	})
 }
+
 
 // SHOW USERS
 function showData(featuredDesigners){
@@ -382,7 +398,7 @@ function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#sidebar").css("overflow", "hidden");
 	$("#sidebarMenu").css("opacity", "0")
-	$("#chart1").empty();
+	
 
 	setTimeout(
 		function() {
@@ -404,7 +420,7 @@ function menuCloseFunc(){
 $(".scrollDown").click(function() {
 	$('html, body').animate({
 		scrollTop: $("#aboutUs").offset().top - 120
-	}, 100);
+	}, 500);
 });
 
 // Menu buttons
