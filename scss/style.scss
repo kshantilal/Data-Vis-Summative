@@ -473,6 +473,21 @@ padding-bottom: 400px;
 
 }
 
+.closeButton{
+	position: absolute;
+	top: 50px;
+	right: 0px;	
+	display: block;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.closeButton:hover{
+	color: #009DFF;
+	transition: all 0.2s ease;
+
+}
+
 // .modalImagePopup:hover {
 // 	cursor: pointer;
 // }
