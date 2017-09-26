@@ -92,15 +92,17 @@ $secondaryFont: "Lato";
 	overflow: hidden;
 }
 
-#menuButton:hover{
-	cursor:pointer;
-}
-
 
 #menuButton {
 	margin-top: 45px;
 	margin-left: 7px;
-	z-index: 10;
+	z-index: 102;
+	transition: all 0.1s ease;
+}
+
+#menuButton:hover{
+	cursor:pointer;
+	opacity: 0.7;
 }
 
 #content{
@@ -117,7 +119,7 @@ $secondaryFont: "Lato";
 	height: 76vh;
 	background-color: #2BB5A5;
 	color: white;
-
+margin-bottom: 25vh;
 	img{
 		margin: 60px auto;
 	}
@@ -199,23 +201,29 @@ $secondaryFont: "Lato";
 // 		cursor: pointer;
 // 	opacity:0.4;
 // }
-
+// sidebar menu flexbox
+#sidebarMenuFlexbox{
+	width:100%;
+	height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: -50px;
+	z-index: -20;
+	margin-top:200px;
+	}
 // sidebar content
 #sidebarMenu{
-	z-index: -900;
 	font-family: $secondaryFont;
 	color:white;
-	width:100%;
-	margin: 0 auto;
-	position: fixed;
-  top: 0;
-  left: 0;
+	width:300px;
+	height:auto;
   font-size:20px;
   transition: all 0.2s ease-in;
   display: none;
   opacity: 0;
-  padding-top: 35%;
-
+padding-bottom: 400px;
 	h1 {
 		display: inline-block;
 		margin-left: 25%;
@@ -228,6 +236,7 @@ $secondaryFont: "Lato";
 		font-size:30px;
 	}
 }
+
 
 .customList {
 	margin-left: 24%;
@@ -260,7 +269,7 @@ $secondaryFont: "Lato";
 }
 
 .featureHeading {
-	font-size: 20px;
+	font-size: 22px;
 	font-weight: 600;
 	letter-spacing: 3px;
 	text-align: center;
@@ -276,6 +285,8 @@ $secondaryFont: "Lato";
 		color: #FF5E3A;
 		margin-right:10px;
 	 }
+	 margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .coverID {
