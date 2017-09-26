@@ -98,50 +98,6 @@ body {
 	cursor: pointer;
 }
 
-// sidebar
-
-#sidebar {
-	height: 100%;
-	background: linear-gradient(#FF5E3A, #FF2B67);
-
-	width:0px;
-	position: fixed!important;
-	left: 0;
-	top: 0;
-	transition: opacity 0.2s, width 0.3s;
-	overflow: hidden;
-}
-
-.closeButton{
-	position: absolute;
-	top: 50px;
-	right: 0px;	
-	display: block;
-	font-size: 30px;
-	cursor: pointer;
-}
-
-.closeButton:hover{
-	color: #009DFF;
-	transition: all 0.2s ease;
-
-}
-
-#menuButton:hover{
-	cursor:pointer;
-}
-
-#menuButton {
-	margin-top: 45px;
-	margin-left: 7px;
-	z-index: 102;
-	transition: all 0.1s ease;
-}
-
-#menuButton:hover{
-	cursor:pointer;
-	opacity: 0.7;
-}
 
 #content{
 	font-family: 'Lato', sans-serif;
@@ -153,11 +109,10 @@ body {
 #aboutUs{
 	font-weight:200!important;
 	font-size: 40px;
-	// height: 700px;
-	height: 76vh;
+	height: 100vh;
 	background-color: #2BB5A5;
 	color: white;
-margin-bottom: 25vh;
+	margin-bottom: 60px;
 	img{
 		margin: 60px auto;
 	}
@@ -312,6 +267,7 @@ padding-bottom: 400px;
 
 
 }
+
 
 .featureHeading {
 	font-size: 22px;
@@ -481,3 +437,42 @@ padding-bottom: 400px;
 	color: #FFF;
 
 }
+// sidebar
+
+#sidebar {
+	height: 100%;
+	background: linear-gradient(#FF5E3A, #FF2B67);
+
+	width:0px;
+	position: fixed!important;
+	left: 0;
+	top: 0;
+	transition: opacity 0.2s, width 0.3s;
+	overflow: hidden;
+}
+
+#menuButton {
+	margin-top: 45px;
+	margin-left: 7px;
+	z-index: 102;
+	transition: all 0.4s ease;
+}
+
+#menuButton:hover{
+	cursor:pointer;
+	opacity: 0.7;
+}
+.closemenuButton{
+	position: fixed;
+	font-size:21px!important;
+	color: white;
+	top: 41px;
+  left: 9px;
+  transition: all 0.1s ease;
+  opacity:0;
+
+}
+
+// .modalImagePopup:hover {
+// 	cursor: pointer;
+// }
