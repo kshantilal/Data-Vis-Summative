@@ -92,6 +92,24 @@ $secondaryFont: "Lato";
 	overflow: hidden;
 }
 
+.closeButton{
+	position: absolute;
+	top: 50px;
+	right: 0px;	
+	display: block;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+.closeButton:hover{
+	color: #009DFF;
+	transition: all 0.2s ease;
+
+}
+
+#menuButton:hover{
+	cursor:pointer;
+}
 
 #menuButton {
 	margin-top: 45px;
@@ -321,7 +339,7 @@ padding-bottom: 400px;
 		width: 100%;
 	}
 .modalImageContainer {
-		flex: 1 0 34%;
+		flex: 1 0 32%;
 		margin: 5px 5px;
 		transition: all 0.2s ease-in;
 }
