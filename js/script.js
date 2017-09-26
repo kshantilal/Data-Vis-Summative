@@ -42,7 +42,7 @@ function getID(){
 	})
 }
 
-		var Followers;
+		var Likes;
 		var Comments;
 		var PersonName;
 
@@ -70,20 +70,20 @@ function showStats(){
 					dataBar.addColumn('string', 'Name');
 					dataBar.addColumn({type: 'string', role: 'tooltip', p: {html: true}});
 					// dataBar.addColumn('number', 'id'); have to also add in i to the row
-					dataBar.addColumn('number', 'Followers');
+					dataBar.addColumn('number', 'Likes');
 					// dataBar.addColumn('number', 'Views');
 					dataBar.addColumn('number', 'Comments');
 					
 
 					for (var i = 0; i < dataResults.length; i++) {
 							PersonName = dataResults[i].name;
-							Followers = dataResults[i].stats.appreciations;
+							Likes = dataResults[i].stats.appreciations;
 							Comments = dataResults[i].stats.comments;
 							// Views = DataFromJSON.projects[i].stats.views;
 							// console.log(Comments);
 							
 						dataBar.addRow([
-							PersonName, createCustomHTMLContent(PersonName, Followers, Comments), Followers, Comments
+							PersonName, createCustomHTMLContent(PersonName, Likes, Comments), Likes, Comments
 						]);
 							// console.log(Followers);
 					
@@ -93,7 +93,7 @@ function showStats(){
 					options = {
 						title: 'MY PROJECT STATS',
 						width: "100%",
-						height: "100%",
+						height: 600,
 						colors: ['#009DFF', '#2BB5A5'],
 						// This line makes the entire category's tooltip active.
 						focusTarget: 'category',
@@ -144,13 +144,13 @@ function showStats(){
 				}, 300);
 			}, 500);
 
-		function createCustomHTMLContent(PersonName, Followers, Comments) {
+		function createCustomHTMLContent(PersonName, Likes, Comments) {
 			return '<div style="padding:10px 10px 10px 10px;">' +
 				'<table class="medals_layout">' + '<tr>' +
 				'<td><span style="font-size: 15px; color: #009DFF";>' + "<strong>"+PersonName+"</strong>" + '</span></td>' + '</tr>' + '<tr>' +
-				'<td><span class="glyphicon glyphicon-user" style="font-size: 40px; padding-top: 20px; padding-bottom: 20px; color: #FF2B67"></span></td>' +
-				'<td><span style="font-size: 20px; color: #009DFF">' + Followers + '</span></td>' + '</tr>' +
-				'<td><span class="glyphicon glyphicon-comment" style="font-size: 40px; color: #FF2B67"></span>' +
+				'<td><span class="glyphicon glyphicon-thumbs-up" style="font-size: 20px; padding-top: 20px; padding-bottom: 20px; color: #009DFF"></span></td>' +
+				'<td><span style="font-size: 20px; color: #009DFF">' + Likes + '</span></td>' + '</tr>' +
+				'<td><span class="glyphicon glyphicon-comment" style="font-size: 20px; color: #2BB5A5"></span>' +
 				'<td><span style="font-size: 20px; color: #2BB5A5">' + Comments + '</span></td>' + '</tr>' + '<tr>'
 		}
 
@@ -237,7 +237,6 @@ var sidebarID;
 function designerExpand(designer) {
 	if (menuOpen == false) {
 		sidebarID = designer.parent()["0"].dataset.id;
-		console.log(sidebarID);
 		checkMenu();
 		$(".modalImagePopup").css('opacity', '0'); 
 		$(".featureImage, .designersImage").css('opacity', '1'); 
@@ -255,10 +254,7 @@ function designerExpand(designer) {
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
 			success: function(results){
-
-				var result = results.projects;
-
-				console.log(result);
+				var result = results.projects;			
 				for (var i = 0; i < result.length; i++) {
 					$('#modalDesignerGrid').append(`
 						<div class="modalImageContainer">
@@ -266,26 +262,24 @@ function designerExpand(designer) {
 							<img class="modalDesignerImages" src="${results.projects[i].covers[230]}"/>
 						</div>
 						`);
+					
 				}
 				showStats();
 				$('.modalImageContainer').mouseenter(function(){
 					$(this).children('img').css("opacity", "0.4");
-					$(this).children('div').append("stats");		
+					$(this).children('div').append("stats");
+							
 				// console.log(results.projects[i].covers[230])		
 				});
 				$('.modalImageContainer').mouseleave(function(){
 					$(this).children('img').css("opacity", "1");
 					$(this).children('div').empty();	
 				});
+
 			}	
 		});
 	}
 
-	if ("width" < "1440px") {
-		$(".coverFeaturedContainer col-sm-12");
-	}else {
-		$(".coverFeaturedContainer col-sm-4");	
-	}
 }
 
 
