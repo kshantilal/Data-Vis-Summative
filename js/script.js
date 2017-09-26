@@ -245,19 +245,25 @@ function designerExpand(designer) {
 		// designer.parent().clone().appendTo("#sidebarContent");
 		for (var i = 0; i < featuredDesignersArray.length; i++) {
 			if (featuredDesignersArray[i].id == sidebarID) {
+				var fieldList = [];
+				for (var j = 0; j < featuredDesignersArray[i].fields.length; j++) {
+					fieldList.push(`${featuredDesignersArray[i].fields[j]}`);
+				}
 				$('#sidebarContent').append(`
-				<div id="modalDesignerContainer" data-ID="${sidebarID}" class="col-sm-12">
-					<div id="modalProfileContainer" class="col-sm-12">
-						<p class="designersName"><strong>${featuredDesignersArray[i].display_name}</strong></p>
-						<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesignersArray[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesignersArray[i].stats.views}</p></div>
-						<img class="designersImage" src="${featuredDesignersArray[i].images[276]}"/>
+					<div id="modalDesignerContainer" data-ID="${sidebarID}" class="col-sm-12">
+						<div id="modalProfileContainer" class="col-sm-12">
+							<p class="designersName"><strong>${featuredDesignersArray[i].display_name}</strong></p>
+							<p class="designersFields">${fieldList}</p>
+							<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesignersArray[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesignersArray[i].stats.views}</p></div>
+							<img class="designersImage" src="${featuredDesignersArray[i].images[276]}"/>
+						</div>
+						<div id="modalDesignerStats" class="col-sm-12">
+							<div class="button">View stats</div>
+						</div>
+						<div id="modalDesignerGrid" class="col-sm-12"></div>
 					</div>
-					<div id="modalDesignerStats" class="col-sm-12">
-						<div class="button">View stats</div>
-					</div>
-					<div id="modalDesignerGrid" class="col-sm-12"></div>
-				</div>
 				`);
+				i = featuredDesignersArray.length;
 			}
 		}
 		
