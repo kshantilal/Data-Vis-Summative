@@ -154,11 +154,6 @@ function showStats(){
 		}
 
 	})
-
-
-
-
-		
 	
 }
 
@@ -169,12 +164,12 @@ function showData(featuredDesigners){
 	for (var i = 0; i < featuredDesigners.length; i++) {
 		var fieldList = [];
 		for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
-			fieldList.push(` ${featuredDesigners[i].fields[j]}`);
+			fieldList.push(`${featuredDesigners[i].fields[j]}`);
 		}
 		if (i < 3) {
 			//Top 3 designer HTML
 			$('#coverFeatured').append(`
-				<div data-ID="${featuredDesigners[i].id}" class="coverFeaturedContainer">
+				<div data-ID="${featuredDesigners[i].id}" class="coverFeaturedContainer col-sm-4">
 					<p class="featureName"><strong>${featuredDesigners[i].display_name}</strong></p>
 					<p class="featureFields">${fieldList}</p>
 					<div class='modalImagePopup'>
@@ -206,7 +201,7 @@ function showData(featuredDesigners){
 		} else {
 			//non-featured designers
 			$('#coverDesigners').append(`
-				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer">
+				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer col-sm-6">
 					<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
 					<p class="designersFields">${fieldList}</p>
 					<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesigners[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesigners[i].stats.views}</p></div>

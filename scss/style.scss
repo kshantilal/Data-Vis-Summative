@@ -104,6 +104,7 @@ $secondaryFont: "Lato";
 
 #content{
 	font-family: 'Lato', sans-serif;
+	padding-left: 20px;
 
 
 }
@@ -150,7 +151,7 @@ $secondaryFont: "Lato";
 	background: linear-gradient(#2BB5A5, white);
 }
 
-#featured, #ourDesigners{
+#featured, #ourDesigners, #coverFeatured{
 	margin-top: 50px;
 }
 
@@ -169,6 +170,7 @@ $secondaryFont: "Lato";
 	text-transform: uppercase;
 	font-weight: 600;
 }
+
 
 // .featured-header{
 // 	margin-top:80px;
@@ -257,7 +259,6 @@ $secondaryFont: "Lato";
 	padding: 0px;
 	border-radius: 20px;
 	color: #FF4A4B;
-	width: 330px;
 	margin: 0 auto;
 	font-family: $secondaryFont;
 	// background: -webkit-linear-gradient(#ff5e3a, #ff2c66);
