@@ -356,6 +356,7 @@ function menuOpenFunc(){
 		function() {
 			$("body").css("overflow", "hidden");
 			$("#sidebar").css("width", "100%");
+			$("#menuButton").css("opacity", "0");
 		},
 		150);
 	setTimeout(
@@ -363,6 +364,7 @@ function menuOpenFunc(){
 			$("#sidebarContent").css("display", "inline");
 			$("#sidebar").css("overflow", "auto");
 			$("#sidebarContent").css("opacity", "1");
+			$(".closemenuButton").css("opacity", "1");
 		},
 		550);
 };
@@ -371,8 +373,8 @@ function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#sidebar").css("overflow", "hidden");
 	$("#sidebarMenu").css("opacity", "0");
+	$(".closemenuButton").css("opacity", "0");	
 	$("#sidebarMenuFlexbox").css("z-index", "-412");
-
 	setTimeout(
 		function() {
 			$("#sidebarMenu").css("display", "none")
@@ -385,6 +387,7 @@ function menuCloseFunc(){
 			$('#sidebarContent').children().detach();
 			$("#sidebarContent").css("display", "none");
 			$("#sidebar").css("width", "35px");
+				$("#menuButton").css("opacity", "1");
 		},
 		320);
 };
@@ -434,6 +437,16 @@ $(window).scroll(function(){
 	if ($(window).scrollTop()) {
 		$("#sidebar").css("width", "35px");
 		$("#menuButton").css("position", "fixed");
+		$("#menuButton").css("opacity", "1");
+	}else{
+	setTimeout(
+		function() {
+		$("#sidebar").css("width", "0px");
+		$("#menuButton").css("position", "static");
+			}, 
+		240);
+			$("#menuButton").css("opacity", "0");
+		
 	}
 	// else{
 	// 	$("#sidebar").css("width", "0px");
