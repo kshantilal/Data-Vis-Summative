@@ -422,6 +422,7 @@ function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#sidebar").css("overflow", "hidden");
 	$(".closemenuButton").css("opacity", "0");	
+
 	setTimeout(
 		function() {
 			$("#sidebarMenuFlexbox, #sidebarMenu").css("display", "none");
@@ -433,6 +434,7 @@ function menuCloseFunc(){
 	setTimeout(
 		function() {
 			$('#sidebarContent').children().detach();
+			$(".chartContainer").empty();
 			$("#sidebarContent").css("display", "none");
 			$("#sidebar").css("width", "35px");
 			$("#menuButton").css("opacity", "1");
