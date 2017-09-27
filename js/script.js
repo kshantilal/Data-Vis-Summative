@@ -346,11 +346,11 @@ function checkMenu(){
 		} 
 		if (menuOpen == false) {
 			$(this).addClass("inactiveButton");
-			$("#sidebarMenu").css("display", "inline")
 			setTimeout(
 				function() {
 					$("#sidebarMenu").css("opacity", "1");
-					$("#sidebarMenuFlexbox").css("z-index", "12");
+					$("#sidebarMenu").css("display", "inline");
+					$("#sidebarMenuFlexbox").css("display", "flex");
 					$("#menuButton, #clickableSidebar").removeClass("inactiveButton");
 				},
 				440);
@@ -402,6 +402,7 @@ function menuOpenFunc(){
 			$("#sidebar").css("overflow", "auto");
 			$("#sidebarContent").css("opacity", "1");
 			$(".closemenuButton").css("opacity", "1");
+			$("#clickableSidebar").css("display","none");
 		},
 		550);
 };
@@ -409,13 +410,12 @@ function menuOpenFunc(){
 function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#sidebar").css("overflow", "hidden");
-	$("#sidebarMenu").css("opacity", "0");
 	$(".closemenuButton").css("opacity", "0");	
-	$("#sidebarMenuFlexbox").css("z-index", "-412");
 	setTimeout(
 		function() {
-			$("#sidebarMenu").css("display", "none")
+			$("#sidebarMenuFlexbox, #sidebarMenu").css("display", "none");
 			$("body").css("overflow", "auto");
+			$("#clickableSidebar").css("display","inline");
 			}, 
 		440);
 
@@ -424,9 +424,10 @@ function menuCloseFunc(){
 			$('#sidebarContent').children().detach();
 			$("#sidebarContent").css("display", "none");
 			$("#sidebar").css("width", "35px");
-				$("#menuButton").css("opacity", "1");
+			$("#menuButton").css("opacity", "1");
 		},
 		320);
+
 };
 
 // Scroll down
