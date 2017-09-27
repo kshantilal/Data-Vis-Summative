@@ -12,8 +12,8 @@ var Comments;
 var PersonName;
 //next 2 lines development only
 // AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
-// AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
-AccessToken = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
+AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
+// AccessToken = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
 getID();
 
 	// $.ajax({
@@ -36,7 +36,6 @@ function getID(){
 		type: "get",
 		dataType: "jsonp",
 		success: function(DataFromBehance){
-			// console.log(DataFromBehance.following);
 			var featuredDesigners = DataFromBehance.following;
 			showData(featuredDesigners);
 		},
@@ -62,7 +61,6 @@ function showStats(){
 				contentType: "application/json",
 				dataType: "jsonp",
 				success: function(DataFromJSON){
-					// console.log(DataFromJSON.projects);
 					var dataResults = DataFromJSON.projects;
 					dataBar = new google.visualization.DataTable();
 					dataBar.addColumn('string', 'Name');
@@ -77,8 +75,6 @@ function showStats(){
 							PersonName = dataResults[i].name;
 							Likes = dataResults[i].stats.appreciations;
 							Comments = dataResults[i].stats.comments;
-							// Views = DataFromJSON.projects[i].stats.views;
-							// console.log(Comments);
 							
 						dataBar.addRow([
 							PersonName, createCustomHTMLContent(PersonName, Likes, Comments), Likes, Comments
@@ -242,12 +238,11 @@ function showData(featuredDesigners){
 				$(this).css("opacity", "1");
 			});
 		}
-		$('.coverFeaturedContainer .featureImage').click(function(){
+		$('.coverFeaturedContainer > .featureImage').click(function(){
 			designerExpand($(this))
-
-			
 		})
-		$('.coverDesignersContainer .designersImage').click(function(){
+
+		$('.coverDesignersContainer > .designersImage').click(function(){
 			designerExpand($(this))
 		})
 	}
@@ -360,9 +355,6 @@ function checkMenu(){
 
 //click on sidebar
 	
-	if (menuOpen == false && $("#sidebar").css("width") == "35px"){
-
-	}
 // // closed menu bar shows hover
 //   $('#sidebar').hover(function() {
 //    	if (menuOpen == false) {
@@ -393,6 +385,7 @@ function menuOpenFunc(){
 		function() {
 			$("body").css("overflow", "hidden");
 			$("#sidebar").css("width", "100%");
+			// $("#sidebar").css("overflow", "scroll");
 			$("#menuButton").css("opacity", "0");
 		},
 		150);
@@ -402,7 +395,7 @@ function menuOpenFunc(){
 			$("#sidebar").css("overflow", "auto");
 			$("#sidebarContent").css("opacity", "1");
 			$(".closemenuButton").css("opacity", "1");
-			$("#clickableSidebar").css("display","none");
+			$("#clickableSidebar").css("visibility","none");
 		},
 		550);
 };
@@ -430,94 +423,83 @@ function menuCloseFunc(){
 
 };
 
-// Scroll down
-$(".scrollDown").click(function() {
-	$('html, body').animate({
-		scrollTop: $("#aboutUs").offset().top - 120
-	}, 500);
-});
-
-// Menu buttons
-$("#featuredDesignersLink").click(function() {
-	setTimeout(
-	function() {
+$(document).ready(function(){
+	// Scroll down
+	$(".scrollDown").click(function() {
 		$('html, body').animate({
-			scrollTop: $(".featuredDesignersBookmark").offset().top - 40
-			}, 100);
-	},
-	700);
-		checkMenu();
-});
+			scrollTop: $("#aboutUs").offset().top - 120
+		}, 500);
+	});
 
-$("#ourDesignersLink").click(function() {
-	setTimeout(
-	function() {
-		$('html, body').animate({
-			scrollTop: $(".ourDesignersBookmark").offset().top - 40
-			}, 100);
-	},
-	700);
-		checkMenu();
-});
-
-$("#aboutUsLink").click(function() {
-	setTimeout(
-	function() {
-		$('html, body').animate({
-			scrollTop: $(".aboutUsBookmark").offset().top - 120
-			}, 100);
-	},
-	700);
-		checkMenu();
-});
-
-$(window).scroll(function(){
-	if ($(window).scrollTop()) {
-		$("#sidebar").css("width", "35px");
-		$("#menuButton").css("position", "fixed");
-		$("#menuButton").css("opacity", "1");
-	}else{
-	setTimeout(
-		function() {
-		$("#sidebar").css("width", "0px");
-		$("#menuButton").css("position", "static");
-			}, 
-		240);
-			$("#menuButton").css("opacity", "0");
-		
-	}
-	// else{
-	// 	$("#sidebar").css("width", "0px");
-	// 	$("#menuButton").css("position", "static");
-	// }
-})
-
-//Down Button
-$(".fa-chevron-circle-down").click(function(){
-	$("html,body").animate({
-		scrollTop: $("#gradient-aboutUs").offset().top
-	},
-	200);
-});
-
-$(".featureImage, .designersImage").click(function(){
-	menuOpen = true;
-	setTimeout(
-		function() {
-			$("#sidebar").css("width", "100%");
-		},
-		150);
-
-	// Disable scrolling body, enable scrolling sidebar
+	// Menu buttons
+	$("#featuredDesignersLink").click(function() {
 		setTimeout(
 		function() {
-			$("body").css("overflow", "hidden");
-			$("#sidebar").css("overflow", "scroll");
+			$('html, body').animate({
+				scrollTop: $(".featuredDesignersBookmark").offset().top - 40
+				}, 100);
 		},
-		350);
-	setTimeout(
+		700);
+			checkMenu();
+	});
+
+	$("#ourDesignersLink").click(function() {
+		setTimeout(
 		function() {
-			$("#sidebar").css("width", "100%");
+			$('html, body').animate({
+				scrollTop: $(".ourDesignersBookmark").offset().top - 40
+				}, 100);
 		},
-		150);
+		700);
+			checkMenu();
+	});
+
+	$("#aboutUsLink").click(function() {
+		setTimeout(
+		function() {
+			$('html, body').animate({
+				scrollTop: $(".aboutUsBookmark").offset().top - 120
+				}, 100);
+		},
+		700);
+			checkMenu();
+	});
+
+	$(window).scroll(function(){
+		if (menuOpen == false){
+			if ($(window).scrollTop()) {
+				console.log($(window).scrollTop());
+				$("#sidebar").css("width", "35px");
+				$("#menuButton").css("position", "fixed");
+				$("#menuButton").css("opacity", "1");
+			} else {
+				setTimeout(
+					function() {
+					$("#sidebar").css("width", "0px");
+					$("#menuButton").css("position", "static");
+						}, 
+					240);
+						$("#menuButton").css("opacity", "0");
+				}
+			}
+		});
+
+	// $(document).on("mouseenter", ".modalDesignerImages", function(){
+	// 	console.log($(this).css("height"))
+	// 	$(this).siblings(".modalTooltipWrapper").css("height", $(this).css("height"));
+	// 	$(this).siblings(".modalTooltipWrapper").css("width", $(this).css("width"));
+	// 	$(this).siblings(".modalTooltipWrapper").position($(this).position());
+	// 	$(this).siblings(".modalTooltipWrapper .modalTooltipText").css("opacity","1");
+	// })
+	// $(document).on("mouseleave", ".modalDesignerImages", function(){
+	// 	$(this).siblings(".modalTooltipWrapper .modalTooltipText").css("opacity","0");
+	// })
+
+	//Down Button
+	$(".fa-chevron-circle-down").click(function(){
+		$("html,body").animate({
+			scrollTop: $("#gradient-aboutUs").offset().top
+		},
+		200);
+	});
 });
