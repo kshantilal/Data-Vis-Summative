@@ -284,12 +284,30 @@ function designerExpand(designer) {
 							<div class="button">View stats</div>
 						</div>
 						<div id="modalDesignerGrid" class="col-sm-12"></div>
+						<div class="scrollTop col-sm-12">
+								<i class="fa fa-chevron-up"></i>
+						</div>
 					</div>
 				`);
 				i = featuredDesignersArray.length;
 			}
 		}
-		
+
+		var buttonTop = $(".fa-chevron-up")
+		$("#sidebar").on("scroll", function() {
+		  if ($("#sidebar").scrollTop() >= 10) {
+		    buttonTop.fadeIn();
+		  } else {
+		    buttonTop.fadeOut();
+		  }
+		});
+
+		buttonTop.on("click", function() {
+		  $("#sidebar").animate({ scrollTop: 0 }, 300);
+		  console.log("clicked here");
+		});
+
+
 		$.ajax({
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
