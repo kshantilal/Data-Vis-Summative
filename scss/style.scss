@@ -30,8 +30,14 @@ $fullWidth: 824px;
 	margin-left: 0px!important;
 }
 
+html {
+	overflow: hidden;
+	height: 100%;
+}
+
 body {
-	min-width: 200px;
+	height: 100%;
+	overflow: auto;
 }
 
 #masterContainer{
@@ -229,9 +235,9 @@ body {
 	color:white;
 	width:300px;
 	height:auto;
- 	font-size:20px;
-  	transition: all 0.2s ease-in;
-  	display: none;
+	font-size:20px;
+	transition: all 0.2s ease-in;
+	display: none;
 	padding-bottom: 400px;
 	h1 {
 		display: inline-block;
@@ -528,6 +534,10 @@ body {
 	z-index: 99;
 	cursor: pointer;
 	padding: 15px;
+}
+
+#buttonViewStats {
+	display: none;
 }
 
 // .modalImagePopup:hover {

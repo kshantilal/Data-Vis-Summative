@@ -11,9 +11,9 @@ var Likes;
 var Comments;
 var PersonName;
 //next 2 lines development only
-AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
+// AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
 // AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
-// AccessToken = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
+AccessToken = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
 getID();
 
 	// $.ajax({
@@ -46,7 +46,7 @@ function getID(){
 }
 
 function showStats(){
-	$("#modalDesignerStats .button").click(function(){
+	$("#buttonViewStats").on("click touch", function(){
 		var dataBar;
 		var options;
 
@@ -132,7 +132,7 @@ function showStats(){
 			`);
 
 			$(".closeButton").click(function(){
-				$(this).css("display", "none");
+				$(this).remove();
 				$("#chart1").empty();
 
 			})
@@ -281,7 +281,7 @@ function designerExpand(designer) {
 							<img class="designersImage" alt="${featuredDesignersArray[i].display_name}'s profile pic" src="${featuredDesignersArray[i].images[276]}"/>
 						</div>
 						<div id="modalDesignerStats" class="col-sm-12">
-							<div class="button">View stats</div>
+							<div id="buttonViewStats" class="button">View stats</div>
 						</div>
 						<div id="modalDesignerGrid" class="col-sm-12"></div>
 						<div class="scrollTop col-sm-12">
@@ -304,7 +304,6 @@ function designerExpand(designer) {
 
 		buttonTop.on("click", function() {
 		  $("#sidebar").animate({ scrollTop: 0 }, 300);
-		  console.log("clicked here");
 		});
 
 
@@ -337,6 +336,7 @@ function designerExpand(designer) {
 				// });
 			}	
 		});
+		$("#buttonViewStats").css("display","inline");
 	}
 }
 
@@ -371,33 +371,6 @@ function checkMenu(){
 	checkMenu();
 });
 
-//click on sidebar
-	
-// // closed menu bar shows hover
-//   $('#sidebar').hover(function() {
-//    	if (menuOpen == false) {
-//         $(this).css('cursor','pointer');
-//       }else{
-//       	 $(this).css('cursor','default');
-//       }
-//    });
-
-// click on menu bar (if menu is closed)
-// 	$("#sidebar").click(function(){
-// 		console.log(menuOpen);
-// 		if (menuOpen == false) {
-// 		$("#sidebarMenu").css("display", "inline")
-// 		setTimeout(
-// 			function() {
-// 				$("#sidebarMenu").css("opacity", "1")
-// 			},
-// 			440);
-// 		checkMenu();
-// 	}else{
-// 		$(this).css('cursor','default');
-// 	}
-// });
-
 function menuOpenFunc(){
 	setTimeout(
 		function() {
@@ -421,7 +394,7 @@ function menuOpenFunc(){
 function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#sidebar").css("overflow", "hidden");
-	$(".closemenuButton").css("opacity", "0");	
+	$(".closemenuButton").css("opacity", "0");
 
 	setTimeout(
 		function() {
@@ -434,10 +407,11 @@ function menuCloseFunc(){
 	setTimeout(
 		function() {
 			$('#sidebarContent').children().detach();
-			$(".chartContainer").empty();
+			$(".chartContainer #chart1").children().detach();
 			$("#sidebarContent").css("display", "none");
 			$("#sidebar").css("width", "35px");
 			$("#menuButton").css("opacity", "1");
+			$(".closeButton").remove();
 		},
 		320);
 
