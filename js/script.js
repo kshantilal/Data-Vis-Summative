@@ -289,12 +289,21 @@ function designerExpand(designer) {
 							<div class="button">View stats</div>
 						</div>
 						<div id="modalDesignerGrid" class="col-sm-12"></div>
+						<div class="scrollTop col-sm-12">
+								<i class="fa fa-chevron-up" aria-hidden="true"></i>
+						</div>
 					</div>
 				`);
 				i = featuredDesignersArray.length;
 			}
 		}
-		
+		$(".fa-chevron-up").click(function() {
+			console.log('clicked up');
+		  $("#sidebarContent").animate({
+			scrollTop: $(".designersName").offset().top - 200
+			},200);
+		});
+
 		$.ajax({
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
@@ -340,21 +349,29 @@ function checkMenu(){
 }
 
 // Click on menu
-	$("#menuButton").click(function(){
-		$("#chart1").empty();
-		$(".closeButton").empty();
+	$("#menuButton, #clickableSidebar").click(function(){
+		if ($(this).is(".inactiveButton")) {
+			return false;
+		} 
 		if (menuOpen == false) {
-		$("#sidebarMenu").css("display", "inline")
-		setTimeout(
-			function() {
-				$("#sidebarMenu").css("opacity", "1");
-				$("#sidebarMenuFlexbox").css("z-index", "12");
-			},
-			440);
-	}
+			$(this).addClass("inactiveButton");
+			$("#sidebarMenu").css("display", "inline")
+			setTimeout(
+				function() {
+					$("#sidebarMenu").css("opacity", "1");
+					$("#sidebarMenuFlexbox").css("z-index", "12");
+					$("#menuButton, #clickableSidebar").removeClass("inactiveButton");
+				},
+				440);
+		}
 	checkMenu();
 });
 
+//click on sidebar
+	
+	if (menuOpen == false && $("#sidebar").css("width") == "35px"){
+
+	}
 // // closed menu bar shows hover
 //   $('#sidebar').hover(function() {
 //    	if (menuOpen == false) {
