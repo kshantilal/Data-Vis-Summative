@@ -11,8 +11,8 @@ var Likes;
 var Comments;
 var PersonName;
 //next 2 lines development only
-// AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
-AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
+AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
+// AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
 // AccessToken = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
 getID();
 
@@ -294,13 +294,12 @@ function designerExpand(designer) {
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
 			success: function(results){
-				var result = results.projects;	
-				console.log(result);		
+				var result = results.projects;		
 				for (var i = 0; i < result.length; i++) {
 					$('#modalDesignerGrid').append(`
 						<div class="modalImageContainer">
 							<a href="${results.projects[i].url}" class="modalTooltipWrapper" target="_blank" >
-								<span class="modalTooltipText">View on Behance</span>
+								<span class="modalTooltipText">${results.projects[i].name}<br><br>View on Behance</span>
 								<img class="modalDesignerImages" alt="Project: ${results.projects[i].name}" src="${results.projects[i].covers.original}"/>
 							</a>
 
@@ -468,7 +467,6 @@ $(document).ready(function(){
 	$(window).scroll(function(){
 		if (menuOpen == false){
 			if ($(window).scrollTop()) {
-				console.log($(window).scrollTop());
 				$("#sidebar").css("width", "35px");
 				$("#menuButton").css("position", "fixed");
 				$("#menuButton").css("opacity", "1");

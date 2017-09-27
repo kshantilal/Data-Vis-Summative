@@ -362,8 +362,9 @@ body {
 }
 
 .modalDesignerImages:hover{
-	opacity: 0.5;
+	opacity: 0.2;
 }
+
 .modalDesignerImages{
 	border-radius: 1px; 
 }
@@ -377,14 +378,11 @@ body {
 
 .modalTooltipText {
 	position: absolute;
-	top: 10%;
+	bottom: 10%;
 	opacity: 0;
 	visibility: hidden;
 }
 
-.modalTooltipText:hover .modalDesignerImages {
-	opacity: 0.4;
-}
 
 .modalTooltipWrapper:hover .modalTooltipText {
 	visibility: visible;
