@@ -10,10 +10,10 @@ var sidebarID;
 var Likes;
 var Comments;
 var PersonName;
-//next 2 lines development only
-// AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
+//next 2 lines development 
+// AccessToken = "onlyzpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
 // AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
-AccessToken = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
+AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
 getID();
 
 	// $.ajax({
@@ -289,12 +289,30 @@ function designerExpand(designer) {
 							<div class="button">View stats</div>
 						</div>
 						<div id="modalDesignerGrid" class="col-sm-12"></div>
+						<div class="scrollTop col-sm-12">
+								<i class="fa fa-chevron-up" aria-hidden="true"></i>
+						</div>
 					</div>
 				`);
 				i = featuredDesignersArray.length;
 			}
 		}
-		
+
+		var buttonTop = $(".fa-chevron-up")
+		$(window).on("scroll", function() {
+		  if ($(window).scrollTop() >= 20) {
+		    buttonTop.fadeIn();
+		  } else {
+		    buttonTop.fadeOut();
+		  }
+		});
+
+		buttonTop.on("click", function() {
+		  $("#sidebar").animate({ scrollTop: 0 }, 300);
+		  console.log("clicked here");
+		});
+
+
 		$.ajax({
 			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
