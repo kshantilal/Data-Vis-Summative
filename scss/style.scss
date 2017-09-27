@@ -8,14 +8,14 @@ $tabletWidth: 650px;
 $fullWidth: 824px;
 
 @mixin mediaTablet {
-    @media (min-width: #{$tabletWidth}) and (max-width: #{$fullWidth}) {
-        @content;
-    }
+	@media (min-width: #{$tabletWidth}) and (max-width: #{$fullWidth}) {
+		@content;
+	}
 }
 @mixin mediaDesktop {
-    @media (min-width: #{$fullWidth}) {
-        @content;
-    }
+	@media (min-width: #{$fullWidth}) {
+		@content;
+	}
 }
 
 
@@ -92,7 +92,7 @@ body {
 	color: white;
 	font-size: 12px;
 	height: 28vh;
-    margin-top: 28vh;
+	margin-top: 28vh;
 }
 .scrollDown:hover{
 	cursor: pointer;
@@ -165,8 +165,9 @@ body {
 	font-weight: 600;
 }
 
-.designersFields{
+.designersFields, .featureFields{
 	font-size: 14px;
+	margin-bottom: 20px;
 }
 // .featured-header{
 // 	margin-top:80px;
@@ -276,7 +277,7 @@ padding-bottom: 400px;
 	text-align: center;
 	padding: 0px;
 	border-radius: 20px;
-	color: #FF4A4B;
+	color: #2bb5a5;
 	margin: 0 auto;
 	font-family: $secondaryFont;
 	// background: -webkit-linear-gradient(#ff5e3a, #ff2c66);
@@ -287,7 +288,7 @@ padding-bottom: 400px;
 		margin-right:10px;
 	 }
 	 margin-bottom: 40px;
-    margin-top: 40px;
+	margin-top: 40px;
 }
 
 .coverID {
@@ -339,7 +340,11 @@ padding-bottom: 400px;
 }
 
 .modalDesignerImages:hover{
-	opacity: 0.4;
+	opacity: 0.5;
+	border: 5px solid #0400e4;
+}
+.modalDesignerImages{
+	border-radius: 10px;
 }
 
 
@@ -370,10 +375,10 @@ padding-bottom: 400px;
 
 .modalImagePopup{
 	box-sizing: border-box;
-	top: 50%;
+	top: 51%;
+	left: 13%;
+	right: 15%;
 	position: absolute;
-	width:92%;
-	height: 276px;
 	// transition: all 0.2s ease;
 	text-align: center;
 	z-index: -9900;

@@ -178,14 +178,18 @@ function showData(featuredDesigners){
 					<p class="featureFields">${fieldList.join("")}</p>
 					<div class='modalImagePopup'>
 						<p class="statsPopupTitle">
-							<i class="fa fa-comment" aria-hidden="true"></i> 
-							Comments: ${featuredDesigners[i].stats.comments} 
-						</p><br>
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
+							Likes: ${featuredDesigners[i].stats.appreciations}
+						</p>
 						<p class="statsPopupTitle">
 							<i class="fa fa-eye" aria-hidden="true"></i> 
 							Views: ${featuredDesigners[i].stats.views}
-							</p>
-						</div>
+						</p>
+						<p class="statsPopupTitle">
+							<i class="fa fa-comment" aria-hidden="true"></i> 
+							Comments: ${featuredDesigners[i].stats.comments} 
+						</p>
+					</div>
 					<img class="featureImage" alt="${featuredDesigners[i].display_name}'s profile pic" src="${featuredDesigners[i].images[276]}" data-ID=${i}/>
 				</div>
 				`);
@@ -208,7 +212,20 @@ function showData(featuredDesigners){
 				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer col-sm-3">
 					<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
 					<p class="designersFields">${fieldList.join("")}</p>
-					<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesigners[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesigners[i].stats.views}</p></div>
+					<div class='modalImagePopup'>
+						<p class="statsPopupTitle">
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
+							Likes: ${featuredDesigners[i].stats.appreciations}
+						</p>
+						<p class="statsPopupTitle">
+							<i class="fa fa-eye" aria-hidden="true"></i>
+							Views: ${featuredDesigners[i].stats.views}
+						</p>
+						<p class="statsPopupTitle">
+							<i class="fa fa-comment" aria-hidden="true"></i> 
+							Comments: ${featuredDesigners[i].stats.comments} 
+						</p>
+					</div>
 					<img class="designersImage" alt="${featuredDesigners[i].display_name}'s profile pic" src="${featuredDesigners[i].images[276]}"/>
 					
 				</div>
@@ -255,7 +272,17 @@ function designerExpand(designer) {
 						<div id="modalProfileContainer" class="col-sm-12">
 							<p class="designersName"><strong>${featuredDesignersArray[i].display_name}</strong></p>
 							<p class="designersFields">${fieldList.join(", ")}</p>
-							<div class='modalImagePopup'><p class="statsPopupTitle"><i class="fa fa-comment" aria-hidden="true"></i> Comments: ${featuredDesignersArray[i].stats.comments} </p><br><p class="statsPopupTitle"><i class="fa fa-eye" aria-hidden="true"></i> Views: ${featuredDesignersArray[i].stats.views}</p></div>
+							<div class='modalImagePopup'>
+								<p class="statsPopupTitle">
+									<i class="fa fa-comment" aria-hidden="true"></i> 
+									Comments: ${featuredDesignersArray[i].stats.comments} 
+								</p>
+								<br>
+								<p class="statsPopupTitle">
+								<i class="fa fa-eye" aria-hidden="true"></i>
+									Views: ${featuredDesignersArray[i].stats.views}
+								</p>
+							</div>
 							<img class="designersImage" alt="${featuredDesignersArray[i].display_name}'s profile pic" src="${featuredDesignersArray[i].images[276]}"/>
 						</div>
 						<div id="modalDesignerStats" class="col-sm-12">
@@ -314,6 +341,8 @@ function checkMenu(){
 
 // Click on menu
 	$("#menuButton").click(function(){
+		$("#chart1").empty();
+		$(".closeButton").empty();
 		if (menuOpen == false) {
 		$("#sidebarMenu").css("display", "inline")
 		setTimeout(
