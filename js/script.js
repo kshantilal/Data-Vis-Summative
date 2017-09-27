@@ -363,6 +363,7 @@ function checkMenu(){
 					$("#sidebarMenu").css("opacity", "1");
 					$("#sidebarMenu").css("display", "inline");
 					$("#sidebarMenuFlexbox").css("display", "flex");
+					$("#clickableSidebar").css("display", "none");
 					$("#menuButton, #clickableSidebar").removeClass("inactiveButton");
 				},
 				440);
@@ -402,8 +403,8 @@ function menuOpenFunc(){
 		function() {
 			$("body").css("overflow", "hidden");
 			$("#sidebar").css("width", "100%");
-			// $("#sidebar").css("overflow", "scroll");
 			$("#menuButton").css("opacity", "0");
+			$("#clickableSidebar").css("display", "none");
 		},
 		150);
 	setTimeout(

@@ -459,6 +459,7 @@ body {
 	text-align: center;
 	font-size: 10px;
 	color: #FFF;
+	z-index: -1;
 
 }
 // sidebar
@@ -473,6 +474,8 @@ body {
 	top: 0;
 	transition: opacity 0.2s, width 0.3s;
 	overflow: hidden;
+	overflow-y: scroll; /* has to be scroll, not auto */
+	-webkit-overflow-scrolling: touch;
 }
 
 #menuButton {
