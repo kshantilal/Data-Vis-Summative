@@ -290,7 +290,7 @@ function designerExpand(designer) {
 						</div>
 						<div id="modalDesignerGrid" class="col-sm-12"></div>
 						<div class="scrollTop col-sm-12">
-								<i class="fa fa-chevron-up" aria-hidden="true"></i>
+								<i class="fa fa-chevron-up"></i>
 						</div>
 					</div>
 				`);
@@ -299,8 +299,8 @@ function designerExpand(designer) {
 		}
 
 		var buttonTop = $(".fa-chevron-up")
-		$(window).on("scroll", function() {
-		  if ($(window).scrollTop() >= 20) {
+		$("#sidebar").on("scroll", function() {
+		  if ($("#sidebar").scrollTop() >= 10) {
 		    buttonTop.fadeIn();
 		  } else {
 		    buttonTop.fadeOut();
