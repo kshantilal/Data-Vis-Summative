@@ -10,11 +10,13 @@ $fullWidth: 824px;
 @mixin mediaTablet {
 	@media (min-width: #{$tabletWidth}) and (max-width: #{$fullWidth}) {
 		@content;
+
 	}
 }
 @mixin mediaDesktop {
 	@media (min-width: #{$fullWidth}) {
 		@content;
+
 	}
 }
 
@@ -58,7 +60,7 @@ $fullWidth: 824px;
 	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.2);
 	font-family: "Open Sans Condensed";
 	display: inline-block;
-	font-size: 48px;
+	font-size: 85px;
 	color: white;
 	font-weight: 600;
 	-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -73,20 +75,21 @@ $fullWidth: 824px;
 	text-align: center;
 	color: white;
 	padding: 0px 60px;
-	font-size: 11px;
-	letter-spacing: 8px;
+	font-size: 20px;
+	letter-spacing: 12px;
 	font-weight: 600;
 	line-height: 24px;
 }
 
 #coverLogo{
-	margin-right: -2px;
-	height: 35px;
-	margin-bottom: 25px;}
+	margin-right: 0px;
+	height: 50px;
+	margin-bottom: 42px;
+}
 
 .scrollDown {
 	color: white;
-	font-size: 12px;
+	font-size: 20px;
 	height: 28vh;
 	margin-top: 28vh;
 }
@@ -99,8 +102,6 @@ $fullWidth: 824px;
 #content{
 	font-family: 'Lato', sans-serif;
 	padding-left: 18px;
-
-
 }
 
 #aboutUs{
@@ -123,7 +124,7 @@ $fullWidth: 824px;
 
 .aboutUsText{
 	margin-top:60px;
-	font-size: 20px;
+	font-size: 35px!important;
 	margin-bottom: 0;
 	text-align: center;
 	line-height:40px;
@@ -166,9 +167,7 @@ $fullWidth: 824px;
 	font-size: 14px;
 	margin-bottom: 20px;
 }
-// .featured-header{
-// 	margin-top:80px;
-// }
+
 
 .featureImage, .designersImage{
 	border-radius: 300px;
@@ -195,10 +194,6 @@ $fullWidth: 824px;
 	margin-top: 50px;
 }
 
-// .coverFeaturedContainer .featureImage:hover {
-// 		cursor: pointer;
-// 	opacity:0.4;
-// }
 // sidebar menu flexbox
 
 #sidebarMenuFlexbox{
@@ -278,7 +273,6 @@ $fullWidth: 824px;
 	margin-right: 5px;
 	font-size: 10px;
 	color: rgba(255, 255, 255, 0.5);
-	// font-weight: bold;
 	padding: 3px 8px;
 	border-radius: 3px;
 	margin-bottom:4px;
@@ -298,9 +292,7 @@ $fullWidth: 824px;
 	color: #2bb5a5;
 	margin: 0 auto;
 	font-family: $secondaryFont;
-	// background: -webkit-linear-gradient(#ff5e3a, #ff2c66);
-	// -webkit-background-clip: text;
-	// -webkit-text-fill-color: transparent;
+
 	 i {
 		color: #FF5E3A;
 		margin-right:10px;
@@ -333,8 +325,6 @@ $fullWidth: 824px;
 #modalDesignerGrid {
 	margin-top: 20px;
 	text-align: center;
-	// display: flex;
-	// flex-wrap: wrap;
 	overflow: hidden!important;
 	img {
 		transition: all 0.2s ease;
@@ -354,7 +344,7 @@ $fullWidth: 824px;
 		margin: 5px 5px;
 		transition: all 0.2s ease-in;
 	}
-	// overflow: auto;
+
 }
 
 .modalDesignerImages:hover{
@@ -394,7 +384,6 @@ $fullWidth: 824px;
 	left: 13%;
 	right: 15%;
 	position: absolute;
-	// transition: all 0.2s ease;
 	text-align: center;
 	z-index: -9900;
 	font-size: 22px;
@@ -469,11 +458,15 @@ $fullWidth: 824px;
 	top: 0;
 	transition: opacity 0.2s, width 0.3s;
 	overflow: hidden;
-	// overflow-y: scroll; /* has to be scroll, not auto */
-	// -webkit-overflow-scrolling: touch;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
 }
 
 #menuButton {
+	position: fixed;
+opacity: 1;
+left: 0px;
+top: 0px;
 	margin-top: 45px;
 	margin-left: 7px;
 	z-index: 102;
@@ -531,6 +524,3 @@ $fullWidth: 824px;
 	display: none;
 }
 
-// .modalImagePopup:hover {
-// 	cursor: pointer;
-// }

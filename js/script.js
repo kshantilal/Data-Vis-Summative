@@ -8,6 +8,21 @@ var Likes;
 var Comments;
 var PersonName;
 
+getID();
+
+	$.ajax({
+		url: 'config/config.json',
+		dataType: "json",
+		success: function(DataFromJSON){
+			console.log(DataFromJSON.AccessToken);
+			AccessToken = DataFromJSON.AccessToken;
+			getID();
+
+		},
+		error: function(){
+			console.log('Cant get config');
+		}
+	})
 //check config for api key
 	$.ajax({
 		url: 'config/config.json',
@@ -33,7 +48,119 @@ function getID(){
 			showData(featuredDesigners);
 		},
 		error: function(){
-			console.log("Cant get behance data");
+			console.log("Cant get behance data")
+		}
+	})
+}
+
+function showStats(){
+	$("#modalDesignerStats .button").click(function(){
+		var dataBar;
+		var options;
+
+		google.charts.load('current', {'packages':['corechart']});
+		google.charts.load('current', {'packages':['geochart'], 'mapsApiKey': 'AIzaSyB1qe7ia7SLO6ZZheIqZIvXViHSzMBYzG8'});
+		google.charts.setOnLoadCallback(drawChart);
+
+		function drawChart(){
+			var barChartJSON = $.ajax({
+				url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
+				type: "get",
+				contentType: "application/json",
+				dataType: "jsonp",
+				success: function(DataFromJSON){
+					var dataResults = DataFromJSON.projects;
+					dataBar = new google.visualization.DataTable();
+					dataBar.addColumn('string', 'Name');
+					dataBar.addColumn({type: 'string', role: 'tooltip', p: {html: true}});
+					// dataBar.addColumn('number', 'id'); have to also add in i to the row
+					dataBar.addColumn('number', 'Likes');
+					// dataBar.addColumn('number', 'Views');
+					dataBar.addColumn('number', 'Comments');
+					
+
+					for (var i = 0; i < dataResults.length; i++) {
+							PersonName = dataResults[i].name;
+							Likes = dataResults[i].stats.appreciations;
+							Comments = dataResults[i].stats.comments;
+							
+						dataBar.addRow([
+							PersonName, createCustomHTMLContent(PersonName, Likes, Comments), Likes, Comments
+						]);						
+					}
+
+					options = {
+						title: 'MY PROJECT STATS',
+						width: "100%",
+						height: 600,
+						colors: ['#009DFF', '#2BB5A5'],
+						// This line makes the entire category's tooltip active.
+						focusTarget: 'category',
+						// Use an HTML tooltip.
+						tooltip: { isHtml: true },
+						titleTextStyle: {
+							color: '#fff',
+							fontSize: 30,
+							fontName: 'Lato, san-serif'
+						},
+
+						hAxis: {
+							title: 'Stats',
+							titleTextStyle: {color: '#fff'},
+							textStyle: {color: '#fff', fontName: 'Lato, san-serif'}
+						},
+						vAxis: {
+							title: 'Projects',
+							titleTextStyle: {color: '#fff'},
+							textStyle: {color: '#fff', fontName: 'Lato, san-serif'}
+						},
+						backgroundColor: 'transparent',
+						legend: {
+							textStyle: {
+								color: '#fff',
+								fontName: 'Lato, san-serif'
+							},
+							position: 'top'
+						}
+					}
+					var barChart = new google.visualization.BarChart(document.getElementById('chart1'));
+					barChart.draw(dataBar, options);
+				},
+				error: function(){
+					console.log('Bar chart error');
+				}
+
+			});
+
+
+			$(".chartContainer").append(`
+			<div class="closeButton">
+				<i class="fa fa-times"></i>
+			</div>
+			`);
+
+			$(".closeButton").click(function(){
+				$(this).css("display", "none");
+				$("#chart1").empty();
+
+			})
+
+		}
+			setTimeout(function(){
+				$('#sidebar').animate({
+				scrollTop: $("#chart1").offset().top
+
+				}, 300);
+			}, 500);
+
+		function createCustomHTMLContent(PersonName, Likes, Comments) {
+			return '<div style="padding:10px 10px 10px 10px;">' +
+				'<table class="medals_layout">' + '<tr>' +
+				'<td><span style="font-size: 15px; color: #009DFF";>' + "<strong>"+PersonName+"</strong>" + '</span></td>' + '</tr>' + '<tr>' +
+				'<td><span class="glyphicon glyphicon-thumbs-up" style="font-size: 20px; padding-top: 20px; padding-bottom: 20px; color: #009DFF"></span></td>' +
+				'<td><span style="font-size: 20px; color: #009DFF">' + Likes + '</span></td>' + '</tr>' +
+				'<td><span class="glyphicon glyphicon-comment" style="font-size: 20px; color: #2BB5A5"></span>' +
+				'<td><span style="font-size: 20px; color: #2BB5A5">' + Comments + '</span></td>' + '</tr>' + '<tr>'
 		}
 	});
 }
@@ -354,10 +481,13 @@ function checkMenu(){
 					$("#sidebarMenu").css("display", "inline");
 					$("#sidebarMenuFlexbox").css("display", "flex");
 					$("#clickableSidebar").css("display", "none");
+					$("#menuButton").css("left", "0");
+					$("#menuButton").css("top", "0");
 					$("#menuButton, #clickableSidebar").removeClass("inactiveButton");
 				},
 				440);
 		}
+
 	checkMenu();
 });
 
@@ -382,12 +512,15 @@ function menuOpenFunc(){
 function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0");
 	$("#sidebar").css("overflow", "hidden");
+	$(".closemenuButton").css("opacity", "0");
 
 	setTimeout(
 		function() {
 			$("#sidebarMenuFlexbox, #sidebarMenu").css("display", "none");
 			$("body").css("overflow", "auto");
 			$("#clickableSidebar").css("display","inline");
+			$("#chart1").empty();
+			$(".closeButton").empty();
 			}, 
 		440);
 
