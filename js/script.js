@@ -10,6 +10,11 @@ var PersonName;
 
 	$.ajax({
 		url: 'config/config.json',
+		beforeSend: function(xhr){
+			if (xhr.overrideMimeType) {
+				xhr.overrideMimeType("application/json");
+			}
+		},
 		dataType: "json",
 		success: function(DataFromJSON){
 			AccessToken = DataFromJSON.AccessToken;
@@ -284,9 +289,9 @@ function designerExpand(designer) {
 		var buttonTop = $(".fa-chevron-up");
 		$("#sidebar").on("scroll", function() {
 		  if ($("#sidebar").scrollTop() >= 10) {
-		    buttonTop.fadeIn();
+			buttonTop.fadeIn();
 		  } else {
-		    buttonTop.fadeOut();
+			buttonTop.fadeOut();
 		  }
 		});
 
