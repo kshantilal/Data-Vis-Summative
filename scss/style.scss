@@ -464,9 +464,9 @@ $fullWidth: 824px;
 
 #menuButton {
 	position: fixed;
-opacity: 1;
-left: 0px;
-top: 0px;
+	opacity: 0;
+	left: 0px;
+	top: 0px;
 	margin-top: 45px;
 	margin-left: 7px;
 	z-index: 102;
