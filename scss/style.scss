@@ -474,11 +474,15 @@ body {
 	top: 0;
 	transition: opacity 0.2s, width 0.3s;
 	overflow: hidden;
-	overflow-y: scroll; /* has to be scroll, not auto */
+	overflow-y: hidden; /* has to be scroll, not auto */
 	-webkit-overflow-scrolling: touch;
 }
 
 #menuButton {
+	position: fixed;
+opacity: 1;
+left: 0px;
+top: 0px;
 	margin-top: 45px;
 	margin-left: 7px;
 	z-index: 102;

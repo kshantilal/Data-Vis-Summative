@@ -5,7 +5,7 @@ module.exports = function(grunt){
 			target: {
 				files:[{
 					expand: true,
-					cwd: "scss/",
+					cwd: "css/",
 					src: ["*.css", "*!min.css"],
 					dest: "css/",
 					ext: ".min.css"
@@ -16,7 +16,6 @@ module.exports = function(grunt){
 			dist: {
 				files: {
 					"css/style.css":"scss/style.scss",
-					// "css/style.css":"scss/kunal.scss"
 
 				}
 			}

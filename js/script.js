@@ -10,25 +10,22 @@ var sidebarID;
 var Likes;
 var Comments;
 var PersonName;
-//next 2 lines development only
-AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
-// AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
-// AccessToken = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
+
 getID();
 
-	// $.ajax({
-	// 	url: 'config/config.json',
-	// 	dataType: "json",
-	// 	success: function(DataFromJSON){
-	// 		console.log(DataFromJSON.AccessToken);
-	// 		AccessToken = DataFromJSON.AccessToken;
-	// 		getID();
+	$.ajax({
+		url: 'config/config.json',
+		dataType: "json",
+		success: function(DataFromJSON){
+			console.log(DataFromJSON.AccessToken);
+			AccessToken = DataFromJSON.AccessToken;
+			getID();
 
-	// 	},
-	// 	error: function(){
-	// 		console.log('Cant get config');
-	// 	}
-	// })
+		},
+		error: function(){
+			console.log('Cant get config');
+		}
+	})
 
 function getID(){
 	$.ajax({
@@ -115,7 +112,7 @@ function showStats(){
 							position: 'top'
 						}
 					}
-					var barChart = new google.visualization.BarChart(document.getElementById('chart1')); //what chart are you using eg PieChart
+					var barChart = new google.visualization.BarChart(document.getElementById('chart1'));
 					barChart.draw(dataBar, options);
 				},
 				error: function(){
@@ -325,16 +322,6 @@ function designerExpand(designer) {
 						`);					
 				}
 				showStats();
-				// $('.modalImageContainer').mouseenter(function(){
-				// 	$(this).children('img').css("opacity", "0.4");
-				// 	$(this).children('div').append("stats");
-							
-				// // console.log(results.projects[i].covers[230])		
-				// });
-				// $('.modalImageContainer').mouseleave(function(){
-				// 	$(this).children('img').css("opacity", "1");
-				// 	$(this).children('div').empty();	
-				// });
 			}	
 		});
 	}
@@ -364,39 +351,14 @@ function checkMenu(){
 					$("#sidebarMenu").css("display", "inline");
 					$("#sidebarMenuFlexbox").css("display", "flex");
 					$("#clickableSidebar").css("display", "none");
+					$("#menuButton").css("left", "0");
+					$("#menuButton").css("top", "0");
 					$("#menuButton, #clickableSidebar").removeClass("inactiveButton");
 				},
 				440);
 		}
 	checkMenu();
 });
-
-//click on sidebar
-	
-// // closed menu bar shows hover
-//   $('#sidebar').hover(function() {
-//    	if (menuOpen == false) {
-//         $(this).css('cursor','pointer');
-//       }else{
-//       	 $(this).css('cursor','default');
-//       }
-//    });
-
-// click on menu bar (if menu is closed)
-// 	$("#sidebar").click(function(){
-// 		console.log(menuOpen);
-// 		if (menuOpen == false) {
-// 		$("#sidebarMenu").css("display", "inline")
-// 		setTimeout(
-// 			function() {
-// 				$("#sidebarMenu").css("opacity", "1")
-// 			},
-// 			440);
-// 		checkMenu();
-// 	}else{
-// 		$(this).css('cursor','default');
-// 	}
-// });
 
 function menuOpenFunc(){
 	setTimeout(
@@ -500,17 +462,6 @@ $(document).ready(function(){
 				}
 			}
 		});
-
-	// $(document).on("mouseenter", ".modalDesignerImages", function(){
-	// 	console.log($(this).css("height"))
-	// 	$(this).siblings(".modalTooltipWrapper").css("height", $(this).css("height"));
-	// 	$(this).siblings(".modalTooltipWrapper").css("width", $(this).css("width"));
-	// 	$(this).siblings(".modalTooltipWrapper").position($(this).position());
-	// 	$(this).siblings(".modalTooltipWrapper .modalTooltipText").css("opacity","1");
-	// })
-	// $(document).on("mouseleave", ".modalDesignerImages", function(){
-	// 	$(this).siblings(".modalTooltipWrapper .modalTooltipText").css("opacity","0");
-	// })
 
 	//Down Button
 	$(".fa-chevron-circle-down").click(function(){
