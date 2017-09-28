@@ -1,10 +1,7 @@
-var devID = '98195103';
-
-var featuredDesignersArray = [];
-
-var menuOpen = false;
-
 //Global Variables
+var devID = '98195103';
+var featuredDesignersArray = [];
+var menuOpen = false;
 var AccessToken;
 var sidebarID;
 var Likes;
@@ -357,6 +354,7 @@ function checkMenu(){
 				},
 				440);
 		}
+
 	checkMenu();
 });
 
@@ -383,12 +381,15 @@ function menuOpenFunc(){
 function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0")
 	$("#sidebar").css("overflow", "hidden");
-	$(".closemenuButton").css("opacity", "0");	
+	$(".closemenuButton").css("opacity", "0");
+
 	setTimeout(
 		function() {
 			$("#sidebarMenuFlexbox, #sidebarMenu").css("display", "none");
 			$("body").css("overflow", "auto");
 			$("#clickableSidebar").css("display","inline");
+			$("#chart1").empty();
+			$(".closeButton").empty();
 			}, 
 		440);
 

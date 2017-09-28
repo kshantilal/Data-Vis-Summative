@@ -10,11 +10,13 @@ $fullWidth: 824px;
 @mixin mediaTablet {
 	@media (min-width: #{$tabletWidth}) and (max-width: #{$fullWidth}) {
 		@content;
+
 	}
 }
 @mixin mediaDesktop {
 	@media (min-width: #{$fullWidth}) {
 		@content;
+
 	}
 }
 
@@ -62,7 +64,7 @@ body {
 	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.2);
 	font-family: "Open Sans Condensed";
 	display: inline-block;
-	font-size: 48px;
+	font-size: 85px;
 	color: white;
 	font-weight: 600;
 	-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -77,20 +79,21 @@ body {
 	text-align: center;
 	color: white;
 	padding: 0px 60px;
-	font-size: 11px;
-	letter-spacing: 8px;
+	font-size: 20px;
+	letter-spacing: 12px;
 	font-weight: 600;
 	line-height: 24px;
 }
 
 #coverLogo{
-	margin-right: -2px;
-	height: 35px;
-	margin-bottom: 25px;}
+	margin-right: 0px;
+	height: 50px;
+	margin-bottom: 42px;
+}
 
 .scrollDown {
 	color: white;
-	font-size: 12px;
+	font-size: 20px;
 	height: 28vh;
 	margin-top: 28vh;
 }
@@ -102,9 +105,6 @@ body {
 
 #content{
 	font-family: 'Lato', sans-serif;
-	// margin-left: 20px;
-
-
 }
 
 #aboutUs{
@@ -127,7 +127,7 @@ body {
 
 .aboutUsText{
 	margin-top:60px;
-	font-size: 20px;
+	font-size: 35px!important;
 	margin-bottom: 0;
 	text-align: center;
 	line-height:40px;
@@ -170,9 +170,7 @@ body {
 	font-size: 14px;
 	margin-bottom: 20px;
 }
-// .featured-header{
-// 	margin-top:80px;
-// }
+
 
 .featureImage, .designersImage{
 	border-radius: 300px;
@@ -199,10 +197,6 @@ body {
 	margin-top: 50px;
 }
 
-// .coverFeaturedContainer .featureImage:hover {
-// 		cursor: pointer;
-// 	opacity:0.4;
-// }
 // sidebar menu flexbox
 
 #sidebarMenuFlexbox{
@@ -229,9 +223,9 @@ body {
 	color:white;
 	width:300px;
 	height:auto;
- 	font-size:20px;
-  	transition: all 0.2s ease-in;
-  	display: none;
+	font-size:20px;
+	transition: all 0.2s ease-in;
+	display: none;
 	padding-bottom: 400px;
 	h1 {
 		display: inline-block;
@@ -282,7 +276,6 @@ body {
 	margin-right: 5px;
 	font-size: 10px;
 	color: rgba(255, 255, 255, 0.5);
-	// font-weight: bold;
 	padding: 3px 8px;
 	border-radius: 3px;
 	margin-bottom:4px;
@@ -302,9 +295,7 @@ body {
 	color: #2bb5a5;
 	margin: 0 auto;
 	font-family: $secondaryFont;
-	// background: -webkit-linear-gradient(#ff5e3a, #ff2c66);
-	// -webkit-background-clip: text;
-	// -webkit-text-fill-color: transparent;
+
 	 i {
 		color: #FF5E3A;
 		margin-right:10px;
@@ -337,8 +328,6 @@ body {
 #modalDesignerGrid {
 	margin-top: 20px;
 	text-align: center;
-	// display: flex;
-	// flex-wrap: wrap;
 	overflow: hidden!important;
 	img {
 		transition: all 0.2s ease;
@@ -358,7 +347,7 @@ body {
 		margin: 5px 5px;
 		transition: all 0.2s ease-in;
 	}
-	// overflow: auto;
+
 }
 
 .modalDesignerImages:hover{
@@ -398,7 +387,6 @@ body {
 	left: 13%;
 	right: 15%;
 	position: absolute;
-	// transition: all 0.2s ease;
 	text-align: center;
 	z-index: -9900;
 	font-size: 22px;
@@ -474,7 +462,7 @@ body {
 	top: 0;
 	transition: opacity 0.2s, width 0.3s;
 	overflow: hidden;
-	overflow-y: hidden; /* has to be scroll, not auto */
+	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;
 }
 
@@ -534,7 +522,3 @@ top: 0px;
 	cursor: pointer;
 	padding: 15px;
 }
-
-// .modalImagePopup:hover {
-// 	cursor: pointer;
-// }
