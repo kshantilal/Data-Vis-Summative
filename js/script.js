@@ -8,8 +8,6 @@ var Likes;
 var Comments;
 var PersonName;
 
-getID();
-
 	$.ajax({
 		url: 'config/config.json',
 		dataType: "json",
@@ -59,9 +57,7 @@ function showStats(){
 					dataBar = new google.visualization.DataTable();
 					dataBar.addColumn('string', 'Name');
 					dataBar.addColumn({type: 'string', role: 'tooltip', p: {html: true}});
-					// dataBar.addColumn('number', 'id'); have to also add in i to the row
 					dataBar.addColumn('number', 'Likes');
-					// dataBar.addColumn('number', 'Views');
 					dataBar.addColumn('number', 'Comments');
 					
 
@@ -128,7 +124,7 @@ function showStats(){
 			$(".closeButton").click(function(){
 				$(this).css("display", "none");
 				$("#chart1").empty();
-
+				$(".closeButton").remove();
 			})
 
 		}
@@ -249,7 +245,6 @@ function designerExpand(designer) {
 		$(".modalImagePopup").css('opacity', '0'); 
 		$(".featureImage, .designersImage").css('opacity', '1'); 
 		$("#sidebar").addClass('designerOpened');
-		// designer.parent().clone().appendTo("#sidebarContent");
 		for (var i = 0; i < featuredDesignersArray.length; i++) {
 			if (featuredDesignersArray[i].id == sidebarID) {
 				var fieldList = [];
