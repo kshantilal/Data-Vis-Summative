@@ -12,7 +12,6 @@ var PersonName;
 		url: 'config/config.json',
 		dataType: "json",
 		success: function(DataFromJSON){
-			console.log(DataFromJSON.AccessToken);
 			AccessToken = DataFromJSON.AccessToken;
 			getID();
 
@@ -20,7 +19,7 @@ var PersonName;
 		error: function(){
 			console.log('Cant get config');
 		}
-	})
+	});
 
 function getID(){
 	$.ajax({
@@ -32,9 +31,9 @@ function getID(){
 			showData(featuredDesigners);
 		},
 		error: function(){
-			console.log("Cant get behance data")
+			console.log("Cant get behance data");
 		}
-	})
+	});
 }
 
 function showStats(){
@@ -104,7 +103,7 @@ function showStats(){
 							},
 							position: 'top'
 						}
-					}
+					};
 					var barChart = new google.visualization.BarChart(document.getElementById('chart1'));
 					barChart.draw(dataBar, options);
 				},
@@ -125,7 +124,7 @@ function showStats(){
 				$(this).css("display", "none");
 				$("#chart1").empty();
 				$(".closeButton").remove();
-			})
+			});
 
 		}
 			setTimeout(function(){
@@ -142,9 +141,9 @@ function showStats(){
 				'<td><span class="glyphicon glyphicon-thumbs-up" style="font-size: 20px; padding-top: 20px; padding-bottom: 20px; color: #009DFF"></span></td>' +
 				'<td><span style="font-size: 20px; color: #009DFF">' + Likes + '</span></td>' + '</tr>' +
 				'<td><span class="glyphicon glyphicon-comment" style="font-size: 20px; color: #2BB5A5"></span>' +
-				'<td><span style="font-size: 20px; color: #2BB5A5">' + Comments + '</span></td>' + '</tr>' + '<tr>'
+				'<td><span style="font-size: 20px; color: #2BB5A5">' + Comments + '</span></td>' + '</tr>' + '<tr>';
 		}
-	})
+	});
 }
 
 
@@ -229,12 +228,12 @@ function showData(featuredDesigners){
 			});
 		}
 		$('.coverFeaturedContainer > .featureImage').click(function(){
-			designerExpand($(this))
-		})
+			designerExpand($(this));
+		});
 
 		$('.coverDesignersContainer > .designersImage').click(function(){
-			designerExpand($(this))
-		})
+			designerExpand($(this));
+		});
 	}
 }
 
@@ -282,7 +281,7 @@ function designerExpand(designer) {
 			}
 		}
 
-		var buttonTop = $(".fa-chevron-up")
+		var buttonTop = $(".fa-chevron-up");
 		$("#sidebar").on("scroll", function() {
 		  if ($("#sidebar").scrollTop() >= 10) {
 		    buttonTop.fadeIn();
@@ -371,10 +370,10 @@ function menuOpenFunc(){
 			$("#clickableSidebar").css("visibility","none");
 		},
 		550);
-};
+}
 
 function menuCloseFunc(){
-	$("#sidebarMenu").css("opacity", "0")
+	$("#sidebarMenu").css("opacity", "0");
 	$("#sidebar").css("overflow", "hidden");
 	$(".closemenuButton").css("opacity", "0");
 
@@ -397,7 +396,7 @@ function menuCloseFunc(){
 		},
 		320);
 
-};
+}
 
 $(document).ready(function(){
 	// Scroll down
