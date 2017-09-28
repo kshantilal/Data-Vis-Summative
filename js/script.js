@@ -366,7 +366,6 @@ function menuOpenFunc(){
 		function() {
 			$("body").css("overflow", "hidden");
 			$("#sidebar").css("width", "100%");
-			// $("#menuButton").css("opacity", "0");
 			$("#clickableSidebar").css("display", "none");
 		},
 		150);
@@ -375,7 +374,6 @@ function menuOpenFunc(){
 			$("#sidebarContent").css("display", "inline");
 			$("#sidebar").css("overflow", "auto");
 			$("#sidebarContent").css("opacity", "1");
-			// $(".closemenuButton").css("opacity", "1");
 			$("#clickableSidebar").css("visibility","none");
 		},
 		550);
@@ -384,7 +382,6 @@ function menuOpenFunc(){
 function menuCloseFunc(){
 	$("#sidebarMenu").css("opacity", "0");
 	$("#sidebar").css("overflow", "hidden");
-	// $(".closemenuButton").css("opacity", "0");
 
 	setTimeout(
 		function() {
@@ -400,7 +397,6 @@ function menuCloseFunc(){
 			$(".chartContainer #chart1").children().detach();
 			$("#sidebarContent").css("display", "none");
 			$("#sidebar").css("width", "35px");
-			// $("#menuButton").css("opacity", "1");
 			$(".closeButton").remove();
 		},
 		320);
