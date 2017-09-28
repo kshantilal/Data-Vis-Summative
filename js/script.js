@@ -1,35 +1,28 @@
-var devID = '98195103';
-
-var featuredDesignersArray = [];
-
-var menuOpen = false;
-
 //Global Variables
+var devID = '98195103';
+var featuredDesignersArray = [];
+var menuOpen = false;
 var AccessToken;
 var sidebarID;
 var Likes;
 var Comments;
 var PersonName;
-//next 2 lines development only
-// AccessToken = "t6yjIR3c4Jwmu4kcuZUZsfiNCRHCY51f";
-// AccessToken = "BjjvUIbXE6c4XfLAYUIyPszNDSzI4CP8";
-AccessToken = "zpDS4n0SCgo9ND23awJuLUIOjjjC2Tp1";
-getID();
 
-	// $.ajax({
-	// 	url: 'config/config.json',
-	// 	dataType: "json",
-	// 	success: function(DataFromJSON){
-	// 		console.log(DataFromJSON.AccessToken);
-	// 		AccessToken = DataFromJSON.AccessToken;
-	// 		getID();
+//check config for api key
+	$.ajax({
+		url: 'config/config.json',
+		dataType: "json",
+		success: function(DataFromJSON){
+			AccessToken = DataFromJSON.AccessToken;
+			getID();
 
-	// 	},
-	// 	error: function(){
-	// 		console.log('Cant get config');
-	// 	}
-	// })
+		},
+		error: function(){
+			console.log('Cant get config');
+		}
+	})
 
+//Pull designers
 function getID(){
 	$.ajax({
 		url: "http://www.behance.net/v2/users/" + devID + "/following?api_key=" + AccessToken,
@@ -40,11 +33,189 @@ function getID(){
 			showData(featuredDesigners);
 		},
 		error: function(){
-			console.log("Cant get behance data")
+			console.log("Cant get behance data");
 		}
-	})
+	});
 }
 
+// Display Pulled data
+function showData(featuredDesigners){
+	for (var i = 0; i < featuredDesigners.length; i++) {
+		featuredDesignersArray.push(featuredDesigners[i]);
+		var fieldList = [];
+		for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
+			fieldList.push(`${featuredDesigners[i].fields[j]}<br>`);
+		}
+		if (i < 3) {
+			//Top 3 designer HTML
+			$('#coverFeatured').append(`
+				<div data-ID="${featuredDesigners[i].id}" class="coverFeaturedContainer col-sm-4">
+					<p class="featureName"><strong>${featuredDesigners[i].display_name}</strong></p>
+					<p class="featureFields">${fieldList.join("")}</p>
+					<div class='modalImagePopup'>
+						<p class="statsPopupTitle">
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
+							Likes: ${featuredDesigners[i].stats.appreciations}
+						</p>
+						<p class="statsPopupTitle">
+							<i class="fa fa-eye" aria-hidden="true"></i> 
+							Views: ${featuredDesigners[i].stats.views}
+						</p>
+						<p class="statsPopupTitle">
+							<i class="fa fa-comment" aria-hidden="true"></i> 
+							Comments: ${featuredDesigners[i].stats.comments} 
+						</p>
+					</div>
+					<img class="featureImage" alt="${featuredDesigners[i].display_name}'s profile pic" src="${featuredDesigners[i].images[276]}" data-ID=${i}/>
+				</div>
+				`);
+
+			//show stats on image hover
+			$('.featureImage').mouseenter(function(){
+				$(this).css("opacity", "0.1");
+				var statsPopup = $();	
+				$(this).siblings('div').css("opacity", "1");		
+			});
+
+			$('.featureImage').mouseleave(function(){
+				$(this).siblings('div').css("opacity", "0");
+				$(this).css("opacity", "1");
+			});
+
+
+		} else {
+			//non-featured designers
+			$('#coverDesigners').append(`
+				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer col-sm-3">
+					<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
+					<p class="designersFields">${fieldList.join("")}</p>
+					<div class='modalImagePopup'>
+						<p class="statsPopupTitle">
+							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
+							Likes: ${featuredDesigners[i].stats.appreciations}
+						</p>
+						<p class="statsPopupTitle">
+							<i class="fa fa-eye" aria-hidden="true"></i>
+							Views: ${featuredDesigners[i].stats.views}
+						</p>
+						<p class="statsPopupTitle">
+							<i class="fa fa-comment" aria-hidden="true"></i> 
+							Comments: ${featuredDesigners[i].stats.comments} 
+						</p>
+					</div>
+					<img class="designersImage" alt="${featuredDesigners[i].display_name}'s profile pic" src="${featuredDesigners[i].images[276]}"/>
+					
+				</div>
+				`);
+
+			//show stats on image hover
+			$('.designersImage').mouseenter(function(){
+				$(this).css("opacity", "0.1");
+				var statsPopup = $();	
+				$(this).siblings('div').css("opacity", "1");
+			});
+
+			$('.designersImage').mouseleave(function(){
+				$(this).siblings('div').css("opacity", "0");
+				$(this).css("opacity", "1");
+			});
+		}
+
+		//click on designer image listener
+		$('.coverFeaturedContainer > .featureImage').click(function(){
+			designerExpand($(this));
+		});
+
+		$('.coverDesignersContainer > .designersImage').click(function(){
+			designerExpand($(this));
+		});
+	}
+}
+
+//Show designer details after clicking their image on Home Page
+function designerExpand(designer) {
+	if (menuOpen == false) {
+		sidebarID = designer.parent()["0"].dataset.id;
+		checkMenu();
+		$(".modalImagePopup").css('opacity', '0'); 
+		$(".featureImage, .designersImage").css('opacity', '1'); 
+		$("#sidebar").addClass('designerOpened');
+		for (var i = 0; i < featuredDesignersArray.length; i++) {
+			if (featuredDesignersArray[i].id == sidebarID) {
+				var fieldList = [];
+				for (var j = 0; j < featuredDesignersArray[i].fields.length; j++) {
+					fieldList.push(`${featuredDesignersArray[i].fields[j]}`);
+				}
+				$('#sidebarContent').append(`
+					<div id="modalDesignerContainer" data-ID="${sidebarID}" class="col-sm-12">
+						<div id="modalProfileContainer" class="col-sm-12">
+							<p class="designersName"><strong>${featuredDesignersArray[i].display_name}</strong></p>
+							<p class="designersFields">${fieldList.join(", ")}</p>
+							<div class='modalImagePopup'>
+								<p class="statsPopupTitle">
+									<i class="fa fa-comment" aria-hidden="true"></i> 
+									Comments: ${featuredDesignersArray[i].stats.comments} 
+								</p>
+								<br>
+								<p class="statsPopupTitle">
+								<i class="fa fa-eye" aria-hidden="true"></i>
+									Views: ${featuredDesignersArray[i].stats.views}
+								</p>
+							</div>
+							<img class="designersImage" alt="${featuredDesignersArray[i].display_name}'s profile pic" src="${featuredDesignersArray[i].images[276]}"/>
+						</div>
+						<div id="modalDesignerStats" class="col-sm-12">
+							<div id="buttonViewStats" class="button">View stats</div>
+						</div>
+						<div id="modalDesignerGrid" class="col-sm-12"></div>
+						<div class="scrollTop col-sm-12">
+								<i class="fa fa-chevron-up"></i>
+						</div>
+					</div>
+				`);
+				i = featuredDesignersArray.length;
+			}
+		}
+
+		// go to top button
+		var buttonTop = $(".fa-chevron-up");
+		$("#sidebar").on("scroll", function() {
+		  if ($("#sidebar").scrollTop() >= 10) {
+		    buttonTop.fadeIn();
+		  } else {
+		    buttonTop.fadeOut();
+		  }
+		});
+
+		buttonTop.on("click", function() {
+		  $("#sidebar").animate({ scrollTop: 0 }, 300);
+		});
+
+		//pulling designer projects and displaying them
+		$.ajax({
+			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
+			dataType: "jsonp",
+			success: function(results){
+				var result = results.projects;		
+				for (var i = 0; i < result.length; i++) {
+					$('#modalDesignerGrid').append(`
+						<div class="modalImageContainer">
+							<a href="${results.projects[i].url}" class="modalTooltipWrapper" target="_blank" >
+								<span class="modalTooltipText">${results.projects[i].name}<br><br>View on Behance</span>
+								<img class="modalDesignerImages" alt="Project: ${results.projects[i].name}" src="${results.projects[i].covers.original}"/>
+							</a>
+
+						</div>
+						`);					
+				}
+				showStats();
+			}	
+		});
+		$("#buttonViewStats").css("display","inline");
+	}
+}
+
+//grab designer engagement stats and listens for click to load into graph
 function showStats(){
 	$("#buttonViewStats").on("click touch", function(){
 		var dataBar;
@@ -114,7 +285,7 @@ function showStats(){
 							},
 							position: 'top'
 						}
-					}
+					};
 					var barChart = new google.visualization.BarChart(document.getElementById('chart1')); //what chart are you using eg PieChart
 					barChart.draw(dataBar, options);
 				},
@@ -124,7 +295,7 @@ function showStats(){
 
 			});
 
-
+			//append close button to chart
 			$(".chartContainer").append(`
 			<div class="closeButton">
 				<i class="fa fa-times"></i>
@@ -134,10 +305,10 @@ function showStats(){
 			$(".closeButton").click(function(){
 				$(this).remove();
 				$("#chart1").empty();
-
-			})
+			});
 
 		}
+		//scrolling animation for clicking stats button
 			setTimeout(function(){
 				$('#sidebar').animate({
 				scrollTop: $("#chart1").offset().top
@@ -152,192 +323,9 @@ function showStats(){
 				'<td><span class="glyphicon glyphicon-thumbs-up" style="font-size: 20px; padding-top: 20px; padding-bottom: 20px; color: #009DFF"></span></td>' +
 				'<td><span style="font-size: 20px; color: #009DFF">' + Likes + '</span></td>' + '</tr>' +
 				'<td><span class="glyphicon glyphicon-comment" style="font-size: 20px; color: #2BB5A5"></span>' +
-				'<td><span style="font-size: 20px; color: #2BB5A5">' + Comments + '</span></td>' + '</tr>' + '<tr>'
+				'<td><span style="font-size: 20px; color: #2BB5A5">' + Comments + '</span></td>' + '</tr>' + '<tr>';
 		}
-	})
-}
-
-
-// SHOW USERS
-function showData(featuredDesigners){
-	for (var i = 0; i < featuredDesigners.length; i++) {
-		featuredDesignersArray.push(featuredDesigners[i]);
-		var fieldList = [];
-		for (var j = 0; j < featuredDesigners[i].fields.length; j++) {
-			fieldList.push(`${featuredDesigners[i].fields[j]}<br>`);
-		}
-		if (i < 3) {
-			//Top 3 designer HTML
-			$('#coverFeatured').append(`
-				<div data-ID="${featuredDesigners[i].id}" class="coverFeaturedContainer col-sm-4">
-					<p class="featureName"><strong>${featuredDesigners[i].display_name}</strong></p>
-					<p class="featureFields">${fieldList.join("")}</p>
-					<div class='modalImagePopup'>
-						<p class="statsPopupTitle">
-							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
-							Likes: ${featuredDesigners[i].stats.appreciations}
-						</p>
-						<p class="statsPopupTitle">
-							<i class="fa fa-eye" aria-hidden="true"></i> 
-							Views: ${featuredDesigners[i].stats.views}
-						</p>
-						<p class="statsPopupTitle">
-							<i class="fa fa-comment" aria-hidden="true"></i> 
-							Comments: ${featuredDesigners[i].stats.comments} 
-						</p>
-					</div>
-					<img class="featureImage" alt="${featuredDesigners[i].display_name}'s profile pic" src="${featuredDesigners[i].images[276]}" data-ID=${i}/>
-				</div>
-				`);
-
-			$('.featureImage').mouseenter(function(){
-				$(this).css("opacity", "0.1");
-				var statsPopup = $();	
-				$(this).siblings('div').css("opacity", "1");		
-			});
-
-			$('.featureImage').mouseleave(function(){
-				$(this).siblings('div').css("opacity", "0");
-				$(this).css("opacity", "1");
-			});
-
-
-		} else {
-			//non-featured designers
-			$('#coverDesigners').append(`
-				<div data-ID="${featuredDesigners[i].id}" class="coverDesignersContainer col-sm-3">
-					<p class="designersName"><strong>${featuredDesigners[i].display_name}</strong></p>
-					<p class="designersFields">${fieldList.join("")}</p>
-					<div class='modalImagePopup'>
-						<p class="statsPopupTitle">
-							<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 
-							Likes: ${featuredDesigners[i].stats.appreciations}
-						</p>
-						<p class="statsPopupTitle">
-							<i class="fa fa-eye" aria-hidden="true"></i>
-							Views: ${featuredDesigners[i].stats.views}
-						</p>
-						<p class="statsPopupTitle">
-							<i class="fa fa-comment" aria-hidden="true"></i> 
-							Comments: ${featuredDesigners[i].stats.comments} 
-						</p>
-					</div>
-					<img class="designersImage" alt="${featuredDesigners[i].display_name}'s profile pic" src="${featuredDesigners[i].images[276]}"/>
-					
-				</div>
-				`);
-
-			$('.designersImage').mouseenter(function(){
-				$(this).css("opacity", "0.1");
-				var statsPopup = $();	
-				$(this).siblings('div').css("opacity", "1");
-			});
-
-			$('.designersImage').mouseleave(function(){
-				$(this).siblings('div').css("opacity", "0");
-				$(this).css("opacity", "1");
-			});
-		}
-		$('.coverFeaturedContainer > .featureImage').click(function(){
-			designerExpand($(this))
-		})
-
-		$('.coverDesignersContainer > .designersImage').click(function(){
-			designerExpand($(this))
-		})
-	}
-}
-
-function designerExpand(designer) {
-	if (menuOpen == false) {
-		sidebarID = designer.parent()["0"].dataset.id;
-		checkMenu();
-		$(".modalImagePopup").css('opacity', '0'); 
-		$(".featureImage, .designersImage").css('opacity', '1'); 
-		$("#sidebar").addClass('designerOpened');
-		// designer.parent().clone().appendTo("#sidebarContent");
-		for (var i = 0; i < featuredDesignersArray.length; i++) {
-			if (featuredDesignersArray[i].id == sidebarID) {
-				var fieldList = [];
-				for (var j = 0; j < featuredDesignersArray[i].fields.length; j++) {
-					fieldList.push(`${featuredDesignersArray[i].fields[j]}`);
-				}
-				$('#sidebarContent').append(`
-					<div id="modalDesignerContainer" data-ID="${sidebarID}" class="col-sm-12">
-						<div id="modalProfileContainer" class="col-sm-12">
-							<p class="designersName"><strong>${featuredDesignersArray[i].display_name}</strong></p>
-							<p class="designersFields">${fieldList.join(", ")}</p>
-							<div class='modalImagePopup'>
-								<p class="statsPopupTitle">
-									<i class="fa fa-comment" aria-hidden="true"></i> 
-									Comments: ${featuredDesignersArray[i].stats.comments} 
-								</p>
-								<br>
-								<p class="statsPopupTitle">
-								<i class="fa fa-eye" aria-hidden="true"></i>
-									Views: ${featuredDesignersArray[i].stats.views}
-								</p>
-							</div>
-							<img class="designersImage" alt="${featuredDesignersArray[i].display_name}'s profile pic" src="${featuredDesignersArray[i].images[276]}"/>
-						</div>
-						<div id="modalDesignerStats" class="col-sm-12">
-							<div id="buttonViewStats" class="button">View stats</div>
-						</div>
-						<div id="modalDesignerGrid" class="col-sm-12"></div>
-						<div class="scrollTop col-sm-12">
-								<i class="fa fa-chevron-up"></i>
-						</div>
-					</div>
-				`);
-				i = featuredDesignersArray.length;
-			}
-		}
-
-		var buttonTop = $(".fa-chevron-up")
-		$("#sidebar").on("scroll", function() {
-		  if ($("#sidebar").scrollTop() >= 10) {
-		    buttonTop.fadeIn();
-		  } else {
-		    buttonTop.fadeOut();
-		  }
-		});
-
-		buttonTop.on("click", function() {
-		  $("#sidebar").animate({ scrollTop: 0 }, 300);
-		});
-
-
-		$.ajax({
-			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
-			dataType: "jsonp",
-			success: function(results){
-				var result = results.projects;		
-				for (var i = 0; i < result.length; i++) {
-					$('#modalDesignerGrid').append(`
-						<div class="modalImageContainer">
-							<a href="${results.projects[i].url}" class="modalTooltipWrapper" target="_blank" >
-								<span class="modalTooltipText">${results.projects[i].name}<br><br>View on Behance</span>
-								<img class="modalDesignerImages" alt="Project: ${results.projects[i].name}" src="${results.projects[i].covers.original}"/>
-							</a>
-
-						</div>
-						`);					
-				}
-				showStats();
-				// $('.modalImageContainer').mouseenter(function(){
-				// 	$(this).children('img').css("opacity", "0.4");
-				// 	$(this).children('div').append("stats");
-							
-				// // console.log(results.projects[i].covers[230])		
-				// });
-				// $('.modalImageContainer').mouseleave(function(){
-				// 	$(this).children('img').css("opacity", "1");
-				// 	$(this).children('div').empty();	
-				// });
-			}	
-		});
-		$("#buttonViewStats").css("display","inline");
-	}
+	});
 }
 
 //Check menu state for toggle
@@ -350,6 +338,8 @@ function checkMenu(){
 		menuOpen = true;
 	}
 }
+
+//Menu Functions
 
 // Click on menu
 	$("#menuButton, #clickableSidebar").click(function(){
@@ -376,7 +366,7 @@ function menuOpenFunc(){
 		function() {
 			$("body").css("overflow", "hidden");
 			$("#sidebar").css("width", "100%");
-			$("#menuButton").css("opacity", "0");
+			// $("#menuButton").css("opacity", "0");
 			$("#clickableSidebar").css("display", "none");
 		},
 		150);
@@ -385,16 +375,16 @@ function menuOpenFunc(){
 			$("#sidebarContent").css("display", "inline");
 			$("#sidebar").css("overflow", "auto");
 			$("#sidebarContent").css("opacity", "1");
-			$(".closemenuButton").css("opacity", "1");
+			// $(".closemenuButton").css("opacity", "1");
 			$("#clickableSidebar").css("visibility","none");
 		},
 		550);
-};
+}
 
 function menuCloseFunc(){
-	$("#sidebarMenu").css("opacity", "0")
+	$("#sidebarMenu").css("opacity", "0");
 	$("#sidebar").css("overflow", "hidden");
-	$(".closemenuButton").css("opacity", "0");
+	// $(".closemenuButton").css("opacity", "0");
 
 	setTimeout(
 		function() {
@@ -410,12 +400,12 @@ function menuCloseFunc(){
 			$(".chartContainer #chart1").children().detach();
 			$("#sidebarContent").css("display", "none");
 			$("#sidebar").css("width", "35px");
-			$("#menuButton").css("opacity", "1");
+			// $("#menuButton").css("opacity", "1");
 			$(".closeButton").remove();
 		},
 		320);
 
-};
+}
 
 $(document).ready(function(){
 	// Scroll down
@@ -459,34 +449,22 @@ $(document).ready(function(){
 			checkMenu();
 	});
 
+	//hide sidebar at the top of the page
 	$(window).scroll(function(){
 		if (menuOpen == false){
 			if ($(window).scrollTop()) {
 				$("#sidebar").css("width", "35px");
-				$("#menuButton").css("position", "fixed");
 				$("#menuButton").css("opacity", "1");
 			} else {
 				setTimeout(
 					function() {
 					$("#sidebar").css("width", "0px");
-					$("#menuButton").css("position", "static");
 						}, 
 					240);
 						$("#menuButton").css("opacity", "0");
 				}
 			}
 		});
-
-	// $(document).on("mouseenter", ".modalDesignerImages", function(){
-	// 	console.log($(this).css("height"))
-	// 	$(this).siblings(".modalTooltipWrapper").css("height", $(this).css("height"));
-	// 	$(this).siblings(".modalTooltipWrapper").css("width", $(this).css("width"));
-	// 	$(this).siblings(".modalTooltipWrapper").position($(this).position());
-	// 	$(this).siblings(".modalTooltipWrapper .modalTooltipText").css("opacity","1");
-	// })
-	// $(document).on("mouseleave", ".modalDesignerImages", function(){
-	// 	$(this).siblings(".modalTooltipWrapper .modalTooltipText").css("opacity","0");
-	// })
 
 	//Down Button
 	$(".fa-chevron-circle-down").click(function(){

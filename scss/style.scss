@@ -30,16 +30,6 @@ $fullWidth: 824px;
 	margin-left: 0px!important;
 }
 
-html {
-	overflow: hidden;
-	height: 100%;
-}
-
-body {
-	height: 100%;
-	overflow: auto;
-}
-
 #masterContainer{
 	height: 100%;
 	width: 100%;
@@ -473,15 +463,14 @@ body {
 #sidebar {
 	height: 100%;
 	background: linear-gradient(#FF5E3A, #FF2B67);
-
 	width:0px;
 	position: fixed!important;
 	left: 0;
 	top: 0;
 	transition: opacity 0.2s, width 0.3s;
 	overflow: hidden;
-	overflow-y: scroll; /* has to be scroll, not auto */
-	-webkit-overflow-scrolling: touch;
+	// overflow-y: scroll; /* has to be scroll, not auto */
+	// -webkit-overflow-scrolling: touch;
 }
 
 #menuButton {
@@ -495,14 +484,15 @@ body {
 	cursor:pointer;
 	opacity: 0.7;
 }
+
 .closemenuButton{
-	position: fixed;
 	font-size:21px!important;
 	color: white;
 	top: 41px;
 	left: 9px;
 	transition: all 0.1s ease;
 	opacity:0;
+	pointer-events:none;
 }
 
 .closeButton{
@@ -512,6 +502,7 @@ body {
 	display: block;
 	font-size: 30px;
 	cursor: pointer;
+	z-index: 1;
 }
 
 .closeButton:hover{
