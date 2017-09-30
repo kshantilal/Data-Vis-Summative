@@ -28,7 +28,7 @@ var PersonName;
 
 function getID(){
 	$.ajax({
-		url: "http://www.behance.net/v2/users/" + devID + "/following?api_key=" + AccessToken,
+		url: "https://www.behance.net/v2/users/" + devID + "/following?api_key=" + AccessToken,
 		type: "get",
 		dataType: "jsonp",
 		success: function(DataFromBehance){
@@ -52,7 +52,7 @@ function showStats(){
 
 		function drawChart(){
 			var barChartJSON = $.ajax({
-				url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
+				url: "https://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 				type: "get",
 				contentType: "application/json",
 				dataType: "jsonp",
@@ -302,7 +302,7 @@ function designerExpand(designer) {
 
 
 		$.ajax({
-			url: "http://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
+			url: "https://www.behance.net/v2/users/" + sidebarID + "/projects?api_key=" + AccessToken,
 			dataType: "jsonp",
 			success: function(results){
 				var result = results.projects;		
