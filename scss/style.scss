@@ -5,7 +5,7 @@ $secondaryFont: "Lato";
 
 $mobileWidth: 400px;
 $tabletWidth: 650px;
-$fullWidth: 824px;
+$fullWidth: 1440px;
 
 @mixin mediaTablet {
 	@media (min-width: #{$tabletWidth}) and (max-width: #{$fullWidth}) {
@@ -18,6 +18,7 @@ $fullWidth: 824px;
 		@content;
 
 	}
+
 }
 
 
@@ -64,7 +65,7 @@ body {
 	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.2);
 	font-family: "Open Sans Condensed";
 	display: inline-block;
-	font-size: 85px;
+	font-size: 50px;
 	color: white;
 	font-weight: 600;
 	-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
@@ -72,23 +73,35 @@ body {
 	-ms-animation: fadein 1s; /* Internet Explorer */
 	-o-animation: fadein 1s; /* Opera < 12.1 */
 	animation: fadein 1s;
+	@include mediaDesktop {
+		font-size: 80px;
+	}
 }
 #agency{
-	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
+	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
 	font-family: "Lato";
 	text-align: center;
 	color: white;
 	padding: 0px 60px;
-	font-size: 20px;
-	letter-spacing: 12px;
+	font-size: 10px;
+	letter-spacing: 9px;
 	font-weight: 600;
 	line-height: 24px;
+	margin-top: 0px;
+	@include mediaDesktop {
+		font-size: 22px;
+		letter-spacing: 11px;
+	}
 }
 
 #coverLogo{
 	margin-right: 0px;
-	height: 50px;
-	margin-bottom: 42px;
+	height: 35px;
+	margin-bottom: 25px;
+	@include mediaDesktop {
+		height: 50px;
+		margin-bottom: 42px;
+	}
 }
 
 .scrollDown {
@@ -126,18 +139,32 @@ body {
 }
 
 .aboutUsText{
-	margin-top:60px;
-	font-size: 35px!important;
+	margin-top: 25px;
+	font-size: 15px;
 	margin-bottom: 0;
 	text-align: center;
 	line-height:40px;
-	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
+	text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
 	font-family: "Lato";
 	text-align: center;
 	color: white;
 	padding: 0px 10px;
-	font-size: 18px;
 	font-weight: 200;
+	@include mediaDesktop {
+		font-size: 30px;
+	}
+	@include mediaTablet {
+
+	}
+}
+.aboutUsBookmark{
+	margin-left: 20px;
+	@include mediaDesktop {
+		margin-left: auto;
+	}
+	@include mediaTablet {
+		margin-left: auto;
+	}
 }
 
 #gradientAboutUs {
@@ -157,7 +184,7 @@ body {
 
 .coverFeaturedContainer, .coverDesignersContainer{
 	margin-bottom: 50px;
-		text-align: center;
+	text-align: center;
 }
 
 .featureName, .designersName{
@@ -195,6 +222,13 @@ body {
 }
 .featuredMargin{
 	margin-top: 50px;
+	margin-left: 35px;
+	@include mediaDesktop {
+		margin-left: auto;
+	}
+	@include mediaTablet {
+		margin-left: auto;
+	}
 }
 
 // sidebar menu flexbox
@@ -202,13 +236,13 @@ body {
 #sidebarMenuFlexbox{
 	width:100%;
 	height:100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: -50px;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: -50px;
 	margin-top:200px;
-	}
+}
 
 #clickableSidebar {
 	position: absolute;
@@ -280,13 +314,10 @@ body {
 	border-radius: 3px;
 	margin-bottom:4px;
 	}
-
-
 }
 
-
 .featureHeading {
-	font-size: 22px;
+	font-size: 21px;
 	font-weight: 600;
 	letter-spacing: 3px;
 	text-align: center;
@@ -300,8 +331,11 @@ body {
 		color: #FF5E3A;
 		margin-right:10px;
 	 }
-	 margin-bottom: 40px;
+	margin-bottom: 40px;
 	margin-top: 40px;
+	@include mediaDesktop {
+		font-size: 40px;
+	}
 }
 
 .coverID {
@@ -379,6 +413,11 @@ body {
 	opacity: 1;
 	width: 100%;
 	color: white;
+	top: -10px;
+	font-size: 17px;
+	@include mediaDesktop {
+		font-size: 30px;
+	}
 }
 
 .modalImagePopup{
@@ -448,7 +487,22 @@ body {
 	font-size: 10px;
 	color: #FFF;
 	z-index: -1;
+	@include mediaTablet { 
+		padding: 2.4rem;
+	}
+	@include mediaDesktop {
+		padding: 2.4rem;
+	}
 
+}
+.footer-text{
+	padding-left: 26px;
+	@include mediaTablet {
+		padding-left: 0;
+	}
+	@include mediaDesktop {
+		padding-left: 0;
+	}
 }
 // sidebar
 

@@ -38,7 +38,7 @@ body {
   text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.2);
   font-family: "Open Sans Condensed";
   display: inline-block;
-  font-size: 85px;
+  font-size: 50px;
   color: white;
   font-weight: 600;
   -webkit-animation: fadein 1s;
@@ -50,22 +50,34 @@ body {
   -o-animation: fadein 1s;
   /* Opera < 12.1 */
   animation: fadein 1s; }
+  @media (min-width: 1440px) {
+    .coverText {
+      font-size: 80px; } }
 
 #agency {
-  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
+  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
   font-family: "Lato";
   text-align: center;
   color: white;
   padding: 0px 60px;
-  font-size: 20px;
-  letter-spacing: 12px;
+  font-size: 10px;
+  letter-spacing: 9px;
   font-weight: 600;
-  line-height: 24px; }
+  line-height: 24px;
+  margin-top: 0px; }
+  @media (min-width: 1440px) {
+    #agency {
+      font-size: 22px;
+      letter-spacing: 11px; } }
 
 #coverLogo {
   margin-right: 0px;
-  height: 50px;
-  margin-bottom: 42px; }
+  height: 35px;
+  margin-bottom: 25px; }
+  @media (min-width: 1440px) {
+    #coverLogo {
+      height: 50px;
+      margin-bottom: 42px; } }
 
 .scrollDown {
   color: white;
@@ -95,18 +107,29 @@ body {
   text-align: center; }
 
 .aboutUsText {
-  margin-top: 60px;
-  font-size: 35px !important;
+  margin-top: 25px;
+  font-size: 15px;
   margin-bottom: 0;
   text-align: center;
   line-height: 40px;
-  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.7);
+  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
   font-family: "Lato";
   text-align: center;
   color: white;
   padding: 0px 10px;
-  font-size: 18px;
   font-weight: 200; }
+  @media (min-width: 1440px) {
+    .aboutUsText {
+      font-size: 30px; } }
+
+.aboutUsBookmark {
+  margin-left: 20px; }
+  @media (min-width: 1440px) {
+    .aboutUsBookmark {
+      margin-left: auto; } }
+  @media (min-width: 650px) and (max-width: 1440px) {
+    .aboutUsBookmark {
+      margin-left: auto; } }
 
 #gradientAboutUs {
   width: 100%;
@@ -138,10 +161,10 @@ body {
   transition: all 0.2s ease;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.09), 0 6px 6px rgba(0, 0, 0, 0.13);
   width: 70%; }
-  @media (min-width: 650px) and (max-width: 824px) {
+  @media (min-width: 650px) and (max-width: 1440px) {
     .featureImage, .designersImage {
       width: 70%; } }
-  @media (min-width: 824px) {
+  @media (min-width: 1440px) {
     .featureImage, .designersImage {
       width: 100%; } }
 
@@ -153,7 +176,14 @@ body {
   opacity: 0.4; }
 
 .featuredMargin {
-  margin-top: 50px; }
+  margin-top: 50px;
+  margin-left: 35px; }
+  @media (min-width: 1440px) {
+    .featuredMargin {
+      margin-left: auto; } }
+  @media (min-width: 650px) and (max-width: 1440px) {
+    .featuredMargin {
+      margin-left: auto; } }
 
 #sidebarMenuFlexbox {
   width: 100%;
@@ -190,13 +220,13 @@ body {
     font-weight: 600; }
   #sidebarMenu i {
     font-size: 30px; }
-  @media (min-width: 650px) and (max-width: 824px) {
+  @media (min-width: 650px) and (max-width: 1440px) {
     #sidebarMenu {
       font-size: 25px;
       width: 350px; }
       #sidebarMenu h1 {
         font-size: 50px; } }
-  @media (min-width: 824px) {
+  @media (min-width: 1440px) {
     #sidebarMenu {
       font-size: 30px;
       width: 420px; }
@@ -226,7 +256,7 @@ body {
     margin-bottom: 4px; }
 
 .featureHeading {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 600;
   letter-spacing: 3px;
   text-align: center;
@@ -240,6 +270,9 @@ body {
   .featureHeading i {
     color: #FF5E3A;
     margin-right: 10px; }
+  @media (min-width: 1440px) {
+    .featureHeading {
+      font-size: 40px; } }
 
 .coverID {
   display: none; }
@@ -264,11 +297,11 @@ body {
     transition: all 0.2s ease;
     width: 85%;
     height: 85%; }
-    @media (min-width: 650px) and (max-width: 824px) {
+    @media (min-width: 650px) and (max-width: 1440px) {
       #modalDesignerGrid img {
         width: 65%;
         height: 65%; } }
-    @media (min-width: 824px) {
+    @media (min-width: 1440px) {
       #modalDesignerGrid img {
         width: 55%;
         height: 55%; } }
@@ -298,7 +331,12 @@ body {
   transition: 0.3s;
   opacity: 1;
   width: 100%;
-  color: white; }
+  color: white;
+  top: -10px;
+  font-size: 17px; }
+  @media (min-width: 1440px) {
+    .modalTooltipWrapper:hover .modalTooltipText {
+      font-size: 30px; } }
 
 .modalImagePopup {
   box-sizing: border-box;
@@ -355,6 +393,21 @@ body {
   font-size: 10px;
   color: #FFF;
   z-index: -1; }
+  @media (min-width: 650px) and (max-width: 1440px) {
+    .footer {
+      padding: 2.4rem; } }
+  @media (min-width: 1440px) {
+    .footer {
+      padding: 2.4rem; } }
+
+.footer-text {
+  padding-left: 26px; }
+  @media (min-width: 650px) and (max-width: 1440px) {
+    .footer-text {
+      padding-left: 0; } }
+  @media (min-width: 1440px) {
+    .footer-text {
+      padding-left: 0; } }
 
 #sidebar {
   height: 100%;

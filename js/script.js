@@ -288,7 +288,7 @@ function designerExpand(designer) {
 
 		var buttonTop = $(".fa-chevron-up");
 		$("#sidebar").on("scroll", function() {
-		  if ($("#sidebar").scrollTop() >= 10) {
+		  if ($("#sidebar").scrollTop() >= 400) {
 			buttonTop.fadeIn();
 		  } else {
 			buttonTop.fadeOut();
@@ -310,7 +310,7 @@ function designerExpand(designer) {
 					$('#modalDesignerGrid').append(`
 						<div class="modalImageContainer">
 							<a href="${results.projects[i].url}" class="modalTooltipWrapper" target="_blank" >
-								<span class="modalTooltipText">${results.projects[i].name}<br><br>View on Behance</span>
+								<span class="modalTooltipText">${results.projects[i].name}<br>View on Behance</span>
 								<img class="modalDesignerImages" alt="Project: ${results.projects[i].name}" src="${results.projects[i].covers.original}"/>
 							</a>
 
